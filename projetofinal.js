@@ -1,20 +1,18 @@
 
-console.log = ("Bem-vindo ao OuterWorld!"
-console.log = prompt(Qual o nome do seu guerreiro? ")
+console.log = ("Bem-vindo ao OuterWorld!")
+const nome = prompt("Qual o nome do seu guerreiro?")
 
-console.log
+console.log = ("Introdução")
 
-
-let vida =
-let stamina =
-const itens = []
+let vida = 5;
+let stamina = 10;
+const itens = [];
 
 function golpe(){
-    golpe(): vida+stamina+itens
-    dano ponderado
+    var porrada = (0.3*vida)+(0.5*stamina)+(0.2*itens)
 }
 
-- Floresta Tropical / condado/ 
+/*Reino 1 : Floresta Tropical / condado/ 
 
 * Colheita com o Elfo Armador 
 switch com 3 cases, cada um com mais duas opcoes por case que levam a itens
@@ -34,6 +32,7 @@ outra faz nada
 Ataque turno/rodadas
 Gigante é lento ataca a cada tres rodadas
 dado do personagem
+*/
 
 
 
