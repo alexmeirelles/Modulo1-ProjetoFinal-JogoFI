@@ -35,7 +35,7 @@ Gigante é lento ataca a cada tres rodadas - tirando 1 de vida
 
 
 
-
+/*
 - Dentro Vulcão/montanha
 * Labirinto - pasagem de tempo
 *
@@ -68,3 +68,4 @@ esse tempo com certeza novas ideias surgirão e você precisará fazer várias
 alterações. A tentação pode ser grande, mas cuidado para não deixar o 
 projeto tomar proporções de modo que não seja possível de ser executado 
 dentro do prazo dado.
+*/
