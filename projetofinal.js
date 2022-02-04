@@ -1,26 +1,42 @@
-Vitor 62993929889
-Jeff 31993253522
 
-Para hoje
+console.log = ("Bem-vindo ao OuterWorld!"
+console.log = prompt(Qual o nome do seu guerreiro? ")
 
-Você deve pensar no tema da sua história, e produzir um esboço de como ela 
-será desenvolvida.
+console.log
 
-Quem é o personagem? Variaveis dele:
-Guerreiro/Mago
 
-Vida 
-Stamina/Energia
-Experiencia
-Dinheiro? Itens?  
+let vida =
+let stamina =
+const itens = []
 
-Quais os seus desafios? / Que opções de escolha ele pode ter a cada período?
+function golpe(){
+    golpe(): vida+stamina+itens
+    dano ponderado
+}
 
-3 Reinos
-- Floresta Tropical
-* 
-* 
-* Luta chefão -  vida - dinheiro/itens
+- Floresta Tropical / condado/ 
+
+* Colheita com o Elfo Armador 
+switch com 3 cases, cada um com mais duas opcoes por case que levam a itens
+armadura/escudo
+foice/espada
+dinheiro/xxxxx
+
+* Jogo bebida - adega do gnomo
+3 rodadas de bebida - tres bebidas - azul vermelha verda
+escolhida qual faz o que com random
+uma tira uma vida
+outra tira meia
+outra faz nada
+
+* Luta chefão: Gigante da Colina -  vida - dinheiro/itens
+
+Ataque turno/rodadas
+Gigante é lento ataca a cada tres rodadas
+dado do personagem
+
+
+
 
 - Dentro Vulcão/montanha
 * Labirinto - pasagem de tempo
