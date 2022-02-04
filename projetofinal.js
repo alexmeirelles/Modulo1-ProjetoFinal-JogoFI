@@ -2,7 +2,7 @@
 console.log = ("Bem-vindo ao OuterWorld!")
 const nome = prompt("Qual o nome do seu guerreiro?")
 
-console.log = ("Introdução")
+console.log = (`Introdução ${nome} `)
 
 let vida = 5;
 let stamina = 10;
@@ -29,9 +29,8 @@ outra faz nada
 
 * Luta chefão: Gigante da Colina -  vida - dinheiro/itens
 
-Ataque turno/rodadas
-Gigante é lento ataca a cada tres rodadas
-dado do personagem
+Ataque turno/rodadas / vida gigante 50
+Gigante é lento ataca a cada tres rodadas - tirando 1 de vida
 */
 
 
