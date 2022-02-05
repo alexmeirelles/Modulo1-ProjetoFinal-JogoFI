@@ -31,7 +31,20 @@ const sujeitoPersonagem = {
 console.log(sujeitoPersonagem.nome);
 
 //a função porrada retorna o valor de dano. Nao é possivel invocar a variável dano
+
 console.log(sujeitoPersonagem.porrada());
+
+// Adicionando nova skill
+sujeitoPersonagem.bolaDeFogo = function bolaDeFogo() {
+    // caso ache melhor um retorno com mais casas decimais, basta aumentar argumento de toFixed
+  const dano =
+    0.3 * this.vida + 0.5 * parseFloat((this.stamina * Math.random()).toFixed(1)) + 0.2 * this.itens;
+  return dano;
+},
+
+
+console.log(sujeitoPersonagem);
+console.log(`Dano bola de fogo= ${sujeitoPersonagem.bolaDeFogo()}`);
 
 /*Reino 1 : Floresta Tropical / condado/ 
 
