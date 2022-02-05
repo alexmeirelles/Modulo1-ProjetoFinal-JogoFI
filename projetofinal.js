@@ -38,7 +38,7 @@ console.log(sujeitoPersonagem.porrada());
 sujeitoPersonagem.bolaDeFogo = function bolaDeFogo() {
     // caso ache melhor um retorno com mais casas decimais, basta aumentar argumento de toFixed
   const dano =
-    0.3 * this.vida + 0.5 * parseFloat((this.stamina * Math.random()).toFixed(1)) + 0.2 * this.itens;
+    0.7 * this.vida + 0.5 * parseFloat((this.stamina * Math.random()).toFixed(1)) + 0.2 * this.itens;
   return dano;
 },
 
