@@ -1,3 +1,4 @@
+var prompt = require('prompt-sync');
 
 console.log = ("Bem-vindo ao OuterWorld!")
 const nome = prompt("Qual o nome do seu guerreiro?")
@@ -10,6 +11,18 @@ const itens = [];
 
 function golpe(){
     var porrada = (0.3*vida)+(0.5*stamina)+(0.2*itens)
+}
+
+
+var prompt = require('prompt-sync');
+
+var char = prompt (`Qual o nome do seu personagem? => `)
+const sujeitoPersonagem = {
+    nome: char,
+    vida: 5,
+    stamina: 10,
+    itens : []
+    
 }
 
 /*Reino 1 : Floresta Tropical / condado/ 
