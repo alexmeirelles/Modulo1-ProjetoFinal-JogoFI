@@ -1,29 +1,25 @@
-var prompt = require('prompt-sync');
+var prompt = require("prompt-sync")();
 
-console.log = ("Bem-vindo ao OuterWorld!")
-const nome = prompt("Qual o nome do seu guerreiro?")
+console.log("Bem-vindo ao OuterWorld!");
+const nome = prompt("Qual o nome do seu guerreiro? ");
 
-console.log = (`Introdução ${nome} `)
+console.log(`Introdução ${nome} `);
 
-let vida = 5;
-let stamina = 10;
-const itens = [];
+//let vida = 5;
+//let stamina = 10;
+//const itens = [];
 
-function golpe(){
-    var porrada = (0.3*vida)+(0.5*stamina)+(0.2*itens)
+function golpe() {
+  var porrada = 0.3 * vida + 0.5 * stamina + 0.2 * itens;
 }
 
-
-var prompt = require('prompt-sync');
-
-var char = prompt (`Qual o nome do seu personagem? => `)
 const sujeitoPersonagem = {
-    nome: char,
-    vida: 5,
-    stamina: 10,
-    itens : []
-    
-}
+  nome: nome,
+  vida: 5,
+  stamina: 10,
+  itens: [],
+};
+console.log(sujeitoPersonagem.nome);
 
 /*Reino 1 : Floresta Tropical / condado/ 
 
@@ -45,8 +41,6 @@ outra faz nada
 Ataque turno/rodadas / vida gigante 50
 Gigante é lento ataca a cada tres rodadas - tirando 1 de vida
 */
-
-
 
 /*
 - Dentro Vulcão/montanha
