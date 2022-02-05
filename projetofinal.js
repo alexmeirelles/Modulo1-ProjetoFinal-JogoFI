@@ -15,12 +15,14 @@ console.log(`Introdução ${nome} `);
 
 var danoRecebido = 0;
 
+
 const sujeitoPersonagem = {
   nome: nome,
   vida: 5,
   stamina: 10,
   itens: [0],
   porrada: function () {
+      // caso ache melhor um retorno com mais casas decimais, basta aumentar argumento de toFixed
     const dano =
       0.3 * this.vida + 0.5 * parseFloat((this.stamina * Math.random()).toFixed(1)) + 0.2 * this.itens;
     return dano;
