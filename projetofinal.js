@@ -41,9 +41,12 @@ Gigante é lento ataca a cada tres rodadas - tirando 1 de vida
 *
 * Luta chefão minotauro - vida - dinheiro/itens
 
+
+
 - Reino Gelo
-* Pescar pela sobrevivencia - 
-*
+* Velho Misterioso - Jogar cara ou coroa para ganhar uma rede de pesca
+* Pescar pela sobrevivencia - Se tiver a rede de pesca pega peixes que restauram de 60% a 80%
+se não tiver a rede de pescar ele pesca so um peixe que restaura até 20%
 * Luta chefão Dragão de gelo - vida - dinheiro/itens
 
 Como essas escolhas vão impactar na história e nas possibilidades de 
