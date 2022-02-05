@@ -9,17 +9,24 @@ console.log(`Introdução ${nome} `);
 //let stamina = 10;
 //const itens = [];
 
-function golpe() {
-  var porrada = 0.3 * vida + 0.5 * stamina + 0.2 * itens;
-}
+//function golpe() {
+//  var porrada = 0.3 * vida + 0.5 * stamina + 0.2 * itens;
+//}
+
+var danoRecebido = 0
 
 const sujeitoPersonagem = {
   nome: nome,
   vida: 5,
   stamina: 10,
-  itens: [],
+  itens: [0],
+  porrada: function () {
+    const dano = 0.3 * this.vida + 0.5 * this.stamina + 0.2 * this.itens[0];
+    return dano;
+  }
 };
 console.log(sujeitoPersonagem.nome);
+console.log(sujeitoPersonagem.porrada());
 
 /*Reino 1 : Floresta Tropical / condado/ 
 
