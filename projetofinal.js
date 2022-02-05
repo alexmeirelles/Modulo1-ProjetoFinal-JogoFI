@@ -13,7 +13,7 @@ console.log(`Introdução ${nome} `);
 //  var porrada = 0.3 * vida + 0.5 * stamina + 0.2 * itens;
 //}
 
-var danoRecebido = 0
+var danoRecebido = 0;
 
 const sujeitoPersonagem = {
   nome: nome,
@@ -21,11 +21,14 @@ const sujeitoPersonagem = {
   stamina: 10,
   itens: [0],
   porrada: function () {
-    const dano = 0.3 * this.vida + 0.5 * this.stamina + 0.2 * this.itens[0];
+    const dano =
+      0.3 * this.vida + 0.5 * parseFloat((this.stamina * Math.random()).toFixed(1)) + 0.2 * this.itens;
     return dano;
-  }
+  },
 };
 console.log(sujeitoPersonagem.nome);
+
+//a função porrada retorna o valor de dano. Nao é possivel invocar a variável dano
 console.log(sujeitoPersonagem.porrada());
 
 /*Reino 1 : Floresta Tropical / condado/ 
