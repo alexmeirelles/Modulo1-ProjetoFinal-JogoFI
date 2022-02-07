@@ -70,11 +70,11 @@ foice/espada
 dinheiro/xxxxx
 
 
- var q2 = prompt(`
-  [s] sim ou [n] não => `);
-} while (q2 != `s` && q2 != `n`);
+ var caminho = prompt(`Que caminho você gostaria de iniciar? Digite Bosque, Ferreiro ou Exercito`);
 
-switch (q2) {
+} while (caminho != `bosque` && caminho != `ferreiro` && caminho != `exercito`);
+
+switch (caminho) {
   case "A":
     armadura1B = "pesada";
     break;
