@@ -206,7 +206,7 @@ for (let i = 0; i < 3; i++) {
 
 if (vitoriaPersonagem > vitoriaVelho) {
   console.log('\nParabens! \nVocê ganhou a disputa e recebeu uma rede de pesca!');
-  //aqui o personagem adicina rede pesca na sacola de itens
+  //aqui o personagem adiciona a rede de pesca na sacola de itens
 } else {
   console.log('\nQue pena! \nVocê perdeu a disputa!');
 }
@@ -225,3 +225,4 @@ if (vitoriaPersonagem > vitoriaVelho) {
 // Luta chefão Dragão de gelo - vida - dinheiro/itens
 
 //Implementar aqui a mesma logica dos outros chefões
+*/
