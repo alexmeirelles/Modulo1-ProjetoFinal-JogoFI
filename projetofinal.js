@@ -5,16 +5,7 @@ const nome = prompt("Qual o nome do seu guerreiro? ");
 
 console.log(`Introdução ${nome} `);
 
-//let vida = 5;
-//let stamina = 10;
-//const itens = [];
-
-//function golpe() {
-//  var porrada = 0.3 * vida + 0.5 * stamina + 0.2 * itens;
-//}
-
 var danoRecebido = 0;
-
 
 const sujeitoPersonagem = {
   nome: nome,
