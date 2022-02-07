@@ -47,6 +47,125 @@ console.log(sujeitoPersonagem);
 console.log(`Dano bola de fogo= ${sujeitoPersonagem.bolaDeFogo()}`);
 
 
+
+//----------------------------------------------------------------//
+
+
+
+/*Reino 1 : Floresta Tropical / condado/ 
+console.log(`Você chegou na Adega do Gnomo! Aqui muitos guerreiros vem para descansar e tomar uns drinks.
+Papo vai, Papo vem e você foi desafiado para uma roleta russa com os drinks de um mago poderoso do local. 
+São 3 rodadas de shots e duas das três bebidas não fazem bem para sua saude. Uma tirará meio ponto de vida
+e a outra tirará um ponto. Espero que você escolha a certa todas as vezes, grande Guerreiro!`);
+
+console.log(`Você chegou na Adega do Gnomo! Aqui muitos guerreiros vem para descansar e tomar uns drinks.
+Papo vai, Papo vem e você foi desafiado para uma roleta russa com os drinks de um mago poderoso do local. 
+São 3 rodadas de shots e duas das três bebidas não fazem bem para sua saude. Uma tirará meio ponto de vida
+e a outra tirará um ponto. Espero que você escolha a certa todas as vezes, grande Guerreiro!`);
+
+* Colheita com o Elfo Armador 
+switch com 3 cases, cada um com mais duas opcoes por case que levam a itens
+armadura/escudo
+foice/espada
+dinheiro/xxxxx
+
+
+ var q2 = prompt(`
+  [s] sim ou [n] não => `);
+} while (q2 != `s` && q2 != `n`);
+
+switch (q2) {
+  case "A":
+    armadura1B = "pesada";
+    break;
+  case "B":
+    armadura1B = "leve";
+    break;
+  case "C":
+    armadura1B = "leve";
+    break;
+}
+
+
+
+console.log(`Você chegou na Adega do Gnomo! Aqui muitos guerreiros vem para descansar e tomar uns drinks.
+Papo vai, Papo vem e você foi desafiado para uma roleta russa com os drinks de um mago poderoso do local. 
+São 3 rodadas de shots e duas das três bebidas não fazem bem para sua saude. Uma tirará meio ponto de vida
+e a outra tirará um ponto. Espero que você escolha a certa todas as vezes, grande Guerreiro!`);
+
+
+for (let i = 0; i < 3; i++){
+
+        var opcao= prompt("Qual é a sua opcao pra essa rodada? Digite Azul, Vermelha, ou Verde: ")
+        var resposta=Math.floor((Math.random() * 3) + 1);
+    console.log(resposta)
+        if(opcao.trim().toLowerCase()=="azul"){
+            console.log("Você escolheu a bebida azul.");
+            if(resposta = 1){
+  console.log("Você perdeu uma vida.")
+} else if (resposta = 2){
+  console.log("Você perdeu meia vida.")
+} else {
+  console.log("Escapou! Não perdeu vida.")
+}
+        }
+        else if(opcao.trim().toLowerCase()=="vermelha"){
+            console.log("Você escolheu a bebida vermelha. ");
+            if(resposta = 1){
+  console.log("Você perdeu uma vida.")
+} else if (resposta = 2){
+  console.log("Você perdeu meia vida.")
+} else {
+  console.log("Escapou! Não perdeu vida.")
+}
+        }
+        else if(opcao.trim().toLowerCase()=="verde"){
+            console.log("Você escolheu a bebida verde.");
+            if(resposta = 1){
+            console.log("Você perdeu uma vida.")
+} else if (resposta = 2){
+  console.log("Você perdeu meia vida.")
+} else {
+  console.log("Escapou! Não perdeu vida.")
+}}}
+
+
+
+        * Luta chefão: Gigante da Colina -  vida - dinheiro/itens
+console.log(`Você chegou na Adega do Gnomo! Aqui muitos guerreiros vem para descansar e tomar uns drinks.
+Papo vai, Papo vem e você foi desafiado para uma roleta russa com os drinks de um mago poderoso do local. 
+São 3 rodadas de shots e duas das três bebidas não fazem bem para sua saude. Uma tirará meio ponto de vida
+e a outra tirará um ponto. Espero que você escolha a certa todas as vezes, grande Guerreiro!`);
+
+Ataque turno/rodadas / vida gigante 50
+Gigante é lento ataca a cada tres rodadas - tirando 1 de vida
+*/
+
+
+
+//----------------------------------------------------------------//
+
+
+
+
+
+/*
+- Dentro Vulcão/montanha
+* Labirinto - pasagem de tempo
+*
+* Luta chefão minotauro - vida - dinheiro/itens
+
+
+
+//----------------------------------------------------------------//
+
+
+- Reino Gelo
+* Velho Misterioso - Jogar cara ou coroa para ganhar uma rede de pesca
+* Pescar pela sobrevivencia - Se tiver a rede de pesca pega peixes que restauram de 60% a 80%
+se não tiver a rede de pescar ele pesca so um peixe que restaura até 20%
+* Luta chefão Dragão de gelo - vida - dinheiro/itens
+
 //Reino de Gelo
 // O personagem se depara com um velho misterioso que lhe oferece uma rede de pesca para
 // pegar peixes e se alimentar recuperando um pouco de vida/energia
@@ -106,67 +225,3 @@ if (vitoriaPersonagem > vitoriaVelho) {
 // Luta chefão Dragão de gelo - vida - dinheiro/itens
 
 //Implementar aqui a mesma logica dos outros chefões
-
-
-//----------------------------------------------------------------//
-
-/*Reino 1 : Floresta Tropical / condado/ 
-
-* Colheita com o Elfo Armador 
-switch com 3 cases, cada um com mais duas opcoes por case que levam a itens
-armadura/escudo
-foice/espada
-dinheiro/xxxxx
-
-* Jogo bebida - adega do gnomo
-3 rodadas de bebida - tres bebidas - azul vermelha verda
-escolhida qual faz o que com random
-uma tira uma vida
-outra tira meia
-outra faz nada
-
-* Luta chefão: Gigante da Colina -  vida - dinheiro/itens
-
-Ataque turno/rodadas / vida gigante 50
-Gigante é lento ataca a cada tres rodadas - tirando 1 de vida
-*/
-
-
-
-/*
-- Dentro Vulcão/montanha
-* Labirinto - pasagem de tempo
-*
-* Luta chefão minotauro - vida - dinheiro/itens
-
-
-
-- Reino Gelo
-* Velho Misterioso - Jogar cara ou coroa para ganhar uma rede de pesca
-* Pescar pela sobrevivencia - Se tiver a rede de pesca pega peixes que restauram de 60% a 80%
-se não tiver a rede de pescar ele pesca so um peixe que restaura até 20%
-* Luta chefão Dragão de gelo - vida - dinheiro/itens
-
-Como essas escolhas vão impactar na história e nas possibilidades de 
-escolha futuras?
-
-
-
-Como você irá controlar o passar do tempo?
-
-Com isso pronto você já pode começar a colocar em código:
-Crie variáveis para armazenar os status do personagem (Fome? Dinheiro? 
-    Saúde? Força?). Que tipo de variável seria a mais adequada para isso?
-Crie perguntas que alterarão esses status para testar sua funcionalidade;
-Crie um laço de repetição que determinará os ciclos em que a história vai 
-se passar. O que acontecerá ao final do ciclo? Como ficarão os status?
-
-
-
-Lembre-se: Use sua criatividade, mas cuidado para não criar um projeto 
-megalomaníaco! Vocês terão um bom tempo para fazer o projeto, mas durante 
-esse tempo com certeza novas ideias surgirão e você precisará fazer várias 
-alterações. A tentação pode ser grande, mas cuidado para não deixar o 
-projeto tomar proporções de modo que não seja possível de ser executado 
-dentro do prazo dado.
-*/
