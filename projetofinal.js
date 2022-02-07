@@ -46,6 +46,15 @@ sujeitoPersonagem.bolaDeFogo = function bolaDeFogo() {
 console.log(sujeitoPersonagem);
 console.log(`Dano bola de fogo= ${sujeitoPersonagem.bolaDeFogo()}`);
 
+
+
+
+
+//Reino de Gelo
+// O personagem se depara com um velho misterioso que lhe oferece uma rede de pesca para
+// pegar peixes e se alimentar recuperando um pouco de vida/energia
+
+
 /*Reino 1 : Floresta Tropical / condado/ 
 
 * Colheita com o Elfo Armador 
@@ -66,6 +75,8 @@ outra faz nada
 Ataque turno/rodadas / vida gigante 50
 Gigante é lento ataca a cada tres rodadas - tirando 1 de vida
 */
+
+
 
 /*
 - Dentro Vulcão/montanha
