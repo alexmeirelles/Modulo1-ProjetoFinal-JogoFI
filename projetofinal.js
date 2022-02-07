@@ -11,7 +11,7 @@ const sujeitoPersonagem = {
   nome: nome,
   vida: 5,
   stamina: 10,
-  itens: [0],
+  itens: [],
   porrada: function () {
       // caso ache melhor um retorno com mais casas decimais, basta aumentar argumento de toFixed
     const dano =
@@ -56,8 +56,8 @@ e a outra tirará um ponto. Espero que você escolha a certa todas as vezes, gra
 
 * Colheita com o Elfo Armador 
 switch com 3 cases, cada um com mais duas opcoes por case que levam a itens
-armadura/escudo
-foice/espada
+armadura 3 /escudo 2
+foice 2 / espada 3
 dinheiro/xxxxx
 
 
@@ -92,9 +92,9 @@ for (let i = 0; i < 3; i++){
     console.log(resposta)
         if(opcao.trim().toLowerCase()=="azul"){
             console.log("Você escolheu a bebida azul.");
-            if(resposta = 1){
+            if(resposta == 1){
   console.log("Você perdeu uma vida.")
-} else if (resposta = 2){
+} else if (resposta == 2){
   console.log("Você perdeu meia vida.")
 } else {
   console.log("Escapou! Não perdeu vida.")
@@ -102,9 +102,9 @@ for (let i = 0; i < 3; i++){
         }
         else if(opcao.trim().toLowerCase()=="vermelha"){
             console.log("Você escolheu a bebida vermelha. ");
-            if(resposta = 1){
+            if(resposta == 1){
   console.log("Você perdeu uma vida.")
-} else if (resposta = 2){
+} else if (resposta == 2){
   console.log("Você perdeu meia vida.")
 } else {
   console.log("Escapou! Não perdeu vida.")
@@ -112,9 +112,9 @@ for (let i = 0; i < 3; i++){
         }
         else if(opcao.trim().toLowerCase()=="verde"){
             console.log("Você escolheu a bebida verde.");
-            if(resposta = 1){
+            if(resposta == 1){
             console.log("Você perdeu uma vida.")
-} else if (resposta = 2){
+} else if (resposta == 2){
   console.log("Você perdeu meia vida.")
 } else {
   console.log("Escapou! Não perdeu vida.")
