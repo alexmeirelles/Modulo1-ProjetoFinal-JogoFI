@@ -138,18 +138,10 @@ e a outra tirará um ponto. Espero que você escolha a certa todas as vezes, gra
 
 
 let r = false
-let vida, dano
-do{
-vida = +prompt(`Digite o Hp do Trol (10 a 50): `);
+let vida = 50
+let dano
 
-if ( vida < 10 || vida > 50 ){;
-    console.log(`Digite um valor entre 10 e 50.`);
-    r = false;
-}
-
-else if (vida >= 10 && vida <= 50){;
-    r = true;
-}}while (r == false);
+while (r == false);
 
 do{
     dano = +prompt(`Digite o Dano do herói (5 a 10): `);
