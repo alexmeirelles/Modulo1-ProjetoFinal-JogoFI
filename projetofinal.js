@@ -2,7 +2,6 @@ var prompt = require("prompt-sync")();
 
 console.log("Bem-vindo ao OuterWorld!");
 const nome = prompt("Qual o nome do seu guerreiro? ");
-
 console.log(`Introdução ${nome} `);
 
 var danoRecebido = 0;
@@ -43,7 +42,7 @@ console.log(`Dano bola de fogo= ${sujeitoPersonagem.bolaDeFogo()}`);
 
 
 
-/*Reino 1 : Floresta Tropical / condado/ 
+//Reino 1 : Floresta Tropical / condado/ 
 console.log(`Você chegou na Adega do Gnomo! Aqui muitos guerreiros vem para descansar e tomar uns drinks.
 Papo vai, Papo vem e você foi desafiado para uma roleta russa com os drinks de um mago poderoso do local. 
 São 3 rodadas de shots e duas das três bebidas não fazem bem para sua saude. Uma tirará meio ponto de vida
@@ -69,28 +68,32 @@ switch (caminho) {
   case "bosque":
     console.log("Voce optou pelo bosque. Daqui vc tem duas opcoes de itens.");
     var itembosque = prompt(`Quer qual das duas opcoes, que leva a pocao ou ao xxx?`);
-    if(itembosque == "pocao"){
+    if(itembosque.toLowerCase == "pocao"){
       console.log("voce pegou a pocao de item");
     }else {
       console.log("voce pegou o xxx de item");
     }
     break;
   case "ferreiro":
-    console.log("Voce optou pelo bosque. Daqui vc tem duas opcoes de itens.");
-    var itembosque = prompt(`Quer qual das duas opcoes, que leva a pocao ou ao xxx?`);
-    if(itembosque == "pocao"){
-      console.log("voce pegou a pocao de item");
+    console.log("Voce optou pelo Ferreiro. Não é uma caminhada longa, ele faz muitos adornos as elites e não pode se distanciar muito do palácio do Rei. Daqui vc tem duas opcoes..");
+    var itemferreiro = prompt(`Quer qual das duas opcoes, Armadura ou Escudo?`);
+    if(itemferreiro.toLowerCase == "armadura"){
+      console.log("voce pegou a armadura de item");
     }else {
-      console.log("voce pegou o xxx de item");
+      console.log("voce pegou o escudo de item");
     }
     break;
   case "exercito":
-    console.log("Voce optou pelo bosque. Daqui vc tem duas opcoes de itens.");
-    var itembosque = prompt(`Quer qual das duas opcoes, que leva a pocao ou ao xxx?`);
-    if(itembosque == "pocao"){
-      console.log("voce pegou a pocao de item");
+    console.log("Voce optou ir visitar a artilharia pesada. Você considera que é bom estar armado para sua jornada. Bem pensado, afinal, quais desafios você pode encontrar pelo caminho!? E como transpo-los sem nada na mão!?");
+    var itemexercito = prompt(`Você chega e é recepcionado pelo Sargeto Orveu, ele é o responsável pelas armas de combate e já aguardava a sua chegada. Orveu tem uma presença dominante e não é de muitas palavras. Pergunta rapidamente qual será a sua jornada, o que possivelmente você irá enfrentar e pega dos itens a mão. Uma espada e uma foice. Quer qual das duas opcoes, digite foice ou espada: `);
+    if(itemexercito.toLowerCase == "espada"){
+      console.log("voce pegou a espada de item");
+      sujeitoPersonagem.itens.pop(espada)
+
     }else {
-      console.log("voce pegou o xxx de item");
+      console.log("voce pegou a foice de item");
+      sujeitoPersonagem.itens.pop(foice)
+
     }
     break;
   default:
@@ -99,7 +102,6 @@ switch (caminho) {
 
 console.log("Tem algo mais que você gostaria de levar?");
 
-*/
 
 console.log(`Você chegou na Adega do Gnomo! Aqui muitos guerreiros vem para descansar e tomar uns drinks.
 Papo vai, Papo vem e você foi desafiado para uma roleta russa com os drinks de um mago poderoso do local. 
