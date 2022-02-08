@@ -71,7 +71,7 @@ switch (caminho) {
       console.log("voce pegou a pocao de item");
       sujeitoPersonagem.itens.pop(pocao)
     }else {
-      console.log("voce pegou o xxx de item");
+      console.log("voce pegou o dinheiro de item");
       sujeitoPersonagem.itens.pop(dinheiro)
     }
     break;
@@ -92,11 +92,9 @@ switch (caminho) {
     if(itemexercito.toLowerCase == "espada"){
       console.log("voce pegou a espada de item");
       sujeitoPersonagem.itens.pop(espada)
-
     }else {
       console.log("voce pegou a foice de item");
       sujeitoPersonagem.itens.pop(foice)
-
     }
     break;
   default:
