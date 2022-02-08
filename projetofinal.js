@@ -132,6 +132,7 @@ Ataque turno/rodadas / vida gigante 50
 Gigante é lento ataca a cada tres rodadas - tirando 1 de vida
 */
 
+/*
 let roundCount = 1;
 
 while (true) {
@@ -179,7 +180,7 @@ if (playerDefense > opponentDefense) {
   );
 }
 
-
+*/
 
 //----------------------------------------------------------------//
 
