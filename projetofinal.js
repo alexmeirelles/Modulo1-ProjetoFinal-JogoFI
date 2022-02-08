@@ -139,53 +139,44 @@ Ataque turno/rodadas / vida gigante 50
 Gigante é lento ataca a cada tres rodadas - tirando 1 de vida
 */
 
-/*
-let roundCount = 1;
+let r = false
+let vida, dano
+do{
+vida = +prompt(`Digite o Hp do Trol (10 a 50): `);
 
-while (true) {
-  let playerDmgRandom = getRandomIntInclusive(playerDmgMin, playerDmgMax);
-  let opponentDmgRandom = getRandomIntInclusive(opponentDmgMin, opponentDmgMax);
-
-  let playerDmg = playerDmgRandom;
-  let opponentDmg = opponentDmgRandom;
-
-  playerDefense = playerDefense - opponentDmg;
-  opponentDefense = opponentDefense - playerDmg;
-
-  console.log(`\n\tROUND ${roundCount}
-  
-\tYou attack your opponent's argument for ${playerDmg} damage.
-\tYour opponent attacks your argument for ${opponentDmg} damage.
-
-\tYour defense:    ${playerDefense}
-\tYour opponent's: ${opponentDefense}\n`);
-
-  roundCount++;
-
-  prompt(`    Press ENTER for next round `);
-
-  if (playerDefense <= 0 || opponentDefense <= 0) {
-    console.log(`\n    Oh, it looks like that was the last round...`);
-    prompt(`    Press ENTER for results `);
-    break;
-  }
+if ( vida < 10 || vida > 50 ){;
+    console.log(`Digite um valor entre 10 e 50.`);
+    r = false;
 }
 
-console.clear();
+else if (vida >= 10 && vida <= 50){;
+    r = true;
+}}while (r == false);
 
-if (playerDefense > opponentDefense) {
-  console.log(
-    `\n[WIN] You carried yourself well. The positive attributes you have shown throughout this journey have earned you the title of Supreme Ruler. Congratulations.\n`
-  );
-} else if (playerDefense < opponentDefense) {
-  console.log(
-    `\n[LOSE] Your choices in life have led to your inevitable defeat.\n`
-  );
-} else if (playerDefense == opponentDefense) {
-  console.log(
-    `\n[DRAW] Neither you nor your opponent were able to convince the people that you are fit to rule... The search for a new leader continues.\n`
-  );
+do{
+    dano = +prompt(`Digite o Dano do herói (5 a 10): `);
+    
+    if (dano < 5|| dano > 10 ){;
+        console.log(`Digite um valor entre 5 e 10.`);
+        r = false;
+    }
+    
+    else if (dano >= 5 && dano <= 10){;
+        r = true;
+    }}while (r == false);
+
+let calculo
+
+if(vida%dano == 0){
+    calculo = vida / dano
 }
+else if (vida%dano != 0 ){
+    calculo = (vida/dano) + 1
+}
+
+console.log(`A vida do Troll é de ${vida}Hp`)
+console.log(`O dano do Herói causa -${dano}Hp`)
+console.log(`São necessários ${(calculo).toFixed(0)} turnos para derrotar o Troll.`)
 
 */
 
