@@ -1,8 +1,15 @@
 var prompt = require("prompt-sync")();
-
+console.log();
+console.log("/--------------------------------------------/");
 console.log("Bem-vindo ao OuterWorld!");
-const nome = prompt("Qual o nome do seu guerreiro? ");
-console.log(`Introdução ${nome} `);
+console.log("/--------------------------------------------/");
+console.log();
+const nome = prompt("Qual o nome do seu, guerreiro? ");
+console.log();
+console.log(`Ah Nobre Guerreiro ${nome}!! Eu já lhe aguardava! A Princesa Astrid já havia me dito de sua chegada.. `);
+console.log(`Seu nome por essas bandas já é famoso e sei que você veio para provar as aventuras de nosso Vale. Ele não é brincadeira não, muitos aventureiros já ficaram pelo caminho. Mas, você, eu sei que você é de uma graduação diferente!`);
+console.log(`Como você viajou o dia todo, peço que você se junte ao nosso salão principal, hoje é dia de Cordeiro e do vinho das Montanhas de Ziu! Um espetáculo, embalará o seu sono.. `);
+console.log(`Amanha você partirá, após nosso café Imperial. Uma dose de carboidrato e proteínas lhe deixarão pronto para desfiladeiros e Dragões `);
 
 var danoRecebido = 0;
 
