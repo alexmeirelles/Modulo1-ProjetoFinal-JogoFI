@@ -65,19 +65,30 @@ dinheiro/xxxxx
 
 } while (caminho != `bosque` && caminho != `ferreiro` && caminho != `exercito`);
 
-switch (caminho) {
-  case "A":
-    armadura1B = "pesada";
+switch (expr) {
+  case "Laranjas":
+    console.log("As laranjas custam $0.59 o quilo.");
     break;
-  case "B":
-    armadura1B = "leve";
+  case "Maçãs":
+    console.log("Maçãs custam $0.32 o quilo.");
     break;
-  case "C":
-    armadura1B = "leve";
+  case "Bananas":
+    console.log("Bananas custam $0.48 o quilo.");
     break;
+  case "Cerejas":
+    console.log("Cerejas custam $3.00 o quilo.");
+    break;
+  case "Mangas":
+  case "Mamões":
+    console.log("Mangas e mamões custam $2.79 o quilo.");
+    break;
+  default:
+    console.log("Desculpe, estamos sem nenhuma " + expr + ".");
 }
 
+console.log("Tem algo mais que você gostaria de levar?");
 
+*/
 
 console.log(`Você chegou na Adega do Gnomo! Aqui muitos guerreiros vem para descansar e tomar uns drinks.
 Papo vai, Papo vem e você foi desafiado para uma roleta russa com os drinks de um mago poderoso do local. 
@@ -116,67 +127,47 @@ function bebidaEscolhida(opcao, resposta) {
   }
 }
 
-
-
-        * Luta chefão: Gigante da Colina -  vida - dinheiro/itens
-console.log(`Você chegou na Adega do Gnomo! Aqui muitos guerreiros vem para descansar e tomar uns drinks.
+         
+console.log(`Luta chefão: Gigante da Colina -  vida - dinheiro/itens Você chegou na Adega do Gnomo! Aqui muitos guerreiros vem para descansar e tomar uns drinks.
 Papo vai, Papo vem e você foi desafiado para uma roleta russa com os drinks de um mago poderoso do local. 
 São 3 rodadas de shots e duas das três bebidas não fazem bem para sua saude. Uma tirará meio ponto de vida
 e a outra tirará um ponto. Espero que você escolha a certa todas as vezes, grande Guerreiro!`);
 
-Ataque turno/rodadas / vida gigante 50
-Gigante é lento ataca a cada tres rodadas - tirando 1 de vida
-*/
+//Ataque turno/rodadas / vida gigante 50
+//Gigante é lento ataca a cada tres rodadas - tirando 1 de vida
 
-/*
-let roundCount = 1;
 
-while (true) {
-  let playerDmgRandom = getRandomIntInclusive(playerDmgMin, playerDmgMax);
-  let opponentDmgRandom = getRandomIntInclusive(opponentDmgMin, opponentDmgMax);
+let r = false
+let vida = 50
+let dano
 
-  let playerDmg = playerDmgRandom;
-  let opponentDmg = opponentDmgRandom;
+while (r == false);
 
-  playerDefense = playerDefense - opponentDmg;
-  opponentDefense = opponentDefense - playerDmg;
+do{
+    dano = +prompt(`Digite o Dano do herói (5 a 10): `);
+    
+    if (dano < 5|| dano > 10 ){;
+        console.log(`Digite um valor entre 5 e 10.`);
+        r = false;
+    }
+    
+    else if (dano >= 5 && dano <= 10){;
+        r = true;
+    }}while (r == false);
 
-  console.log(`\n\tROUND ${roundCount}
-  
-\tYou attack your opponent's argument for ${playerDmg} damage.
-\tYour opponent attacks your argument for ${opponentDmg} damage.
+let calculo
 
-\tYour defense:    ${playerDefense}
-\tYour opponent's: ${opponentDefense}\n`);
-
-  roundCount++;
-
-  prompt(`    Press ENTER for next round `);
-
-  if (playerDefense <= 0 || opponentDefense <= 0) {
-    console.log(`\n    Oh, it looks like that was the last round...`);
-    prompt(`    Press ENTER for results `);
-    break;
-  }
+if(vida%dano == 0){
+    calculo = vida / dano
+}
+else if (vida%dano != 0 ){
+    calculo = (vida/dano) + 1
 }
 
-console.clear();
+console.log(`A vida do Troll é de ${vida}Hp`)
+console.log(`O dano do Herói causa -${dano}Hp`)
+console.log(`São necessários ${(calculo).toFixed(0)} turnos para derrotar o Troll.`)
 
-if (playerDefense > opponentDefense) {
-  console.log(
-    `\n[WIN] You carried yourself well. The positive attributes you have shown throughout this journey have earned you the title of Supreme Ruler. Congratulations.\n`
-  );
-} else if (playerDefense < opponentDefense) {
-  console.log(
-    `\n[LOSE] Your choices in life have led to your inevitable defeat.\n`
-  );
-} else if (playerDefense == opponentDefense) {
-  console.log(
-    `\n[DRAW] Neither you nor your opponent were able to convince the people that you are fit to rule... The search for a new leader continues.\n`
-  );
-}
-
-*/
 
 //----------------------------------------------------------------//
 
@@ -225,24 +216,26 @@ let vitoriaPersonagem = 0;
 let vitoriaVelho = 0;
 
 for (let i = 0; i < 3; i++) {
-  let velho = 0;
-  let personagem = 0;
-  let moeda = 0;
+  let escolhaVelho = 0;
+  let escolhaPersonagem = 0;
+  let faceMoeda = 0;
 
   do {
     console.log(`\nRodada ${i + 1}\n`);
-    personagem = parseInt(prompt('Escolha uma opção: 1 - Cara | 2 - Coroa: '));
-    if (personagem == 1) {
-      velho = 2;
-    } else if (personagem == 2) {
-      velho = 1;
+    escolhaPersonagem = parseInt(
+      prompt('Escolha uma opção: 1 - Cara | 2 - Coroa: ')
+    );
+    if (escolhaPersonagem == 1) {
+      escolhaVelho = 2;
+    } else if (escolhaPersonagem == 2) {
+      escolhaVelho = 1;
     } else {
       console.log('Opção inválida!! \n');
     }
-    moeda = Math.floor(2 * Math.random() + 1);
-  } while (personagem != 1 && personagem != 2);
+    faceMoeda = Math.floor(2 * Math.random() + 1);
+  } while (escolhaPersonagem != 1 && escolhaPersonagem != 2);
 
-  if (personagem == moeda) {
+  if (escolhaPersonagem == faceMoeda) {
     vitoriaPersonagem++;
   } else {
     vitoriaVelho++;
@@ -254,11 +247,11 @@ for (let i = 0; i < 3; i++) {
 }
 
 if (vitoriaPersonagem > vitoriaVelho) {
-  console.log('\nParabens! \nVocê ganhou a disputa e recebeu uma rede de pesca!');
-  //aqui o personagem adiciona a rede de pesca na sacola de itens
+  console.log('\nParabens! \nVocê ganhou o duelo e recebeu uma rede de pesca!');
 } else {
-  console.log('\nQue pena! \nVocê perdeu a disputa!');
+  console.log('\nQue pena! \nVocê perdeu o duelo!');
 }
+
 
 
 // Pescar pela sobrevivencia - Se tiver a rede de pesca pega peixes que restauram de 50% a 70%
