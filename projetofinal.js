@@ -166,7 +166,6 @@ else if (vida%dano != 0 ){
 
 console.log(`A vida do Troll é de ${vida}Hp`)
 console.log(`O dano do Herói causa -${dano}Hp`)
-console.log(`São necessários ${(calculo).toFixed(0)} turnos para derrotar o Troll.`)
 
 
 //----------------------------------------------------------------//
