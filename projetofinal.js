@@ -60,18 +60,19 @@ foice 2 / espada 3
 dinheiro/xxxxx
 
 
- var caminho = prompt(`Que caminho você gostaria de iniciar? Digite Bosque, Ferreiro ou Exercito`);
+var caminho = prompt(`Que caminho você gostaria de iniciar? Digite Bosque, Ferreiro ou Exercito`);
 
 while (caminho != `bosque` && caminho != `ferreiro` && caminho != `exercito`);
-
 switch (caminho) {
   case "bosque":
     console.log("Voce optou pelo bosque. Daqui vc tem duas opcoes de itens.");
     var itembosque = prompt(`Quer qual das duas opcoes, que leva a pocao ou ao xxx?`);
     if(itembosque.toLowerCase == "pocao"){
       console.log("voce pegou a pocao de item");
+      sujeitoPersonagem.itens.pop(pocao)
     }else {
       console.log("voce pegou o xxx de item");
+      sujeitoPersonagem.itens.pop(dinheiro)
     }
     break;
   case "ferreiro":
@@ -79,8 +80,10 @@ switch (caminho) {
     var itemferreiro = prompt(`Quer qual das duas opcoes, Armadura ou Escudo?`);
     if(itemferreiro.toLowerCase == "armadura"){
       console.log("voce pegou a armadura de item");
+      sujeitoPersonagem.itens.pop(armadura)
     }else {
       console.log("voce pegou o escudo de item");
+      sujeitoPersonagem.itens.pop(escudo)
     }
     break;
   case "exercito":
