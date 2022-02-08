@@ -182,9 +182,20 @@ if (playerDefense > opponentDefense) {
 
 console.log(`Bem vindo à Montanha da Perdição.
 
-Abandone toda a esperança, você que entra por esses portões.`);
+Você avista inscrições na entrada.
+"Abandone toda a esperança, você que entra por esses portões."
 
+Você encontra um figura raquítica, um senhor, que diz: Antes de mais nada você tem que responder 
+algumas perguntas (nunca se sabe, de repente você ganha algo).`);
+console.log(`Você precisa responder ao seguinte questionário. Será que você conhece o inferno?!?!?
+Para todos os efeitos, irei lhe chamar do mesmo nome do último visitante, Dante.`);
 
+var p1r2= prompt('Quantos níveis tem nessa montanha?');
+var p2r2= prompt('Qual o crime mais grave desta região?');
+var p3r2= prompt('Quem sou eu?');
+
+console.log(`Você deve ter conhecido Caronte, o barqueiro. Sujeito grave, taciturno, "poucas ideias".
+`)
 
 
 /*
