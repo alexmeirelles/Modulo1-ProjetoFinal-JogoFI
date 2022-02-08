@@ -184,6 +184,9 @@ if (playerDefense > opponentDefense) {
 
 //----------------------------------------------------------------//
 
+console.log(`Bem vindo à Montanha da Perdição.
+
+Abandone toda a esperança, você que entra por esses portões.`);
 
 
 
