@@ -176,8 +176,8 @@ console.log(`Bem vindo à Montanha da Perdição.
 Você avista inscrições na entrada.
 "Abandone toda a esperança, você que entra por esses portões."
 
-Você encontra um figura raquítica, um senhor, que diz: Antes de mais nada você tem que responder 
-algumas perguntas (nunca se sabe, de repente você ganha algo).`);
+Você encontra uma figura raquítica, um senhor, que diz: Antes de mais nada você tem que responder 
+algumas perguntas (nunca se sabe, de repente você ganha algo)!`);
 console.log(`Você precisa responder ao seguinte questionário. Será que você conhece o inferno?!?!?
 Para todos os efeitos, irei lhe chamar do mesmo nome do último visitante, Dante.`);
 
