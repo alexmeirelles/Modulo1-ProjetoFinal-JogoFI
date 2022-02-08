@@ -85,40 +85,36 @@ São 3 rodadas de shots e duas das três bebidas não fazem bem para sua saude. 
 e a outra tirará um ponto. Espero que você escolha a certa todas as vezes, grande Guerreiro!`);
 
 
-for (let i = 0; i < 3; i++){
+for (let i = 0; i < 3; ) {
+  var opcao = prompt(
+    'Qual é a sua opcao pra essa rodada? Digite Azul, Vermelha, ou Verde: '
+  );
+  var resposta = Math.floor(Math.random() * 3 + 1);
+  console.log(resposta);
 
-        var opcao= prompt("Qual é a sua opcao pra essa rodada? Digite Azul, Vermelha, ou Verde: ")
-        var resposta=Math.floor((Math.random() * 3) + 1);
-    console.log(resposta)
-        if(opcao.trim().toLowerCase()=="azul"){
-            console.log("Você escolheu a bebida azul.");
-            if(resposta == 1){
-  console.log("Você perdeu uma vida.")
-} else if (resposta == 2){
-  console.log("Você perdeu meia vida.")
-} else {
-  console.log("Escapou! Não perdeu vida.")
+  if (opcao.trim().toLowerCase() == 'azul') {
+    bebidaEscolhida(opcao, resposta);
+  } else if (opcao.trim().toLowerCase() == 'vermelha') {
+    bebidaEscolhida(opcao, resposta);
+  } else if (opcao.trim().toLowerCase() == 'verde') {
+    bebidaEscolhida(opcao, resposta);
+  } else {
+    console.log('Opção inválida! Digite a palavra!\n');
+    continue;
+  }
+  i++;
 }
-        }
-        else if(opcao.trim().toLowerCase()=="vermelha"){
-            console.log("Você escolheu a bebida vermelha. ");
-            if(resposta == 1){
-  console.log("Você perdeu uma vida.")
-} else if (resposta == 2){
-  console.log("Você perdeu meia vida.")
-} else {
-  console.log("Escapou! Não perdeu vida.")
+
+function bebidaEscolhida(opcao, resposta) {
+  console.log(`\nVocê escolheu a bebida ${opcao}. `);
+  if (resposta == 1) {
+    console.log('Você perdeu uma vida.\n');
+  } else if (resposta == 2) {
+    console.log('Você perdeu meia vida.\n');
+  } else {
+    console.log('Escapou! Não perdeu vida.\n');
+  }
 }
-        }
-        else if(opcao.trim().toLowerCase()=="verde"){
-            console.log("Você escolheu a bebida verde.");
-            if(resposta == 1){
-            console.log("Você perdeu uma vida.")
-} else if (resposta == 2){
-  console.log("Você perdeu meia vida.")
-} else {
-  console.log("Escapou! Não perdeu vida.")
-}}}
 
 
 
