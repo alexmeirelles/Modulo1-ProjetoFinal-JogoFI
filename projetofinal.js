@@ -98,10 +98,7 @@ switch (caminho) {
     }
     break;
   default:
-    console.log("Desculpe, estamos sem nenhuma " + expr + ".");
 }
-
-console.log("Tem algo mais que você gostaria de levar?");
 
 
 console.log(`Você chegou na Adega do Gnomo! Aqui muitos guerreiros vem para descansar e tomar uns drinks.
