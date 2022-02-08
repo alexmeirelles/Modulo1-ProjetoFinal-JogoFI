@@ -65,17 +65,28 @@ dinheiro/xxxxx
 
 } while (caminho != `bosque` && caminho != `ferreiro` && caminho != `exercito`);
 
-switch (caminho) {
-  case "A":
-    armadura1B = "pesada";
+switch (expr) {
+  case "Laranjas":
+    console.log("As laranjas custam $0.59 o quilo.");
     break;
-  case "B":
-    armadura1B = "leve";
+  case "Maçãs":
+    console.log("Maçãs custam $0.32 o quilo.");
     break;
-  case "C":
-    armadura1B = "leve";
+  case "Bananas":
+    console.log("Bananas custam $0.48 o quilo.");
     break;
+  case "Cerejas":
+    console.log("Cerejas custam $3.00 o quilo.");
+    break;
+  case "Mangas":
+  case "Mamões":
+    console.log("Mangas e mamões custam $2.79 o quilo.");
+    break;
+  default:
+    console.log("Desculpe, estamos sem nenhuma " + expr + ".");
 }
+
+console.log("Tem algo mais que você gostaria de levar?");
 
 
 
@@ -180,6 +191,9 @@ if (playerDefense > opponentDefense) {
 
 //----------------------------------------------------------------//
 
+console.log(`Bem vindo à Montanha da Perdição.
+
+Abandone toda a esperança, você que entra por esses portões.`);
 
 
 
