@@ -63,24 +63,35 @@ dinheiro/xxxxx
 
  var caminho = prompt(`Que caminho você gostaria de iniciar? Digite Bosque, Ferreiro ou Exercito`);
 
-} while (caminho != `bosque` && caminho != `ferreiro` && caminho != `exercito`);
+while (caminho != `bosque` && caminho != `ferreiro` && caminho != `exercito`);
 
-switch (expr) {
-  case "Laranjas":
-    console.log("As laranjas custam $0.59 o quilo.");
+switch (caminho) {
+  case "bosque":
+    console.log("Voce optou pelo bosque. Daqui vc tem duas opcoes de itens.");
+    var itembosque = prompt(`Quer qual das duas opcoes, que leva a pocao ou ao xxx?`);
+    if(itembosque == "pocao"){
+      console.log("voce pegou a pocao de item");
+    }else {
+      console.log("voce pegou o xxx de item");
+    }
     break;
-  case "Maçãs":
-    console.log("Maçãs custam $0.32 o quilo.");
+  case "ferreiro":
+    console.log("Voce optou pelo bosque. Daqui vc tem duas opcoes de itens.");
+    var itembosque = prompt(`Quer qual das duas opcoes, que leva a pocao ou ao xxx?`);
+    if(itembosque == "pocao"){
+      console.log("voce pegou a pocao de item");
+    }else {
+      console.log("voce pegou o xxx de item");
+    }
     break;
-  case "Bananas":
-    console.log("Bananas custam $0.48 o quilo.");
-    break;
-  case "Cerejas":
-    console.log("Cerejas custam $3.00 o quilo.");
-    break;
-  case "Mangas":
-  case "Mamões":
-    console.log("Mangas e mamões custam $2.79 o quilo.");
+  case "exercito":
+    console.log("Voce optou pelo bosque. Daqui vc tem duas opcoes de itens.");
+    var itembosque = prompt(`Quer qual das duas opcoes, que leva a pocao ou ao xxx?`);
+    if(itembosque == "pocao"){
+      console.log("voce pegou a pocao de item");
+    }else {
+      console.log("voce pegou o xxx de item");
+    }
     break;
   default:
     console.log("Desculpe, estamos sem nenhuma " + expr + ".");
