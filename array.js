@@ -18,4 +18,4 @@ sujeitoPersonagem.itens.push({
   valor: 30
 });
 
-console.log(sujeitoPersonagem)
+console.log(sujeitoPersonagem.itens[0].valor)
