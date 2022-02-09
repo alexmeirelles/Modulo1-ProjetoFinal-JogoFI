@@ -15,6 +15,7 @@ const sujeitoPersonagem = {
 
 sujeitoPersonagem.itens.push({
   nome: "código 0",
+  valor: 30
 });
 
 console.log(sujeitoPersonagem)
