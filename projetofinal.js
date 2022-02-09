@@ -196,23 +196,27 @@ console.log(`O dano do Herói causa -${dano}Hp`)
 
 
 //----------------------------------------------------------------//
-
-console.log(`Bem vindo à Montanha da Perdição.
-
-Você avista inscrições na entrada.
+console.clear();
+console.log(`
 "Abandone toda a esperança, você que entra por esses portões."
 
 Você encontra uma figura raquítica, um senhor, que diz: Antes de mais nada você tem que responder 
-algumas perguntas (nunca se sabe, de repente você ganha algo)!`);
-console.log(`Você precisa responder ao seguinte questionário. Será que você conhece o inferno?!?!?
-Para todos os efeitos, irei lhe chamar do mesmo nome do último visitante, Dante.`);
+algumas perguntas (nunca se sabe, de repente você ganha algo)! Será que conhece o inferno?!?!?
+Você se parece muito com Dante. Boa sorte!`);
 
 var p1r2= prompt('Quantos níveis tem nessa montanha?');
 var p2r2= prompt('Qual o crime mais grave desta região?');
 var p3r2= prompt('Quem sou eu?');
 
+//se responder correto dar a skill boladefogo
+
 console.log(`Você deve ter conhecido Caronte, o barqueiro. Sujeito grave, taciturno, "poucas ideias".
-`)
+
+Neste reino tudo o que te aguarda são desafios e desventuras. Prepare-se.`)
+
+sleep(20000);
+console.clear();
+console.log(`${sujeitoPersonagem.nome}`)
 
 
 /*
