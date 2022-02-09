@@ -1,7 +1,7 @@
 var prompt = require("prompt-sync")();
 console.log();
 console.log("/--------------------------------------------/");
-console.log("Bem-vindo ao OuterWorld!");
+console.log("***        Bem-vindo ao OuterWorld!        ***");
 console.log("/--------------------------------------------/");
 console.log();
 const nome = prompt("Qual o nome do seu, guerreiro? ");
@@ -43,6 +43,16 @@ sujeitoPersonagem.bolaDeFogo = function bolaDeFogo() {
 console.log(sujeitoPersonagem);
 console.log(`Dano bola de fogo= ${sujeitoPersonagem.bolaDeFogo()}`);
 
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+      if (new Date().getTime() - start > milliseconds) {
+          break;
+      }
+  }
+}
+
+sleep(500);
 
 
 //----------------------------------------------------------------//
@@ -50,12 +60,12 @@ console.log(`Dano bola de fogo= ${sujeitoPersonagem.bolaDeFogo()}`);
 
 
 //Reino 1 : Floresta Tropical / condado/ 
-console.log(`Você chegou na Adega do Gnomo! Aqui muitos guerreiros vem para descansar e tomar uns drinks.
+console.log(`Caminhada do caralho Você chegou na Adega do Gnomo! Aqui muitos guerreiros vem para descansar e tomar uns drinks.
 Papo vai, Papo vem e você foi desafiado para uma roleta russa com os drinks de um mago poderoso do local. 
 São 3 rodadas de shots e duas das três bebidas não fazem bem para sua saude. Uma tirará meio ponto de vida
 e a outra tirará um ponto. Espero que você escolha a certa todas as vezes, grande Guerreiro!`);
 
-console.log(`Você chegou na Adega do Gnomo! Aqui muitos guerreiros vem para descansar e tomar uns drinks.
+console.log(`Caminhada do caralho Você chegou na Adega do Gnomo! Aqui muitos guerreiros vem para descansar e tomar uns drinks.
 Papo vai, Papo vem e você foi desafiado para uma roleta russa com os drinks de um mago poderoso do local. 
 São 3 rodadas de shots e duas das três bebidas não fazem bem para sua saude. Uma tirará meio ponto de vida
 e a outra tirará um ponto. Espero que você escolha a certa todas as vezes, grande Guerreiro!`);
