@@ -87,13 +87,13 @@ switch (caminho) {
     if(itembosque.toLowerCase == "pocao"){
       console.log("voce pegou a pocao de item");
       sujeitoPersonagem.itens.push({
-        nome: "pocao",
+        item: "pocao",
         valor: 30
       });
     }else {
       console.log("voce pegou o dinheiro de item");
       sujeitoPersonagem.itens.push({
-        nome: "dinheiro",
+        item: "dinheiro",
         valor: 30
       });
     }
@@ -104,13 +104,13 @@ switch (caminho) {
     if(itemferreiro.toLowerCase == "armadura"){
       console.log("voce pegou a armadura de item");
       sujeitoPersonagem.itens.push({
-        nome: "armadura",
+        item: "armadura",
         valor: 30
     });
   }else {
       console.log("voce pegou o escudo de item");
       sujeitoPersonagem.itens.push({
-        nome: "escudo",
+        item: "escudo",
         valor: 30
       });
     }
@@ -121,13 +121,13 @@ switch (caminho) {
     if(itemexercito.toLowerCase == "espada"){
       console.log("voce pegou a espada de item");
       sujeitoPersonagem.itens.push({
-        nome: "espada",
+        item: "espada",
         valor: 30
       });
     }else {
       console.log("voce pegou a foice de item");
       sujeitoPersonagem.itens.push({
-        nome: "foice",
+        item: "foice",
         valor: 30
       });
     }
