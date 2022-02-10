@@ -86,10 +86,20 @@ switch (caminho) {
     var itembosque = prompt(`Quer qual das duas opcoes, que leva a pocao ou ao xxx?`);
     if(itembosque.toLowerCase == "pocao"){
       console.log("voce pegou a pocao de item");
-      sujeitoPersonagem.itens.pop(pocao)
+      sujeitoPersonagem.itens.push({
+        nome: "pocao",
+        valor: 30
+      });
+      
+      console.log(sujeitoPersonagem.itens[0].valor)
     }else {
       console.log("voce pegou o dinheiro de item");
-      sujeitoPersonagem.itens.pop(dinheiro)
+      sujeitoPersonagem.itens.push({
+        nome: "dinheiro",
+        valor: 30
+      });
+      
+      console.log(sujeitoPersonagem.itens[0].valor)
     }
     break;
   case "ferreiro":
@@ -97,10 +107,20 @@ switch (caminho) {
     var itemferreiro = prompt(`Quer qual das duas opcoes, Armadura ou Escudo?`);
     if(itemferreiro.toLowerCase == "armadura"){
       console.log("voce pegou a armadura de item");
-      sujeitoPersonagem.itens.pop(armadura)
+      sujeitoPersonagem.itens.push({
+        nome: "armadura",
+        valor: 30
+      });
+      
+      console.log(sujeitoPersonagem.itens[0].valor)
     }else {
       console.log("voce pegou o escudo de item");
-      sujeitoPersonagem.itens.pop(escudo)
+      sujeitoPersonagem.itens.push({
+        nome: "escudo",
+        valor: 30
+      });
+      
+      console.log(sujeitoPersonagem.itens[0].valor)
     }
     break;
   case "exercito":
@@ -108,10 +128,20 @@ switch (caminho) {
     var itemexercito = prompt(`Você chega e é recepcionado pelo Sargeto Orveu, ele é o responsável pelas armas de combate e já aguardava a sua chegada. Orveu tem uma presença dominante e não é de muitas palavras. Pergunta rapidamente qual será a sua jornada, o que possivelmente você irá enfrentar e pega dos itens a mão. Uma espada e uma foice. Quer qual das duas opcoes, digite foice ou espada: `);
     if(itemexercito.toLowerCase == "espada"){
       console.log("voce pegou a espada de item");
-      sujeitoPersonagem.itens.pop(espada)
+      sujeitoPersonagem.itens.push({
+        nome: "espada",
+        valor: 30
+      });
+      
+      console.log(sujeitoPersonagem.itens[0].valor)
     }else {
       console.log("voce pegou a foice de item");
-      sujeitoPersonagem.itens.pop(foice)
+      sujeitoPersonagem.itens.push({
+        nome: "foice",
+        valor: 30
+      });
+      
+      console.log(sujeitoPersonagem.itens[0].valor)
     }
     break;
   default:
