@@ -64,7 +64,8 @@ console.clear();
 do {
   console.log(`${sujeitoPersonagem.status()}
 
-    Neste reino existem 3 areas de monstros a serem abatidos.`);
+    Aqui existem 3 DESAFIOS.
+    `);
   var again = prompt("Você gostaria de seguir para o proximo reino? ");
 } while (again == "nao" || again == "n");
 
