@@ -4,6 +4,7 @@ var p1 = prompt("Qual o seu nome? ");
 var sujeitoPersonagem = {
   nome: p1,
   vida: 5,
+  maxHP: 15,
   stamina: 10,
   itens: ["O bastão irrevogável"],
   porrada: function () {
@@ -15,7 +16,9 @@ var sujeitoPersonagem = {
     return dano;
   },
   sono: function (milliseconds) {
-    this.vida += 2;
+    if (this.vida<this.maxHP){
+      this.vida += 2;
+    };
     var start = new Date().getTime();
     for (var i = 0; i < 1e8; i++) {
       if (new Date().getTime() - start > milliseconds) {
