@@ -1,7 +1,7 @@
 var prompt = require("prompt-sync")();
 var p1 = prompt("Qual o seu nome? ");
 
-const sujeitoPersonagem = {
+var sujeitoPersonagem = {
   nome: p1,
   vida: 5,
   stamina: 10,
@@ -14,18 +14,19 @@ const sujeitoPersonagem = {
       0.2 * this.itens;
     return dano;
   },
+  sono: function (milliseconds) {
+    this.vida + 2;
+    var start = new Date().getTime();
+    for (var i = 0; i < 1e8; i++) {
+      if (new Date().getTime() - start > milliseconds) {
+        break;
+      }
+    }
+  },
 };
+console.log(sujeitoPersonagem);
 
 var status = `${sujeitoPersonagem.nome} Vida: ${sujeitoPersonagem.vida} Stamina: ${sujeitoPersonagem.stamina} Itens: ${sujeitoPersonagem.itens}`;
-
-function sleep(milliseconds) {
-  var start = new Date().getTime();
-  for (var i = 0; i < 1e8; i++) {
-    if (new Date().getTime() - start > milliseconds) {
-      break;
-    }
-  }
-};
 
 console.log(`
 ${status}
@@ -36,7 +37,7 @@ Você encontra uma figura raquítica, um senhor, que diz: Antes de mais nada voc
 algumas perguntas (nunca se sabe, de repente você ganha algo)! Será que conhece o inferno?!?!?
 Você se parece muito com Dante. Boa sorte!`);
 
-sleep(5000);
+sujeitoPersonagem.sono(5000);
 console.clear();
 console.log(`${status}
 `);
@@ -47,16 +48,17 @@ var p3r2 = prompt("Quem sou eu? ");
 
 //se responder correto dar a skill boladefogo
 
-
 console.log(`Você acaba de conhecer Caronte, o barqueiro. Sujeito grave, taciturno, "poucas ideias".
 
 Neste reino tudo o que te aguarda são desafios e desventuras. Prepare-se.`);
 
-sleep(5000);
+sujeitoPersonagem.sono(5000);
 console.clear();
-do{
-    console.log(`${status}
+do {
+  console.log(`${status}
 
     Neste reino existem 3 areas de monstros a serem abatidos.`);
-    let again = prompt('Você gostaria de seguir para o proximo reino? ');
-}while(again == 'nao' || again=='n');
+  var again = prompt("Você gostaria de seguir para o proximo reino? ");
+} while (again == "nao" || again == "n");
+
+console.log(sujeitoPersonagem)
