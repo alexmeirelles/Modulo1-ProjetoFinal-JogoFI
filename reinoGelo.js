@@ -72,12 +72,11 @@ if (vitoriaPersonagem > vitoriaVelho) {
 // Pescar pela sobrevivencia - Se tiver a rede de pesca pega peixes que restauram de 50% a 70%
 // da vida/energia. Se não tiver a rede de pescar ele usa outro item e pesca so um peixe que restaura até 20%
 
-// console.log(sujeitoPersonagem);
+//Verifica se o objeto existe
 let item = sujeitoPersonagem.itens.find((x) => x.nome === 'RedePesca');
-// console.log(item);
+
+// Se o item retornar undefined ele não existe
 if (item != undefined) {
-  // console.log(item.nome); // Funciona
-  // console.log(item.atrib);
   console.log('Voce tem Rede de Pesca e pegou muitos paixes. Ganha 50 de vida');
   sujeitoPersonagem.vida += item.atrib;
 } else {
