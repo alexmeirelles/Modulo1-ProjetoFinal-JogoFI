@@ -15,7 +15,7 @@ var sujeitoPersonagem = {
     return dano;
   },
   sono: function (milliseconds) {
-    this.vida + 2;
+    this.vida += 2;
     var start = new Date().getTime();
     for (var i = 0; i < 1e8; i++) {
       if (new Date().getTime() - start > milliseconds) {
@@ -23,13 +23,17 @@ var sujeitoPersonagem = {
       }
     }
   },
+  status: function(){
+    var status = `${sujeitoPersonagem.nome} Vida: ${sujeitoPersonagem.vida} Stamina: ${sujeitoPersonagem.stamina} Itens: ${sujeitoPersonagem.itens}`;
+    return status;
+  },
 };
 console.log(sujeitoPersonagem);
 
-var status = `${sujeitoPersonagem.nome} Vida: ${sujeitoPersonagem.vida} Stamina: ${sujeitoPersonagem.stamina} Itens: ${sujeitoPersonagem.itens}`;
+
 
 console.log(`
-${status}
+${sujeitoPersonagem.status()}
 
 "Abandone toda a esperança, você que entra por esses portões."
 
@@ -39,7 +43,7 @@ Você se parece muito com Dante. Boa sorte!`);
 
 sujeitoPersonagem.sono(5000);
 console.clear();
-console.log(`${status}
+console.log(`${sujeitoPersonagem.status()}
 `);
 
 var p1r2 = prompt("Quantos níveis tem nessa montanha? ");
@@ -55,7 +59,7 @@ Neste reino tudo o que te aguarda são desafios e desventuras. Prepare-se.`);
 sujeitoPersonagem.sono(5000);
 console.clear();
 do {
-  console.log(`${status}
+  console.log(`${sujeitoPersonagem.status()}
 
     Neste reino existem 3 areas de monstros a serem abatidos.`);
   var again = prompt("Você gostaria de seguir para o proximo reino? ");
