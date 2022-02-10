@@ -90,16 +90,12 @@ switch (caminho) {
         nome: "pocao",
         valor: 30
       });
-      
-      console.log(sujeitoPersonagem.itens[0].valor)
     }else {
       console.log("voce pegou o dinheiro de item");
       sujeitoPersonagem.itens.push({
         nome: "dinheiro",
         valor: 30
       });
-      
-      console.log(sujeitoPersonagem.itens[0].valor)
     }
     break;
   case "ferreiro":
@@ -110,17 +106,12 @@ switch (caminho) {
       sujeitoPersonagem.itens.push({
         nome: "armadura",
         valor: 30
-      });
-      
-      console.log(sujeitoPersonagem.itens[0].valor)
-    }else {
+    })else {
       console.log("voce pegou o escudo de item");
       sujeitoPersonagem.itens.push({
         nome: "escudo",
         valor: 30
       });
-      
-      console.log(sujeitoPersonagem.itens[0].valor)
     }
     break;
   case "exercito":
@@ -132,16 +123,12 @@ switch (caminho) {
         nome: "espada",
         valor: 30
       });
-      
-      console.log(sujeitoPersonagem.itens[0].valor)
     }else {
       console.log("voce pegou a foice de item");
       sujeitoPersonagem.itens.push({
         nome: "foice",
         valor: 30
       });
-      
-      console.log(sujeitoPersonagem.itens[0].valor)
     }
     break;
   default:
