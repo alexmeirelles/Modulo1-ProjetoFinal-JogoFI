@@ -106,7 +106,8 @@ switch (caminho) {
       sujeitoPersonagem.itens.push({
         nome: "armadura",
         valor: 30
-    })else {
+    });
+  }else {
       console.log("voce pegou o escudo de item");
       sujeitoPersonagem.itens.push({
         nome: "escudo",
