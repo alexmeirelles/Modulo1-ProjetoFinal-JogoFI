@@ -52,7 +52,7 @@ while (sujeitoPersonagem.vida > 0 && dragaoGelo.vida > 0) {
   rodada++;
 }
 
-if (sujeitoPersonagem <= 0) {
+if (sujeitoPersonagem.vida <= 0) {
   console.log(`${sujeitoPersonagem.nome} perdeu a batalha`);
 } else {
   console.log(`${sujeitoPersonagem.nome} venceu a batalha`);
@@ -63,6 +63,6 @@ function porrada(forca) {
   return forca;
 }
 
-console.log(sujeitoPersonagem);
-console.log(dragaoGelo);
+console.log(`Vida ${sujeitoPersonagem.nome}: ${sujeitoPersonagem.vida} e Dragão: ${dragaoGelo.vida}`);
+// console.log(dragaoGelo);
 console.log(`Foram gastos ${rodada} turnos para definir um campeão`);
