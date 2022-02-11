@@ -1,39 +1,43 @@
 var prompt = require("prompt-sync")();
 var p1 = prompt("Qual o seu nome? ");
+console.clear();
 
 var sujeitoPersonagem = {
   nome: p1,
-  vida: 5,
+  vida: 100,
   maxHP: 15,
   stamina: 10,
-  itens: ["O bastão irrevogável"],
-  porrada: function () {
-    // caso ache melhor um retorno com mais casas decimais, basta aumentar argumento de toFixed
-    const dano =
-      0.3 * this.vida +
-      0.5 * parseFloat((this.stamina * Math.random()).toFixed(1)) +
-      0.2 * this.itens;
-    return dano;
-  },
-  sono: function (milliseconds) {
-    if (this.vida<this.maxHP){
-      this.vida += 2;
-    };
-    var start = new Date().getTime();
-    for (var i = 0; i < 1e8; i++) {
-      if (new Date().getTime() - start > milliseconds) {
-        break;
-      }
-    }
-  },
-  status: function(){
-    var status = `${sujeitoPersonagem.nome} Vida: ${sujeitoPersonagem.vida} Stamina: ${sujeitoPersonagem.stamina} Itens: ${sujeitoPersonagem.itens}`;
+  itens: [],
+  skills: ["0-Porrada","1-Bola de Fogo"],
+  skill: [
+    function porrada() {
+      // caso ache melhor um retorno com mais casas decimais, basta aumentar argumento de toFixed
+      const dano =
+        0.3 * sujeitoPersonagem.vida +
+        0.5 * parseFloat((sujeitoPersonagem.stamina * Math.random()).toFixed(1)) +
+        0.2 * sujeitoPersonagem.itens;
+      return dano;
+    },
+    function bolaDeFogo() {
+      // caso ache melhor um retorno com mais casas decimais, basta aumentar argumento de toFixed
+      const dano =
+        0.7 * sujeitoPersonagem.vida +
+        0.5 * parseFloat((sujeitoPersonagem.stamina * Math.random()).toFixed(1)) +
+        0.2 * sujeitoPersonagem.itens;
+      return dano;
+    },
+  ],
+  status: function () {
+    var status = `${this.nome} Vida: ${this.vida} Stamina: ${this.stamina} Itens: ${this.itens}`;
     return status;
   },
 };
-console.log(sujeitoPersonagem);
 
-
+// var cerberino = {
+//   defesa: 5,
+//   ataque: 10,
+//   vida: 60,
+// };
 
 console.log(`
 ${sujeitoPersonagem.status()}
@@ -44,8 +48,7 @@ Você encontra uma figura raquítica, um senhor, que diz: Antes de mais nada voc
 algumas perguntas (nunca se sabe, de repente você ganha algo)! Será que conhece o inferno?!?!?
 Você se parece muito com Dante. Boa sorte!`);
 
-sujeitoPersonagem.sono(5000);
-console.clear();
+avancar();
 console.log(`${sujeitoPersonagem.status()}
 `);
 
@@ -59,14 +62,38 @@ console.log(`Você acaba de conhecer Caronte, o barqueiro. Sujeito grave, tacitu
 
 Neste reino tudo o que te aguarda são desafios e desventuras. Prepare-se.`);
 
-sujeitoPersonagem.sono(5000);
-console.clear();
+avancar();
 do {
   console.log(`${sujeitoPersonagem.status()}
 
-    Aqui existem 3 DESAFIOS.
-    `);
+    Perigo!!!!
+  Você da de cara com um cachorro gigantesco, de 3 cabeças. Sem dúvidas, era Cerberino, o cão abestado.`);
+  fight('Cerberino', 100, 10, 9);
   var again = prompt("Você gostaria de seguir para o proximo reino? ");
 } while (again == "nao" || again == "n");
 
-console.log(sujeitoPersonagem)
+console.log(sujeitoPersonagem);
+
+function avancar() {
+  console.log();
+  prompt("Pressione ENTER para continuar!");
+  console.clear();
+}
+
+function fight(mobNAME, mobHP, mobDEF, mobATQ) {
+  console.log(`você está enfrentando ${mobNAME}, Que o RNG esteja em seu favor.
+  `);
+  let mobLife = mobHP;
+  do {
+    console.log(`Sua vida: `,sujeitoPersonagem.vida);
+    console.log(`HP de ${mobNAME}: `,mobLife);
+    console.log(sujeitoPersonagem.skills);
+    
+    var skillChoice = +prompt(`Utilizar qual skill? `);
+    mobLife -= (sujeitoPersonagem.skill[skillChoice]()-mobDEF);
+    console.log(`mobLife`, mobLife);
+    sujeitoPersonagem.vida -= mobATQ;
+  } while (mobLife > 0 && sujeitoPersonagem.vida > 0);
+}
+
+console.log(sujeitoPersonagem.skill);
