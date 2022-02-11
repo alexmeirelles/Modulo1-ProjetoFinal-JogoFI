@@ -173,13 +173,44 @@ function bebidaEscolhida(opcao, resposta) {
 }
 
          
-console.log(`Luta chefão: Gigante da Colina -  vida - dinheiro/itens Você chegou na Adega do Gnomo! Aqui muitos guerreiros vem para descansar e tomar uns drinks.
-Papo vai, Papo vem e você foi desafiado para uma roleta russa com os drinks de um mago poderoso do local. 
-São 3 rodadas de shots e duas das três bebidas não fazem bem para sua saude. Uma tirará meio ponto de vida
-e a outra tirará um ponto. Espero que você escolha a certa todas as vezes, grande Guerreiro!`);
+console.log(`Bem-vindo ao estágio final deste Reino! O final deste e o inicio de novas aventuras! Só há um único problema..`);
+console.log(`Agora você deve passar pelo Gigante Hércules. Com uma aparência simples, com vestimentas feudais mas com um soco poderoso que parece uma forte marreta.`);
+console.log(`Você é esperto. Conseguirá bater mais vezes. Bata o mais rápido que puder, traga a vida dele a zero... antes da sua.`);
 
-//Ataque turno/rodadas / vida gigante 50
-//Gigante é lento ataca a cada tres rodadas - tirando 1 de vida
+console.log(`Hércules aparece: Haha você? Comece.. te dou a oportunidade enquanto vou estralando os dedos..`);
+
+while (Gigante.vida >0){
+sujeitoPersonagem.porrada
+console.log(`Seu primeiro golpe tira ${sujeitoPersonagem.porrada(dano)} de vida do Gigante Hércules}`);
+
+sujeitoPersonagem.porrada
+console.log(`Seu segundo golpe tira ${sujeitoPersonagem.porrada(dano)} de vida do Gigante Hércules}`);
+
+sujeitoPersonagem.porrada
+console.log(`Seu terceiro golpe tira ${sujeitoPersonagem.porrada(dano)} de vida do Gigante Hércules}`);
+
+
+console.log(`Ataque Total : Você tirou x pontos de vida do Gigante Hércules, que ainda tem x de vida`);
+
+console.clear;
+
+console.log(`Agora é a minha vez, bonitão..`);
+
+let dano = sujeitoPersonagem.vida - 1
+console.log(`O Golpe Marretada de Hércules lhe tira uma vida. Você ainda tem ${dano} de vida. `);
+
+console.log(``);
+}
+
+console.log(`Você derrotou o Gigante Hércules`);
+
+
+
+
+
+
+
+
 
 
 let r = false
