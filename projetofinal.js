@@ -179,7 +179,7 @@ console.log(`Você é esperto. Conseguirá bater mais vezes. Bata o mais rápido
 
 console.log(`Hércules aparece: Haha você? Comece.. te dou a oportunidade enquanto vou estralando os dedos..`);
 
-while (Gigante.vida >0){
+while (Gigante.vida > 0 && sujeitoPersonagem.vida > 0){
 sujeitoPersonagem.porrada
 console.log(`Seu primeiro golpe tira ${sujeitoPersonagem.porrada(dano)} de vida do Gigante Hércules}`);
 

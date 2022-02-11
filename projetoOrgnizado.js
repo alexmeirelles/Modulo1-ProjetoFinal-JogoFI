@@ -43,6 +43,13 @@ const sujeitoPersonagem = {
   itens: [],
 };
 
+const Gigante = {
+  nome: Hercules,
+  vida: 200,
+  stamina: 100, //Energia
+  itens: [],
+};
+
 // ---- Reino 1 : Floresta Tropical / Condado ---- //
 
 // Colheita com o Elfo Armador
