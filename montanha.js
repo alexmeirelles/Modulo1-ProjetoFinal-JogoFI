@@ -91,7 +91,7 @@ function fight(mobNAME, mobHP, mobDEF, mobATQ) {
     console.log();
     console.log(`Sua vida: `,sujeitoPersonagem.vida);
     console.log();
-    console.log(`HP de ${mobNAME}: `,mobLife);
+    console.log(`HP de ${mobNAME}: `,mobLife.toFixed(1));
     console.log();
     console.log(sujeitoPersonagem.skills);
     do{
