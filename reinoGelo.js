@@ -16,7 +16,7 @@ const nome = 'Jefferson';
 const sujeitoPersonagem = {
   nome: nome,
   vida: 100,
-  // stamina: 100,
+  stamina: 50,
   ataque: 1,
   // defesa: 100,
   itens: [],
@@ -28,14 +28,38 @@ const dragaoGelo = {
   especial: 2,
 };
 
-console.log(sujeitoPersonagem);
-
 //Reino de Gelo
-// O personagem se depara com um velho misterioso que lhe oferece uma rede de pesca para
-// pegar peixes e se alimentar recuperando um pouco de vida/energia
-// Mas para conseguir rede o personagem deve jogar cara ou coroa com o velho
-// O jogo tem 3 rodas
+console.log(
+  `${sujeitoPersonagem.nome}, você acaba de chegar na Cidade do Gelo! Uma nevasca nunca antes 
+vista devastou completamente esta cidade e por isso recebeu tal nome. 
+Aqui os recursos são escassos e logo voce precisará de comida!
+`
+);
 
+avancar();
+
+console.log(
+  `Após alguns passos para dentro da cidade, você se depara com um velho misterioso.
+Ele carrega consigo uma vara de pescar. Você se aproxima dele e pergunta como conseguir
+algo para comer. O velho olha para você com um sorriso deboxado e diz que existe um
+buraco cortado no gelo a 1km ao norte, e que ali existem peixes. 
+`
+);
+
+avancar();
+
+console.log(
+  `Ele logo te adverte que é muito perigoso tentar pegar um peixe sem uma vara de pescar.
+Você pergunta onde encontrar uma vara de pescar e ele te faz uma proposta:
+A vara de percar que ele tinha foi tirada de um cadaver que estava congelado.
+Ele então te oferece a vara de pescar mas tem um preço, vocês devem jogar cara ou coroa!
+São 3 rodas, se você ganhar duas, a vara de pesca será sua! 
+`
+);
+
+avancar();
+
+// Jogo Cara ou Coroa
 let vitoriaPersonagem = 0;
 let vitoriaVelho = 0;
 
@@ -45,6 +69,7 @@ for (let i = 0; i < 3; i++) {
   let faceMoeda;
 
   do {
+    console.clear();
     console.log(`\nRodada ${i + 1}\n`);
     escolhaPersonagem = parseInt(
       prompt('Escolha uma opção: 1 - Cara | 2 - Coroa: ')
@@ -66,52 +91,86 @@ for (let i = 0; i < 3; i++) {
   }
 
   console.log(`Placar: Velho: ${vitoriaVelho} | ${nome}: ${vitoriaPersonagem}`);
+  avancar();
 }
 
 if (vitoriaPersonagem > vitoriaVelho) {
-  console.log('\nParabens! \nVocê ganhou o duelo e recebeu uma rede de pesca!');
-  sujeitoPersonagem.itens.push({ nome: 'RedePesca', atrib: 50 });
+  console.log(
+    '\nParabens! \nVocê ganhou o duelo e recebeu uma vara de pescar!'
+  );
+  sujeitoPersonagem.itens.push({ nome: 'VaraPesca', valor: 3 });
 } else {
   console.log('\nQue pena! \nVocê perdeu o duelo!');
 }
 
-// Pescar pela sobrevivencia - Se tiver a rede de pesca pega peixes que restauram de 50% a 70%
-// da vida/energia. Se não tiver a rede de pescar ele usa outro item e pesca so um peixe que restaura até 20%
+avancar();
+
+console.log(
+  `O velho simplesmente desapareceu e você continuou seguindo seu caminho! E exatamente
+após andar 1Km ao norte, você avistou um buraco cortado no gelo. A fome é tanta que você
+correu e foi tentar pegar um peixe para se alimentar!
+`
+);
+
+avancar();
+
+// Pescar pela sobrevivencia
 
 //Verifica se o objeto existe
-let item = sujeitoPersonagem.itens.find((x) => x.nome === 'RedePesca');
+let item = verificaItem('VaraPesca');
 
 // Se o item retornar undefined ele não existe
 if (item != undefined) {
-  console.log('Voce tem Rede de Pesca e pegou muitos paixes. Ganha 50 de vida');
-  sujeitoPersonagem.vida += item.atrib;
+  console.log(`Voce tem uma vara de pesca e ela foi usada ${item.valor}x.`);
+  for (let i = 0; i < item.valor; i++) {
+    let adiciona = Math.floor(5 * Math.random() + 5);
+    console.log(
+      `Pesca ${i + 1}: Voce encontrou 1 peixe e recebeu ${adiciona} de vida`
+    );
+    sujeitoPersonagem.vida += adiciona;
+  }
 } else {
   console.log(
-    'Como voce não tem uma rede de pesca, voce tentou pegar um peixe com a mão. Voce conseguiu pegar mas foi um peixe muito pequeno e ainda congelou a mão, você recupera apenas 10 de vida mas gastou 50 de stamina'
+    'Como voce não tem uma vara de pesca, voce tentou pegar um peixe com a mão. \n' +
+      'Voce até conseguiu pegar um, mas foi um peixe muito pequeno e ainda acabou congelando a mão, \n' +
+      'você ganhou apenas 2 de vida pelo peixe, mas perdeu 15 de stamina pela mão congelada!'
   );
-  sujeitoPersonagem.vida += 10;
-  sujeitoPersonagem.stamina -= 50;
+  sujeitoPersonagem.vida += 2;
+  sujeitoPersonagem.stamina -= 15;
 }
 
 console.log(sujeitoPersonagem);
 
-// Luta chefão Dragão de gelo - vida - dinheiro/itens
+// Luta chefão Dragão de gelo
 
-while (sujeitoPersonagem.vida > 0 && dragaoGelo.vida) {}
+// while (sujeitoPersonagem.vida > 0 && dragaoGelo.vida) {}
 
-let dano = 0;
-if (sujeitoPersonagem.vida < dragaoGelo.vida) {
-  console.log('menor');
-} else {
-  console.log('maior');
-  dano = porrada(dragaoGelo.ataque);
-  sujeitoPersonagem.vida -= dano;
+// let dano = 0;
+// if (sujeitoPersonagem.vida < dragaoGelo.vida) {
+//   console.log('menor');
+// } else {
+//   console.log('maior');
+//   dano = porrada(dragaoGelo.ataque);
+//   sujeitoPersonagem.vida -= dano;
+// }
+
+// function porrada(forca) {
+//   forca *= Math.floor(5 * Math.random());
+//   return forca;
+// }
+
+// console.log(sujeitoPersonagem);
+// console.log(dragaoGelo);
+
+// funções
+
+function avancar() {
+  console.log();
+  prompt('Pressione ENTER para continuar!');
+  console.clear();
 }
 
-function porrada(forca) {
-  forca *= Math.floor(5 * Math.random());
-  return forca;
+function verificaItem(nome) {
+  let existe = sujeitoPersonagem.itens.find((x) => x.nome === nome);
+  return existe;
 }
-
-console.log(sujeitoPersonagem);
-console.log(dragaoGelo);
