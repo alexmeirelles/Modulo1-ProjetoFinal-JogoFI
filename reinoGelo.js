@@ -16,10 +16,16 @@ const nome = 'Jefferson';
 const sujeitoPersonagem = {
   nome: nome,
   vida: 100,
-  stamina: 100, //Energia
-  ataque: 100,
-  defesa: 100,
+  // stamina: 100,
+  ataque: 1,
+  // defesa: 100,
   itens: [],
+};
+
+const dragaoGelo = {
+  vida: 100,
+  ataque: 1,
+  especial: 2,
 };
 
 console.log(sujeitoPersonagem);
@@ -35,10 +41,10 @@ let vitoriaVelho = 0;
 
 for (let i = 0; i < 3; i++) {
   let escolhaPersonagem;
+  let escolhaVelho;
   let faceMoeda;
 
   do {
-    let escolhaVelho;
     console.log(`\nRodada ${i + 1}\n`);
     escolhaPersonagem = parseInt(
       prompt('Escolha uma opção: 1 - Cara | 2 - Coroa: ')
@@ -91,4 +97,21 @@ console.log(sujeitoPersonagem);
 
 // Luta chefão Dragão de gelo - vida - dinheiro/itens
 
-//Implementar aqui a mesma logica dos outros chefões
+while (sujeitoPersonagem.vida > 0 && dragaoGelo.vida) {}
+
+let dano = 0;
+if (sujeitoPersonagem.vida < dragaoGelo.vida) {
+  console.log('menor');
+} else {
+  console.log('maior');
+  dano = porrada(dragaoGelo.ataque);
+  sujeitoPersonagem.vida -= dano;
+}
+
+function porrada(forca) {
+  forca *= Math.floor(5 * Math.random());
+  return forca;
+}
+
+console.log(sujeitoPersonagem);
+console.log(dragaoGelo);
