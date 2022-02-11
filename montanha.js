@@ -67,10 +67,10 @@ do {
   console.log(`${sujeitoPersonagem.status()}
 
     Perigo!!!!
-  Você da de cara com um cachorro gigantesco, de 3 cabeças. Sem dúvidas, era Cerberino, o cão abestado.`);
+  Você dá de cara com um cachorro gigantesco, de 3 cabeças. Sem dúvidas, era Cerberino, o cão abestado.`);
 
   fight('Cerberino', 100, 10, 9);
-  
+
   var again = prompt("Você gostaria de seguir para o proximo reino? ");
 } while (again == "nao" || again == "n");
 
@@ -100,6 +100,12 @@ function fight(mobNAME, mobHP, mobDEF, mobATQ) {
     mobLife -= (sujeitoPersonagem.skill[skillChoice]()-mobDEF);
     sujeitoPersonagem.vida -= mobATQ;
   } while (mobLife > 0 && sujeitoPersonagem.vida > 0);
+  if(mobLife > 0){
+    console.log('Você quase morreu/morreu.')
+
+  }else if(sujeitoPersonagem.vida>0){
+    console.log(`Você derrotou ${mobNAME}. Parabéns`);
+  }
 }
 
 console.log(sujeitoPersonagem.skill);
