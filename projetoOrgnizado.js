@@ -58,10 +58,10 @@ while (caminho != 'bosque' && caminho != 'ferreiro' && caminho != 'exercito') {
       item = prompt('Escolha um item e digite: Pocao ou Dinheiro. ');
       if (item.trim().toLowerCase() == 'pocao') {
         console.log('Voce pegou o item: POÇÃO');
-        sujeitoPersonagem.itens.push({ nome: 'pocao', atrib: 3 });
+        sujeitoPersonagem.itens.push({ nome: 'pocao', valor: 3 });
       } else {
         console.log('Voce pegou o item: Dinheiro');
-        sujeitoPersonagem.itens.push({ nome: 'dinheiro', atrib: 3 });
+        sujeitoPersonagem.itens.push({ nome: 'dinheiro', valor: 3 });
       }
       break;
 
@@ -74,10 +74,10 @@ while (caminho != 'bosque' && caminho != 'ferreiro' && caminho != 'exercito') {
       item = prompt(`Escolha um item e digite: Armadura ou Escudo. `);
       if (item.trim().toLowerCase() == 'armadura') {
         console.log('Voce pegou o item: Armadura');
-        sujeitoPersonagem.itens.push({ nome: 'armadura', atrib: 3 });
+        sujeitoPersonagem.itens.push({ nome: 'armadura', valor: 3 });
       } else {
         console.log('Voce pegou o item: Escudo');
-        sujeitoPersonagem.itens.push({ nome: 'escudo', atrib: 3 });
+        sujeitoPersonagem.itens.push({ nome: 'escudo', valor: 3 });
       }
       break;
 
@@ -97,10 +97,10 @@ while (caminho != 'bosque' && caminho != 'ferreiro' && caminho != 'exercito') {
       item = prompt('Escolha um item e digite: Foice ou Espada. ');
       if (item.trim().toLowerCase() == 'espada') {
         console.log('Voce pegou o item: Espada');
-        sujeitoPersonagem.itens.push({ nome: 'espada', atrib: 3 });
+        sujeitoPersonagem.itens.push({ nome: 'espada', valor: 3 });
       } else {
         console.log('Voce pegou o item: Foice');
-        sujeitoPersonagem.itens.push({ nome: 'foice', atrib: 3 });
+        sujeitoPersonagem.itens.push({ nome: 'foice', valor: 3 });
       }
       break;
 
