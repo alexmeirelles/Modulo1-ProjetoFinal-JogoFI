@@ -68,7 +68,9 @@ do {
 
     Perigo!!!!
   Você da de cara com um cachorro gigantesco, de 3 cabeças. Sem dúvidas, era Cerberino, o cão abestado.`);
+
   fight('Cerberino', 100, 10, 9);
+  
   var again = prompt("Você gostaria de seguir para o proximo reino? ");
 } while (again == "nao" || again == "n");
 
@@ -81,17 +83,21 @@ function avancar() {
 }
 
 function fight(mobNAME, mobHP, mobDEF, mobATQ) {
+  console.clear();
   console.log(`você está enfrentando ${mobNAME}, Que o RNG esteja em seu favor.
   `);
   let mobLife = mobHP;
   do {
+    console.log();
     console.log(`Sua vida: `,sujeitoPersonagem.vida);
+    console.log();
     console.log(`HP de ${mobNAME}: `,mobLife);
+    console.log();
     console.log(sujeitoPersonagem.skills);
-    
-    var skillChoice = +prompt(`Utilizar qual skill? `);
+    do{
+      var skillChoice = +prompt(`Utilizar qual skill? `);
+    }while(Number.isInteger(skillChoice)==false || skillChoice > (sujeitoPersonagem.skill.length)-1);
     mobLife -= (sujeitoPersonagem.skill[skillChoice]()-mobDEF);
-    console.log(`mobLife`, mobLife);
     sujeitoPersonagem.vida -= mobATQ;
   } while (mobLife > 0 && sujeitoPersonagem.vida > 0);
 }
