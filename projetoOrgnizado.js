@@ -43,11 +43,18 @@ const sujeitoPersonagem = {
   itens: [],
 };
 
-const Gigante = {
-  nome: Hercules,
-  vida: 200,
-  stamina: 100, //Energia
-  itens: [],
+const gigante = {
+	nome: 'Hercules',
+	vida: 200,
+	stamina: 100, //Energia
+	itens: [],
+};
+
+const dragaoGelo = {
+	nome: 'Viserion',
+	vida: 100,
+	ataque: 2,
+	especial: 2,
 };
 
 // ---- Reino 1 : Floresta Tropical / Condado ---- //
