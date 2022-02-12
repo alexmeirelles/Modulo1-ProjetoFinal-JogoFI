@@ -37,10 +37,14 @@ avancar();
 
 //Controi o personagem e seus atributos
 const sujeitoPersonagem = {
-  nome: nome,
-  vida: 100,
-  stamina: 100, //Energia
-  itens: [],
+	nome: nome,
+	vida: 100,
+	stamina: 100, //Energia
+	itens: [],
+	status: function () {
+		var status = `${this.nome} | Vida: ${this.vida} Stamina: ${this.stamina} `;
+		return status;
+	},
 };
 
 const gigante = {
