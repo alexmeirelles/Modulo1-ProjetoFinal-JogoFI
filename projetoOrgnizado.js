@@ -58,7 +58,6 @@ const dragaoGelo = {
 	nome: 'Viserion',
 	vida: 100,
 	ataque: 2,
-	especial: 2,
 };
 
 // ---- Reino 1 : Floresta Tropical / Condado ---- //

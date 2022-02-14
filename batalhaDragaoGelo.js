@@ -28,7 +28,6 @@ const sujeitoPersonagem = {
 const dragaoGelo = {
 	vida: 100,
 	ataque: 2,
-	especial: 2,
 };
 // console.log(sujeitoPersonagem);
 // console.log(dragaoGelo);
