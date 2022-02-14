@@ -114,8 +114,8 @@ function porrada(player, ataque, forca) {
 		}
 	} else if (player == 2) {
 		if (ataque == 1) {
-			if (rodada == 1) {
-				golpe = 2 * forca * parseFloat(Math.random().toFixed(1)) * 3;
+			if (rodada == 2) {
+				golpe = 2 * forca * parseFloat(Math.random().toFixed(1)* 3)  + 0,1;
 				console.log('Ataque Especial');
 				console.log({ golpe });
 			} else {
@@ -123,7 +123,7 @@ function porrada(player, ataque, forca) {
 				console.log({ golpe });
 			}
 		} else if (ataque == 2) {
-			if (rodada == 1) {
+			if (rodada == 2) {
 				golpe = 2 * forca * parseFloat(Math.random().toFixed(1)) * 3;
 				console.log('Ataque Especial');
 				console.log({ golpe });
