@@ -16,9 +16,9 @@ const sujeitoPersonagem = {
 	nome: nome,
 	vida: 100,
 	stamina: 50,
-	ataque: 1,
-	itens: [{ nome: 'espada', valor: 1 }],
-	skills: [{ nome: 'bolaFogo', valor: 3 }],
+	ataque: 5,
+	itens: [{ nome: 'espada', valor: 20 }],
+	skills: [{ nome: 'bolaFogo', valor: 50 }],
 	status: function () {
 		var status = `nome: ${this.nome} Vida: ${this.vida} Stamina: ${this.stamina} Itens: ${this.itens[0].nome}`;
 		return status;
@@ -27,7 +27,7 @@ const sujeitoPersonagem = {
 
 const dragaoGelo = {
 	vida: 100,
-	ataque: 2,
+	ataque: 10,
 };
 // console.log(sujeitoPersonagem);
 // console.log(dragaoGelo);
@@ -68,6 +68,10 @@ function fight() {
 				dano = 0;
 		}
 
+		if (dragaoGelo.vida <= 0) {
+			break;
+		}
+
 		console.log();
 		console.log('Ataque Dragao: ');
 		escolha = +prompt('Escolha uma alternativa: 1 - Defender | 2 - Correr ');
@@ -102,19 +106,31 @@ function porrada(player, ataque, forca) {
 
 	if (player == 1) {
 		if (ataque == 1) {
-			golpe = forca + sujeitoPersonagem.itens[0].valor + Math.floor(5 * Math.random());
+			golpe = 2 * forca + 0.5 * parseFloat((sujeitoPersonagem.itens[0].valor * Math.random()).toFixed(1)) * 1;
 			console.log({ golpe });
 		} else if (ataque == 2) {
-			golpe = (forca + sujeitoPersonagem.itens[0].valor) * Math.floor(10 * Math.random() + 10);
+			golpe = 5 * forca + 0.7 * parseFloat((sujeitoPersonagem.itens[0].valor * Math.random()).toFixed(1)) * 2;
 			console.log({ golpe });
 		}
 	} else if (player == 2) {
 		if (ataque == 1) {
-			golpe = forca * Math.floor(5 * Math.random()) - 1;
-			console.log({ golpe });
+			if (rodada == 1) {
+				golpe = 2 * forca * parseFloat(Math.random().toFixed(1)) * 3;
+				console.log('Ataque Especial');
+				console.log({ golpe });
+			} else {
+				golpe = 2 * forca * parseFloat(Math.random().toFixed(1)) * 1;
+				console.log({ golpe });
+			}
 		} else if (ataque == 2) {
-			golpe = forca * Math.floor(5 * Math.random() + 10) - 1;
-			console.log({ golpe });
+			if (rodada == 1) {
+				golpe = 2 * forca * parseFloat(Math.random().toFixed(1)) * 3;
+				console.log('Ataque Especial');
+				console.log({ golpe });
+			} else {
+				golpe = 2 * forca * parseFloat(Math.random().toFixed(1)) * 1;
+				console.log({ golpe });
+			}
 		}
 	}
 	return golpe;
