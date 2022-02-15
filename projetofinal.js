@@ -172,7 +172,14 @@ for (let i = 0; i < 3; ) {
 	i++;
 }
 
+avancar();
 // Adcionar Aqui a luta do Reino 1
+
+console.log(`Bem-vindo ao estágio final deste Reino! O final deste e o inicio de novas aventuras! Só há um único problema..`);
+console.log(`Agora você deve passar pelo Gigante Hércules. Com uma aparência simples, com vestimentas feudais mas com um soco poderoso que parece uma forte marreta.`);
+console.log(`Você é esperto. Conseguirá bater mais vezes. Bata o mais rápido que puder, traga a vida dele a zero... antes da sua.`);
+
+console.log(`Hércules aparece: Haha você? Comece.. te dou a oportunidade enquanto vou estralando os dedos..`);
 
 fight(gigante, '');
 
