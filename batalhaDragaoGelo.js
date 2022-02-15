@@ -173,7 +173,7 @@ function porrada(player, ataque, forca, item, skill) {
 
 console.clear();
 console.log(sujeitoPersonagem.status());
-console.log(`Foram gastos ${rodada} turnos para definir um campeão`);
+console.log(`Foram gastos ${rodada + 1} turnos para definir um campeão`);
 
 function verificaskills(nome) {
 	let existe = sujeitoPersonagem.skills.find((x) => x.nome === nome);
