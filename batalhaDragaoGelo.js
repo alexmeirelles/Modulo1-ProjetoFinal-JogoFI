@@ -20,20 +20,20 @@ const sujeitoPersonagem = {
 	itens: [{ nome: 'espada', valor: 20 }],
 	skills: [{ nome: 'Bola de fogo', valor: 50, uso: 3 }],
 	status: function () {
-		var status = `nome: ${this.nome} Vida: ${this.vida.toFixed(1)} Stamina: ${this.stamina} Itens: ${this.itens[0].nome}`;
+		var status = `Nome: ${this.nome} Vida: ${this.vida.toFixed(1)} Stamina: ${this.stamina} Itens: ${this.itens[0].nome}`;
 		return status;
 	},
 };
 
 const gigante = {
 	nome: 'Hercules',
-	vida: 200,
+	vida: 60,
 	ataque: 2,
 };
 
 const cerberino = {
 	nome: 'Cerberino',
-	vida: 60,
+	vida: 80,
 	ataque: 3,
 };
 
@@ -116,11 +116,13 @@ fight(gigante, 'Agua');
 
 console.log(sujeitoPersonagem.status());
 console.log(`Foram gastos ${rodada} turnos para definir um campeão`);
+avancar();
 
 fight(cerberino, 'Bola de fogo');
 
 console.log(sujeitoPersonagem.status());
 console.log(`Foram gastos ${rodada} turnos para definir um campeão`);
+avancar();
 
 fight(dragaoGelo, 'Bola de fogo');
 
@@ -138,7 +140,12 @@ function porrada(player, ataque, forca, item, skill) {
 		if (ataque == 1) {
 			golpe = 2 * forca + 0.5 * parseFloat((item.valor * Math.random()).toFixed(1)) * 1;
 		} else if (ataque == 2) {
-			golpe = 5 * forca + 0.7 * parseFloat((skill.valor * Math.random()).toFixed(1)) * 2;
+			if (skill.nome == 'Bola de fogo' && skill.uso == 0) {
+				console.log(`Nenhuma ${skill.nome}`);
+			} else {
+				golpe = 5 * forca + 0.5 * parseFloat((skill.valor * Math.random()).toFixed(1)) * 2;
+				skill.uso -= 1;
+			}
 		}
 	} else if (player == 2) {
 		if (ataque == 1) {
@@ -167,4 +174,10 @@ console.log(`Foram gastos ${rodada} turnos para definir um campeão`);
 function verificaskills(nome) {
 	let existe = sujeitoPersonagem.skills.find((x) => x.nome === nome);
 	return existe;
+}
+
+function avancar() {
+	console.log();
+	prompt('Pressione ENTER para continuar!');
+	console.clear();
 }
