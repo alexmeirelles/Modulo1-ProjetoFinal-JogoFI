@@ -41,6 +41,7 @@ const sujeitoPersonagem = {
 	vida: 100,
 	stamina: 100, //Energia
 	itens: [],
+  skills: [],
 	status: function () {
 		var status = `${this.nome} | Vida: ${this.vida} Stamina: ${this.stamina} `;
 		return status;
@@ -50,13 +51,18 @@ const sujeitoPersonagem = {
 const gigante = {
 	nome: 'Hercules',
 	vida: 200,
-	stamina: 100, //Energia
-	itens: [],
+	ataque: 2,
 };
 
 const dragaoGelo = {
 	nome: 'Viserion',
 	vida: 100,
+	ataque: 2,
+};
+
+const cerberino = {
+	nome: 'Cerberino',
+	vida: 60,
 	ataque: 2,
 };
 
@@ -75,10 +81,10 @@ while (caminho != 'bosque' && caminho != 'ferreiro' && caminho != 'exercito') {
       item = prompt('Escolha um item e digite: Pocao ou Dinheiro. ');
       if (item.trim().toLowerCase() == 'pocao') {
         console.log('Voce pegou o item: POÇÃO');
-        sujeitoPersonagem.itens.push({ nome: 'pocao', valor: 3 });
+        sujeitoPersonagem.itens.push({ nome: 'pocao', valor: 10 });
       } else {
         console.log('Voce pegou o item: Dinheiro');
-        sujeitoPersonagem.itens.push({ nome: 'dinheiro', valor: 3 });
+        sujeitoPersonagem.itens.push({ nome: 'dinheiro', valor: 5 });
       }
       break;
 
@@ -91,10 +97,10 @@ while (caminho != 'bosque' && caminho != 'ferreiro' && caminho != 'exercito') {
       item = prompt(`Escolha um item e digite: Armadura ou Escudo. `);
       if (item.trim().toLowerCase() == 'armadura') {
         console.log('Voce pegou o item: Armadura');
-        sujeitoPersonagem.itens.push({ nome: 'armadura', valor: 3 });
+        sujeitoPersonagem.itens.push({ nome: 'armadura', valor: 15 });
       } else {
         console.log('Voce pegou o item: Escudo');
-        sujeitoPersonagem.itens.push({ nome: 'escudo', valor: 3 });
+        sujeitoPersonagem.itens.push({ nome: 'escudo', valor: 20 });
       }
       break;
 
@@ -114,10 +120,10 @@ while (caminho != 'bosque' && caminho != 'ferreiro' && caminho != 'exercito') {
       item = prompt('Escolha um item e digite: Foice ou Espada. ');
       if (item.trim().toLowerCase() == 'espada') {
         console.log('Voce pegou o item: Espada');
-        sujeitoPersonagem.itens.push({ nome: 'espada', valor: 3 });
+        sujeitoPersonagem.itens.push({ nome: 'espada', valor: 20 });
       } else {
         console.log('Voce pegou o item: Foice');
-        sujeitoPersonagem.itens.push({ nome: 'foice', valor: 3 });
+        sujeitoPersonagem.itens.push({ nome: 'foice', valor: 10 });
       }
       break;
 
