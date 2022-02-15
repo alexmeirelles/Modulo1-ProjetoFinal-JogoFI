@@ -447,3 +447,5 @@ function verificaskills(nome) {
 
 //Teste adiciona nova skill
 // sujeitoPersonagem.skills = { nome: 'Bola de Fogo', ataque: 10 };
+//
+//
