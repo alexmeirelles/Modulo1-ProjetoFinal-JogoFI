@@ -23,6 +23,12 @@ aventureiros já ficaram pelo caminho. Mas, você, eu sei que você é de uma
 graduação diferente!
 `);
 
+console.log(`
+Ahhh já estava quase me esquecendo! Você passará por três reinos. 
+O do nosso Condado, a Montanha da Perdição e o Reino de Gelo. Prepare-se! 
+Você enfrentará 3 Desafios em cada um. Seja sábio em suas escolhas.
+`);
+
 avancar();
 
 console.log(`
@@ -88,13 +94,13 @@ while (caminho != 'bosque' && caminho != 'ferreiro' && caminho != 'exercito') {
 		case 'bosque':
 			console.clear();
 			console.log('Voce optou pelo Bosque. Daqui vc tem duas opcoes de itens.');
-			item = prompt('Escolha um item e digite: Pocao ou Dinheiro. ');
-			if (item.trim().toLowerCase() == 'pocao') {
-				console.log('Voce pegou o item: POÇÃO');
-				sujeitoPersonagem.itens.push({ nome: 'pocao', valor: 10 });
+			item = prompt('Escolha um item e digite: Estilingue ou  Mágia. ');
+			if (item.trim().toLowerCase() == 'estilingue') {
+				console.log('Voce pegou o item: estilingue');
+				sujeitoPersonagem.itens.push({ nome: 'estilingue', valor: 10 });
 			} else {
-				console.log('Voce pegou o item: Dinheiro');
-				sujeitoPersonagem.itens.push({ nome: 'dinheiro', valor: 5 });
+				console.log('Voce pegou o item: Mágia do Elfo');
+				sujeitoPersonagem.itens.push({ nome: 'magia', valor: 10 });
 			}
 			break;
 
@@ -104,13 +110,13 @@ while (caminho != 'bosque' && caminho != 'ferreiro' && caminho != 'exercito') {
 				'Voce optou pelo Ferreiro. Não é uma caminhada longa, ele faz muitos adornos\n' +
 					'as elites e não pode se distanciar muito do palácio do Rei. Daqui vc tem duas opcoes..'
 			);
-			item = prompt(`Escolha um item e digite: Armadura ou Escudo. `);
-			if (item.trim().toLowerCase() == 'armadura') {
-				console.log('Voce pegou o item: Armadura');
-				sujeitoPersonagem.itens.push({ nome: 'armadura', valor: 15 });
+			item = prompt(`Escolha um item e digite: Punhal ou Martelo. `);
+			if (item.trim().toLowerCase() == 'punhal') {
+				console.log('Voce pegou o item: Punhal de Ferro');
+				sujeitoPersonagem.itens.push({ nome: 'punhal', valor: 15 });
 			} else {
-				console.log('Voce pegou o item: Escudo');
-				sujeitoPersonagem.itens.push({ nome: 'escudo', valor: 20 });
+				console.log('Voce pegou o item: Martelo');
+				sujeitoPersonagem.itens.push({ nome: 'martelo', valor: 20 });
 			}
 			break;
 
@@ -130,7 +136,7 @@ while (caminho != 'bosque' && caminho != 'ferreiro' && caminho != 'exercito') {
 			item = prompt('Escolha um item e digite: Foice ou Espada. ');
 			if (item.trim().toLowerCase() == 'espada') {
 				console.log('Voce pegou o item: Espada');
-				sujeitoPersonagem.itens.push({ nome: 'espada', valor: 20 });
+				sujeitoPersonagem.itens.push({ nome: 'espada', valor: 25 });
 			} else {
 				console.log('Voce pegou o item: Foice');
 				sujeitoPersonagem.itens.push({ nome: 'foice', valor: 10 });
