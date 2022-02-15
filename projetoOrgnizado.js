@@ -174,12 +174,11 @@ for (let i = 0; i < 3; ) {
 avancar();
 
 // Adcionar Aqui a luta do Reino 1
-console.log(`Bem-vindo ao estágio final deste Reino! O final deste e o inicio de novas aventuras! Só há um único problema..`);
-console.log(`Agora você deve passar pelo Gigante Hércules. Com uma aparência simples, com vestimentas feudais mas com um soco poderoso que parece uma forte marreta.`);
-console.log(`Você é esperto. Conseguirá bater mais vezes. Bata o mais rápido que puder, traga a vida dele a zero... antes da sua.`);
-
-console.log(`Hércules aparece: Haha você? Comece.. te dou a oportunidade enquanto vou estralando os dedos..`);
-
+console.log(`Bem-vindo ao estágio final deste Reino! O final deste e o inicio de novas aventuras! Só há um único problema..
+Agora você deve passar pelo Gigante Hércules. Com uma aparência simples, com vestimentas feudais mas com um 
+soco poderoso que parece uma forte marreta.
+Você é esperto. Conseguirá bater mais vezes. Bata o mais rápido que puder, traga a vida dele a zero... antes da sua.
+Hércules aparece: Haha você? Comece.. te dou a oportunidade enquanto vou estralando os dedos..`);
 
 fight(gigante, '');
 
@@ -189,15 +188,19 @@ console.log(`Foram gastos ${rodada + 1} turnos para você consagrar-se campeão`
 avancar();
 
 //mudança de reino, mudança de dia
-console.log(`Boa Guerreiro. Este Desafio e este dia se chega ao fim! Uma taverna com boa cama garantirá o seu descanso e a recuperação de algum dano de sua jornada`);
+console.log(`Boa Guerreiro. Este Desafio e este dia se chega ao fim! Uma taverna com boa cama garantirá o seu 
+descanso e a recuperação de algum dano de sua jornada`);
 dia++;
-console.log(`Hoje foi seu dia ${dia} dessa incrível jornada. Sua vida é de ${sujeitoPersonagem.vida} e terá mais 10 acrescido com seu sono reparador`);
-sujeitoPersonagem.vida += 10; 
+console.log(
+	`Hoje foi seu dia ${dia} dessa incrível jornada. Sua vida é de ${sujeitoPersonagem.vida} e terá mais 10 acrescido com seu sono reparador!`
+);
+sujeitoPersonagem.vida += 10;
 
+// ---------------------
 // Adcionar Aqui as missões do Reino 2
 
 //Teste adiciona nova skill
-sujeitoPersonagem.skills.push({ nome: 'Bola de fogo', valor: 50, uso: 3 });
+//sujeitoPersonagem.skills.push({ nome: 'Bola de fogo', valor: 50, uso: 3 });
 
 // Adicionar Aqui a luta do Reino 2
 fight(cerberino, 'Bola de fogo');
@@ -318,13 +321,6 @@ console.clear();
 console.log(sujeitoPersonagem.status());
 console.log(`Foram gastos ${rodada + 1} turnos para definir um campeão`);
 
-console.log();
-if (sujeitoPersonagem.vida <= 0) {
-	console.log(`${sujeitoPersonagem.nome} perdeu a batalha`);
-} else {
-	console.log(`${sujeitoPersonagem.nome} venceu a batalha`);
-}
-
 // --------------------- FUNÇÕES --------------------- //
 
 //Função escolha da bebida
@@ -396,6 +392,14 @@ function fight(mob, skillNome) {
 		}
 
 		rodada++;
+	}
+	console.log();
+	if (sujeitoPersonagem.vida < 1) {
+		console.log(`${sujeitoPersonagem.nome} HP: ${sujeitoPersonagem.vida.toFixed(1)} e ${mob.nome} HP: ${mob.vida.toFixed(1)}`);
+		console.log('Game Over');
+		process.exit(1);
+	} else {
+		console.log(`${sujeitoPersonagem.nome} venceu a batalha`);
 	}
 }
 
