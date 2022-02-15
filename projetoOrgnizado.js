@@ -171,18 +171,24 @@ for (let i = 0; i < 3; ) {
 	}
 	i++;
 }
+avancar();
 
 // Adcionar Aqui a luta do Reino 1
+console.log(`Bem-vindo ao estágio final deste Reino! O final deste e o inicio de novas aventuras! Só há um único problema..`);
+console.log(`Agora você deve passar pelo Gigante Hércules. Com uma aparência simples, com vestimentas feudais mas com um soco poderoso que parece uma forte marreta.`);
+console.log(`Você é esperto. Conseguirá bater mais vezes. Bata o mais rápido que puder, traga a vida dele a zero... antes da sua.`);
+
+console.log(`Hércules aparece: Haha você? Comece.. te dou a oportunidade enquanto vou estralando os dedos..`);
+
 
 fight(gigante, '');
 
 console.clear();
 console.log(sujeitoPersonagem.status());
-console.log(`Foram gastos ${rodada + 1} turnos para definir um campeão`);
+console.log(`Foram gastos ${rodada + 1} turnos para você consagrar-se campeão`);
 avancar();
 
 //mudança de reino, mudança de dia
-
 console.log(`Boa Guerreiro. Este Desafio e este dia se chega ao fim! Uma taverna com boa cama garantirá o seu descanso e a recuperação de algum dano de sua jornada`);
 dia++;
 console.log(`Hoje foi seu dia ${dia} dessa incrível jornada. Sua vida é de ${sujeitoPersonagem.vida} e terá mais 10 acrescido com seu sono reparador`);
