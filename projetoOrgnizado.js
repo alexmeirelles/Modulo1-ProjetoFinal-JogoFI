@@ -191,7 +191,7 @@ avancar();
 //mudança de reino, mudança de dia
 console.log(`Boa Guerreiro. Este Desafio e este dia se chega ao fim! Uma taverna com boa cama garantirá o seu descanso e a recuperação de algum dano de sua jornada`);
 dia++;
-console.log(`Hoje foi seu dia ${dia} dessa incrível jornada. Sua vida é de ${sujeitoPersonagem.vida} e terá mais 10 acrescido com seu sono reparador`);
+console.log(`Hoje foi seu dia ${dia} dessa incrível jornada. Sua vida é de ${sujeitoPersonagem.vida.toFixed(1)} e terá mais 10 acrescido com seu sono reparador`);
 sujeitoPersonagem.vida += 10; 
 
 // Adcionar Aqui as missões do Reino 2
@@ -206,6 +206,13 @@ console.clear();
 console.log(sujeitoPersonagem.status());
 console.log(`Foram gastos ${rodada + 1} turnos para definir um campeão`);
 avancar();
+
+//mudança de reino, mudança de dia
+console.log(`Boa Guerreiro. Este Desafio e este dia se chega ao fim! Uma taverna com boa cama garantirá o seu descanso e a recuperação de algum dano de sua jornada`);
+dia++;
+console.log(`Hoje foi seu dia ${dia} dessa incrível jornada. Sua vida é de ${sujeitoPersonagem.vida.toFixed(1)} e terá mais 10 acrescido com seu sono reparador`);
+sujeitoPersonagem.vida += 10; 
+
 
 //Reino de Gelo
 console.log(
@@ -324,6 +331,13 @@ if (sujeitoPersonagem.vida <= 0) {
 } else {
 	console.log(`${sujeitoPersonagem.nome} venceu a batalha`);
 }
+
+//mudança de reino, mudança de dia
+console.log(`Boa Guerreiro. Este Desafio e este dia se chega ao fim! Uma taverna com boa cama garantirá o seu descanso e a recuperação de algum dano de sua jornada`);
+dia++;
+console.log(`Hoje foi seu dia ${dia}, seu último dia dessa incrível jornada. Sua vida é de ${sujeitoPersonagem.vida.toFixed(1)} e terá mais 10 acrescido com seu sono reparador`);
+sujeitoPersonagem.vida += 10; 
+
 
 // --------------------- FUNÇÕES --------------------- //
 
