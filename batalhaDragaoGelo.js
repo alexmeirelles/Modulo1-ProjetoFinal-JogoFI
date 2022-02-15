@@ -55,9 +55,10 @@ Observação: Somente um esboço inicial
 - dragão usara 3 tipos de ataque dois ramdon e um especial ao atingir um critério
 */
 
-let rodada = 0;
+let rodada;
 
 function fight(mob, skillNome) {
+	rodada = 0;
 	while (sujeitoPersonagem.vida > 0 && mob.vida > 0) {
 		let dano = 0;
 		let escolha = 0;
@@ -114,12 +115,14 @@ function fight(mob, skillNome) {
 
 fight(gigante, '');
 
+console.clear();
 console.log(sujeitoPersonagem.status());
 console.log(`Foram gastos ${rodada} turnos para definir um campeão`);
 avancar();
 
 fight(cerberino, 'Bola de fogo');
 
+console.clear();
 console.log(sujeitoPersonagem.status());
 console.log(`Foram gastos ${rodada} turnos para definir um campeão`);
 avancar();
@@ -168,6 +171,7 @@ function porrada(player, ataque, forca, item, skill) {
 	return golpe;
 }
 
+console.clear();
 console.log(sujeitoPersonagem.status());
 console.log(`Foram gastos ${rodada} turnos para definir um campeão`);
 
