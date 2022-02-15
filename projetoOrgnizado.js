@@ -215,18 +215,17 @@ fight(cerberino, 'Bola de fogo');
 
 console.clear();
 console.log(sujeitoPersonagem.status());
-console.log(`Foram gastos ${rodada + 1} turnos para definir um campeão`);
+console.log(`Foram gastos ${rodada + 1} turnos para você consagrar-se campeão`);
 avancar();
 
 //mudança de reino, mudança de dia
-console.log(
-	`Boa Guerreiro. Este Desafio e este dia se chega ao fim! Uma taverna com boa cama garantirá o seu descanso e a recuperação de algum dano de sua jornada`
-);
+console.log(`Boa Guerreiro. Este Desafio e este dia se chega ao fim! Uma taverna com boa cama garantirá o seu 
+descanso e a recuperação de algum dano de sua jornada`);
 dia++;
 console.log(
 	`Hoje foi seu dia ${dia} dessa incrível jornada. Sua vida é de ${sujeitoPersonagem.vida.toFixed(
 		1
-	)} e terá mais 10 acrescido com seu sono reparador`
+	)} e terá mais 10 acrescido com seu sono reparador!`
 );
 sujeitoPersonagem.vida += 10;
 
@@ -321,7 +320,7 @@ let item = verificaItem('VaraPesca');
 if (item != undefined) {
 	console.log(`Voce tem uma vara de pesca e ela foi usada ${item.valor}x.`);
 	for (let i = 0; i < item.valor; i++) {
-		let adiciona = Math.floor(5 * Math.random() + 5);
+		let adiciona = Math.floor(15 * Math.random() + 5);
 		console.log(`Pesca ${i + 1}: Voce encontrou 1 peixe e recebeu ${adiciona} de vida`);
 		sujeitoPersonagem.vida += adiciona;
 	}
@@ -329,9 +328,9 @@ if (item != undefined) {
 	console.log(
 		'Como voce não tem uma vara de pesca, voce tentou pegar um peixe com a mão. \n' +
 			'Voce até conseguiu pegar um, mas foi um peixe muito pequeno e ainda acabou congelando a mão, \n' +
-			'você ganhou apenas 2 de vida pelo peixe, mas perdeu 15 de stamina pela mão congelada!'
+			'você ganhou apenas 10 de vida pelo peixe, mas perdeu 15 de stamina pela mão congelada!'
 	);
-	sujeitoPersonagem.vida += 2;
+	sujeitoPersonagem.vida += 10;
 	sujeitoPersonagem.stamina -= 15;
 }
 
@@ -339,17 +338,17 @@ if (item != undefined) {
 fight(dragaoGelo, 'Bola de fogo');
 console.clear();
 console.log(sujeitoPersonagem.status());
-console.log(`Foram gastos ${rodada + 1} turnos para definir um campeão`);
+console.log(`Foram gastos ${rodada + 1} turnos para você consagrar-se campeão`);
+avancar();
 
 //mudança de reino, mudança de dia
-console.log(
-	`Boa Guerreiro. Este Desafio e este dia se chega ao fim! Uma taverna com boa cama garantirá o seu descanso e a recuperação de algum dano de sua jornada`
-);
+console.log(`Boa Guerreiro. Este Desafio e este dia se chega ao fim! Uma taverna com boa cama garantirá o seu 
+descanso e a recuperação de algum dano de sua jornada`);
 dia++;
 console.log(
-	`Hoje foi seu dia ${dia}, seu último dia dessa incrível jornada. Sua vida é de ${sujeitoPersonagem.vida.toFixed(
+	`Hoje foi seu dia ${dia} dessa incrível jornada. Sua vida é de ${sujeitoPersonagem.vida.toFixed(
 		1
-	)} e terá mais 10 acrescido com seu sono reparador`
+	)} e terá mais 10 acrescido com seu sono reparador!`
 );
 sujeitoPersonagem.vida += 10;
 
