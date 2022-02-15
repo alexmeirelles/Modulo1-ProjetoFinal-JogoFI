@@ -35,7 +35,6 @@ var sujeitoPersonagem = {
   },
 };
 
-
 console.log(`
 ${sujeitoPersonagem.status()}
 
@@ -66,15 +65,14 @@ do {
   era Cerberino, o cão abestado.`);
   avancar();
   fight("Cerberino", 100, 10, 9);
-
+  avancar();
   console.log(`Após derrotar Cerberino, você entra no nível em que estão os apostadores. Hora de testar
   sua sorte.`);
-
+  avancar();
   diceGame(3);
 
   var again = prompt("Você gostaria de seguir para o proximo reino? ");
 } while (again == "nao" || again == "n");
-
 
 // ************************** FUNÇÕES **************************************************
 
@@ -115,33 +113,34 @@ function fight(mobNAME, mobHP, mobDEF, mobATQ) {
 function diceGame(rounds) {
   do {
     let zoa = 0;
-    var diceChoice = +prompt(
-      "Escolha o tamanho do dado a ser utilizado (somente número) D =>"
+    console.log(
+      `Agora você jogará nos dados contra lendas das apostas - deuses do caos, caso seja ousado. `
     );
-    if (Number.isInteger(diceChoice) == false) {
+    var diceChoice = +prompt(
+      "Escolha quantos lados terá o dado (somente número < 100) => D"
+    );
+    if (
+      Number.isInteger(diceChoice) == false ||
+      diceChoice > 100 ||
+      diceChoice < 0
+    ) {
       console.log("Somente números.");
       if (zoa > 1) {
         console.log(
-          "Virgilio: Você está de brinquedo com a minha cara?!  ESCOLHE UM NÚMERO kkk"
+          "Virgilio - O Poeteiro: Você está de brinquedo com a minha cara?!  ESCOLHE UM NÚMERO kkk"
         );
       }
       zoa++;
     }
   } while (Number.isInteger(diceChoice) == false);
-  var playerN = +prompt("Contra quantos jogadores você quer jogar? ");
+  do {
+    var playerN = +prompt(
+      "Contra quantos jogadores você quer jogar? (somente número < 5) "
+    );
+  } while (Number.isInteger(playerN) == false || playerN > 5 || playerN < 0);
   var players = [
     {
       nome: p1,
-      jogada: [],
-      vitorias: 0,
-    },
-    {
-      nome: "Negreanu",
-      jogada: [],
-      vitorias: 0,
-    },
-    {
-      nome: "Phill Ivey",
       jogada: [],
       vitorias: 0,
     },
@@ -151,12 +150,22 @@ function diceGame(rounds) {
       vitorias: 0,
     },
     {
+      nome: "Phill Ivey",
+      jogada: [],
+      vitorias: 0,
+    },
+    {
+      nome: "Negreanu",
+      jogada: [],
+      vitorias: 0,
+    },
+    {
       nome: "Amarillo Slim",
       jogada: [],
       vitorias: 0,
     },
     {
-      nome: "RNGesus, Himself",
+      nome: "RNGesus - Himself",
       jogada: [],
       vitorias: 0,
     },
@@ -169,7 +178,19 @@ function diceGame(rounds) {
       playerList.push(players[m].nome);
     }
     console.log(`Você está jogando contra ${playerList}`);
-
+    var observers = [];
+    for (let i2 = 0; i2 < playerN + 1; i2++) {
+      if (playerList.includes(playerList[j].nome) == false) {
+        observers.push(playerList[j].nome);
+      }
+    }
+    if (playerN < 5) {
+      console.log(`${observers} apenas observam os meros mortais `);
+    } else if ((playerN = 5)) {
+      console.log(`RNGesus está com medo/tranquilo, afinal ele é a dualidade,
+      ele é caos personificado e o paradoxo existencial. `);
+    }
+    avancar();
     do {
       var p11 = prompt(`Jogar dado, ${p1} ?`);
     } while (
@@ -180,7 +201,7 @@ function diceGame(rounds) {
       p11 == "no"
     );
     let dado = Math.ceil(Math.random() * diceChoice);
-    console.log("dado", dado);
+
     players[0].jogada.push(dado);
     turn.push(dado);
     //outros jogadores
@@ -189,12 +210,10 @@ function diceGame(rounds) {
       players[i].jogada.push(dado);
       turn.push(dado);
     }
-    console.log(players);
-    console.log(turn);
     turn.sort((a, b) => {
       return b - a;
     });
-    console.log(turn, "apos sort");
+
     if (turn[0] != turn[1]) {
       for (let l = 0; l < playerN + 1; l++) {
         if (players[l].jogada[j] == turn[0]) {
@@ -202,6 +221,8 @@ function diceGame(rounds) {
         }
       }
     }
+    console.log("placar", players);
+    console.log("Sua jogada", dado);
   }
   players.sort((a, b) => {
     return b.vitorias - a.vitorias;
@@ -213,19 +234,19 @@ function diceGame(rounds) {
     console.log("Nao houve ganhador.");
   }
 
-  if (players[0].nome == p1) {
+  if (players[0].nome == p1 && players[0].vitorias != players[1].vitorias) {
     console.log("Você ganhou, cabra da peste. ");
     //adicionar recompensas nos cases abaixo
-    switch (playerN){
-      case 1: 
+    switch (playerN) {
+      case 1:
         console.log("recompensa 1");
-      case 2: 
+      case 2:
         console.log("recompensa 2");
-      case 3: 
+      case 3:
         console.log("recompensa 3");
-      case 4: 
+      case 4:
         console.log("recompensa 4");
-      case 5: 
+      case 5:
         console.log("recompensa 5");
     }
   }
