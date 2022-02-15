@@ -42,15 +42,13 @@ ${sujeitoPersonagem.status()}
 
 Você encontra uma figura raquítica, um senhor, que diz: Antes de mais nada você tem que responder 
 algumas perguntas (nunca se sabe, de repente você ganha algo)! 
-Será que conhece o inferno?!?!?
 Você se parece muito com Dante. Boa sorte!`);
 
 avancar();
 console.log(`${sujeitoPersonagem.status()}`);
 
-var p1r2 = prompt("Quantos níveis tem nessa montanha? ");
-var p2r2 = prompt("Qual o crime mais grave desta região? ");
-var p3r2 = prompt("Quem sou eu? ");
+//enigma
+
 console.log(`Você acaba de conhecer Caronte, o barqueiro. Sujeito grave, taciturno, "poucas ideias".
 
 Neste reino tudo o que te aguarda são desafios e desventuras. Prepare-se.`);
@@ -111,18 +109,20 @@ function fight(mobNAME, mobHP, mobDEF, mobATQ) {
 }
 
 function diceGame(rounds) {
+  console.log(
+    `Agora você jogará ${rounds} dados contra lendas das apostas - deuses do caos, caso seja ousado. `
+  );
   do {
     let zoa = 0;
-    console.log(
-      `Agora você jogará nos dados contra lendas das apostas - deuses do caos, caso seja ousado. `
-    );
+
     var diceChoice = +prompt(
       "Escolha quantos lados terá o dado (somente número < 100) => D"
     );
     if (
       Number.isInteger(diceChoice) == false ||
       diceChoice > 100 ||
-      diceChoice < 0
+      diceChoice < 0 ||
+      diceChoice != ""
     ) {
       console.log("Somente números.");
       if (zoa > 1) {
@@ -132,12 +132,17 @@ function diceGame(rounds) {
       }
       zoa++;
     }
-  } while (Number.isInteger(diceChoice) == false);
+  } while (Number.isInteger(diceChoice) == false || diceChoice == "");
   do {
     var playerN = +prompt(
       "Contra quantos jogadores você quer jogar? (somente número < 5) "
     );
-  } while (Number.isInteger(playerN) == false || playerN > 5 || playerN < 0);
+  } while (
+    Number.isInteger(playerN) == false ||
+    playerN > 5 ||
+    playerN < 0 ||
+    playerN == ""
+  );
   var players = [
     {
       nome: p1,
