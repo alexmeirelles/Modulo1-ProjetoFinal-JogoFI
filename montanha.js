@@ -122,7 +122,7 @@ function diceGame(rounds) {
       Number.isInteger(diceChoice) == false ||
       diceChoice > 100 ||
       diceChoice < 0 ||
-      diceChoice != ""
+      diceChoice == '' 
     ) {
       console.log("Somente números.");
       if (zoa > 1) {
