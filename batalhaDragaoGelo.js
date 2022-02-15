@@ -112,7 +112,7 @@ function fight(mob, skillNome) {
 	}
 }
 
-fight(gigante, 'Agua');
+fight(gigante, '');
 
 console.log(sujeitoPersonagem.status());
 console.log(`Foram gastos ${rodada} turnos para definir um campeão`);
