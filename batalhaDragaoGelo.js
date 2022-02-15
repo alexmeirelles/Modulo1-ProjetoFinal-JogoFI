@@ -113,6 +113,14 @@ function fight(mob, skillNome) {
 
 		rodada++;
 	}
+	console.log();
+	if (sujeitoPersonagem.vida < 1) {
+		console.log(`${sujeitoPersonagem.nome} HP: ${sujeitoPersonagem.vida.toFixed(1)} e ${mob.nome} HP: ${mob.vida.toFixed(1)}`);
+		console.log('Game Over');
+		process.exit(1);
+	} else {
+		console.log(`${sujeitoPersonagem.nome} venceu a batalha`);
+	}
 }
 
 fight(gigante, '');
@@ -130,13 +138,6 @@ console.log(`Foram gastos ${rodada + 1} turnos para definir um campeão`);
 avancar();
 
 fight(dragaoGelo, 'Bola de fogo');
-
-console.log();
-if (sujeitoPersonagem.vida <= 0) {
-	console.log(`${sujeitoPersonagem.nome} perdeu a batalha`);
-} else {
-	console.log(`${sujeitoPersonagem.nome} venceu a batalha`);
-}
 
 function porrada(player, ataque, forca, item, skill) {
 	let golpe = 0;
