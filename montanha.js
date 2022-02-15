@@ -47,7 +47,7 @@ Você se parece muito com Dante. Boa sorte!`);
 avancar();
 console.log(`${sujeitoPersonagem.status()}`);
 
-//enigma
+enigma();
 
 console.log(`Você acaba de conhecer Caronte, o barqueiro. Sujeito grave, taciturno, "poucas ideias".
 
@@ -260,4 +260,23 @@ function diceGame(rounds) {
         console.log("recompensa 5");
     }
   }
+}
+
+function enigma(){
+  console.log('ENIGMA');
+  console.log(`Eu sou uma variável, mudo a todo instante e possui uma característica estática:
+   estou sempre a sua frente.`);
+  do{
+    var r1 = prompt('Quem sou eu? ');
+    let choice2List = [
+      'Futuro',
+      'futuro',
+      'O futuro',
+      'o futuro',
+      'O Futuro',
+      'o Futuro'
+    ];
+  }while (choice2List.includes(r1)==false);
+
+  // adicionar aqui a skill bola de fogo depois da resposta
 }
