@@ -70,6 +70,7 @@ const dragaoGelo = {
 
 //Variaveis de controle
 let rodada;
+let dia = 0;
 
 // ---- Reino 1 : Floresta Tropical / Condado ---- //
 console.log(`Bom Dia Guerreiro! Espero que tenha descansado bem, uma nova sequencia de aventura
@@ -179,6 +180,13 @@ console.clear();
 console.log(sujeitoPersonagem.status());
 console.log(`Foram gastos ${rodada + 1} turnos para definir um campeão`);
 avancar();
+
+//mudança de reino, mudança de dia
+
+console.log(`Boa Guerreiro. Este Desafio e este dia se chega ao fim! Uma taverna com boa cama garantirá o seu descanso e a recuperação de algum dano de sua jornada`);
+dia++;
+console.log(`Hoje foi seu dia ${dia} dessa incrível jornada. Sua vida é de ${sujeitoPersonagem.vida} e terá mais 10 acrescido com seu sono reparador`);
+sujeitoPersonagem.vida += 10; 
 
 // Adcionar Aqui as missões do Reino 2
 

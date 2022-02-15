@@ -1,299 +1,459 @@
-var prompt = require("prompt-sync")();
-console.log();
-console.log("/--------------------------------------------/");
-console.log("***        Bem-vindo ao OuterWorld!        ***");
-console.log("/--------------------------------------------/");
-console.log();
-const nome = prompt("Qual o nome do seu, guerreiro? ");
-console.log();
-console.log(`Ah Nobre Guerreiro ${nome}!! Eu já lhe aguardava! A Princesa Astrid já havia me dito de sua chegada.. `);
-console.log(`Seu nome por essas bandas já é famoso e sei que você veio para provar as aventuras de nosso Vale. Ele não é brincadeira não, muitos aventureiros já ficaram pelo caminho. Mas, você, eu sei que você é de uma graduação diferente!`);
-console.log(`Como você viajou o dia todo, peço que você se junte ao nosso salão principal, hoje é dia de Cordeiro e do vinho das Montanhas de Ziu! Um espetáculo, embalará o seu sono.. `);
-console.log(`Amanha você partirá, após nosso café Imperial. Uma dose de carboidrato e proteínas lhe deixarão pronto para desfiladeiros e Dragões `);
+//Chamada do Prompt
+var prompt = require('prompt-sync')();
 
-var danoRecebido = 0;
+//limpa o console na inicialização
+console.clear();
 
+//Inicio
+console.log();
+console.log('/--------------------------------------------/');
+console.log('***        Bem-vindo ao OuterWorld!        ***');
+console.log('/--------------------------------------------/');
+console.log();
+
+//Inserir nome do personagem
+const nome = prompt('Qual o nome do seu guerreiro? ');
+
+//Apresenta a introdução ao jogador
+console.log(`
+Ah Nobre Guerreiro ${nome}!! Eu já lhe aguardava! A Princesa Astrid já havia
+me dito de sua chegada. Seu nome por essas bandas já é famoso e sei que você
+veio para provar as aventuras de nosso Vale. Ele não é brincadeira não, muitos
+aventureiros já ficaram pelo caminho. Mas, você, eu sei que você é de uma
+graduação diferente!
+`);
+
+avancar();
+
+console.log(`
+Como você viajou o dia todo, peço que você se junte ao nosso salão principal,
+hoje é dia de Cordeiro e do vinho das Montanhas de Ziu! Um espetáculo, embalará
+o seu sono...`);
+console.log(`
+Amanha você partirá, após nosso café Imperial. Uma dose de carboidrato e proteínas
+lhe deixarão pronto para desfiladeiros e Dragões!`);
+
+avancar();
+
+//Controi o personagem e seus atributos
 const sujeitoPersonagem = {
-  nome: nome,
-  vida: 5,
-  stamina: 10,
-  itens: [],
-  porrada: function () {
-      // caso ache melhor um retorno com mais casas decimais, basta aumentar argumento de toFixed
-    const dano =
-      0.3 * this.vida + 0.5 * parseFloat((this.stamina * Math.random()).toFixed(1)) + 0.2 * this.itens;
-    return dano;
-  },
+	nome: nome,
+	vida: 100,
+	stamina: 100,
+  ataque: 5,
+	itens: [],
+	skills: [],
+	status: function () {
+		var status = `${this.nome} | Vida: ${this.vida.toFixed(1)} Stamina: ${this.stamina} `;
+		return status;
+	},
 };
-console.log(sujeitoPersonagem.nome);
 
-//a função porrada retorna o valor de dano. Nao é possivel invocar a variável dano
+//Constroi os Mobs e seus atributos
+const gigante = {
+	nome: 'Hercules',
+	vida: 100,
+	ataque: 2,
+};
 
-console.log(sujeitoPersonagem.porrada());
+const cerberino = {
+	nome: 'Cerberino',
+	vida: 120,
+	ataque: 3,
+};
 
-// Adicionando nova skill
-sujeitoPersonagem.bolaDeFogo = function bolaDeFogo() {
-    // caso ache melhor um retorno com mais casas decimais, basta aumentar argumento de toFixed
-  const dano =
-    0.7 * this.vida + 0.5 * parseFloat((this.stamina * Math.random()).toFixed(1)) + 0.2 * this.itens;
-  return dano;
-},
+const dragaoGelo = {
+	nome: 'Viserion',
+	vida: 150,
+	ataque: 5,
+};
 
+//Variaveis de controle
+let rodada;
+let dia = 0;
 
-console.log(sujeitoPersonagem);
-console.log(`Dano bola de fogo= ${sujeitoPersonagem.bolaDeFogo()}`);
+// ---- Reino 1 : Floresta Tropical / Condado ---- //
+console.log(`Bom Dia Guerreiro! Espero que tenha descansado bem, uma nova sequencia de aventura
+ nos aguarda e vai exigir muito de sua disposição, habilidades e sorte.
+Um café forte é uma bela pedida, depois de um banho gelado nas Cascatas de Xelim. 
+Você agora precisa se equipar, na saída do condado há varios caminhos para serem escolhidos..`);
 
-function sleep(milliseconds) {
-  var start = new Date().getTime();
-  for (var i = 0; i < 1e7; i++) {
-      if (new Date().getTime() - start > milliseconds) {
-          break;
-      }
-  }
+// Colheita com o Elfo Armador
+while (caminho != 'bosque' && caminho != 'ferreiro' && caminho != 'exercito') {
+	console.log('Que caminho você gostaria de iniciar? ');
+	var caminho = prompt('Para escolher digite: Bosque, Ferreiro ou Exercito. ');
+	let item;
+
+	switch (caminho.toLowerCase()) {
+		case 'bosque':
+			console.clear();
+			console.log('Voce optou pelo Bosque. Daqui vc tem duas opcoes de itens.');
+			item = prompt('Escolha um item e digite: Pocao ou Dinheiro. ');
+			if (item.trim().toLowerCase() == 'pocao') {
+				console.log('Voce pegou o item: POÇÃO');
+				sujeitoPersonagem.itens.push({ nome: 'pocao', valor: 10 });
+			} else {
+				console.log('Voce pegou o item: Dinheiro');
+				sujeitoPersonagem.itens.push({ nome: 'dinheiro', valor: 5 });
+			}
+			break;
+
+		case 'ferreiro':
+			console.clear();
+			console.log(
+				'Voce optou pelo Ferreiro. Não é uma caminhada longa, ele faz muitos adornos\n' +
+					'as elites e não pode se distanciar muito do palácio do Rei. Daqui vc tem duas opcoes..'
+			);
+			item = prompt(`Escolha um item e digite: Armadura ou Escudo. `);
+			if (item.trim().toLowerCase() == 'armadura') {
+				console.log('Voce pegou o item: Armadura');
+				sujeitoPersonagem.itens.push({ nome: 'armadura', valor: 15 });
+			} else {
+				console.log('Voce pegou o item: Escudo');
+				sujeitoPersonagem.itens.push({ nome: 'escudo', valor: 20 });
+			}
+			break;
+
+		case 'exercito':
+			console.clear();
+			console.log(
+				'Voce optou ir visitar a artilharia pesada. Você considera que é bom estar armado para \n' +
+					'sua jornada. Bem pensado, afinal, quais desafios você pode encontrar pelo caminho!? \n' +
+					'E como transpo-los sem nada na mão!?'
+			);
+			console.log(
+				'Você chega e é recepcionado pelo Sargeto Orveu, ele é o responsável pelas armas de \n' +
+					'combate e já aguardava a sua chegada. Orveu tem uma presença dominante e não é de \n' +
+					'muitas palavras. Pergunta rapidamente qual será a sua jornada, o que possivelmente você \n' +
+					'irá enfrentar e pega dos itens a mão. Uma espada e uma foice. '
+			);
+			item = prompt('Escolha um item e digite: Foice ou Espada. ');
+			if (item.trim().toLowerCase() == 'espada') {
+				console.log('Voce pegou o item: Espada');
+				sujeitoPersonagem.itens.push({ nome: 'espada', valor: 20 });
+			} else {
+				console.log('Voce pegou o item: Foice');
+				sujeitoPersonagem.itens.push({ nome: 'foice', valor: 10 });
+			}
+			break;
+
+		default:
+			console.clear();
+			console.log(`Desculpe, o caminho ${caminho} não existe. \n`);
+	}
 }
 
-sleep(500);
-
-
-//----------------------------------------------------------------//
-
-
-
-//Reino 1 : Floresta Tropical / condado/ 
-console.log(`Bom Dia Guerreiro! Espero que tenha descansado bem, uma nova sequencia de aventura nos aguarda e vai exigir muito de sua disposição, habilidades e sorte.
-Um café forte é uma bela pedida, depois de um banho gelado nas Cascatas de Xelim. Você agora precisa se equipar, na saída do condado há varios caminhos para serem escolhidos..`);
-
-
-var caminho = prompt(`Que caminho você gostaria de iniciar? Digite Bosque, Ferreiro ou Exercito`);
-
-while (caminho != `bosque` && caminho != `ferreiro` && caminho != `exercito`);
-switch (caminho) {
-  case "bosque":
-    console.log("Voce optou pelo bosque. Daqui vc tem duas opcoes de itens.");
-    var itembosque = prompt(`Quer qual das duas opcoes, que leva a pocao ou ao xxx?`);
-    if(itembosque.toLowerCase == "pocao"){
-      console.log("voce pegou a pocao de item");
-      sujeitoPersonagem.itens.push({
-        item: "pocao",
-        valor: 30
-      });
-    }else {
-      console.log("voce pegou o dinheiro de item");
-      sujeitoPersonagem.itens.push({
-        item: "dinheiro",
-        valor: 30
-      });
-    }
-    break;
-  case "ferreiro":
-    console.log("Voce optou pelo Ferreiro. Não é uma caminhada longa, ele faz muitos adornos as elites e não pode se distanciar muito do palácio do Rei. Daqui vc tem duas opcoes..");
-    var itemferreiro = prompt(`Quer qual das duas opcoes, Armadura ou Escudo?`);
-    if(itemferreiro.toLowerCase == "armadura"){
-      console.log("voce pegou a armadura de item");
-      sujeitoPersonagem.itens.push({
-        item: "armadura",
-        valor: 30
-    });
-  }else {
-      console.log("voce pegou o escudo de item");
-      sujeitoPersonagem.itens.push({
-        item: "escudo",
-        valor: 30
-      });
-    }
-    break;
-  case "exercito":
-    console.log("Voce optou ir visitar a artilharia pesada. Você considera que é bom estar armado para sua jornada. Bem pensado, afinal, quais desafios você pode encontrar pelo caminho!? E como transpo-los sem nada na mão!?");
-    var itemexercito = prompt(`Você chega e é recepcionado pelo Sargeto Orveu, ele é o responsável pelas armas de combate e já aguardava a sua chegada. Orveu tem uma presença dominante e não é de muitas palavras. Pergunta rapidamente qual será a sua jornada, o que possivelmente você irá enfrentar e pega dos itens a mão. Uma espada e uma foice. Quer qual das duas opcoes, digite foice ou espada: `);
-    if(itemexercito.toLowerCase == "espada"){
-      console.log("voce pegou a espada de item");
-      sujeitoPersonagem.itens.push({
-        item: "espada",
-        valor: 30
-      });
-    }else {
-      console.log("voce pegou a foice de item");
-      sujeitoPersonagem.itens.push({
-        item: "foice",
-        valor: 30
-      });
-    }
-    break;
-  default:
-}
+avancar();
 
 console.log(`Você chegou na Adega do Gnomo! Aqui muitos guerreiros vem para descansar e tomar uns drinks.
-Papo vai, Papo vem e você foi desafiado para uma roleta russa com os drinks de um mago poderoso do local. 
-São 3 rodadas de shots e duas das três bebidas não fazem bem para sua saude. Uma tirará meio ponto de vida
-e a outra tirará um ponto. Espero que você escolha a certa todas as vezes, grande Guerreiro!`);
-
+Papo vai, Papo vem e você foi desafiado para uma roleta russa com os drinks de um mago poderoso 
+do local. São 3 rodadas de shots e duas das três bebidas não fazem bem para sua saude. 
+Uma tirará meio ponto de vidae a outra tirará um ponto. 
+Espero que você escolha a certa todas as vezes, grande Guerreiro!`);
 
 for (let i = 0; i < 3; ) {
-  var opcao = prompt(
-    'Qual é a sua opcao pra essa rodada? Digite Azul, Vermelha, ou Verde: '
-  );
-  var resposta = Math.floor(Math.random() * 3 + 1);
-  console.log(resposta);
+	avancar();
+	console.log(`Rodada ${i + 1} \n`);
+	var opcao = prompt('Qual é a sua opcao pra essa rodada? Digite Azul, Vermelha, ou Verde: ');
+	var resposta = Math.floor(Math.random() * 3 + 1);
+	console.log(resposta);
 
-  if (opcao.trim().toLowerCase() == 'azul') {
-    bebidaEscolhida(opcao, resposta);
-  } else if (opcao.trim().toLowerCase() == 'vermelha') {
-    bebidaEscolhida(opcao, resposta);
-  } else if (opcao.trim().toLowerCase() == 'verde') {
-    bebidaEscolhida(opcao, resposta);
-  } else {
-    console.log('Opção inválida! Digite a palavra!\n');
-    continue;
-  }
-  i++;
+	if (opcao.trim().toLowerCase() == 'azul') {
+		bebidaEscolhida(opcao, resposta);
+	} else if (opcao.trim().toLowerCase() == 'vermelha') {
+		bebidaEscolhida(opcao, resposta);
+	} else if (opcao.trim().toLowerCase() == 'verde') {
+		bebidaEscolhida(opcao, resposta);
+	} else {
+		console.clear();
+		console.log('Opção inválida! Digite a palavra!');
+		continue;
+	}
+	i++;
 }
 
-function bebidaEscolhida(opcao, resposta) {
-  console.log(`\nVocê escolheu a bebida ${opcao}. `);
-  if (resposta == 1) {
-    console.log('Você perdeu uma vida.\n');
-  } else if (resposta == 2) {
-    console.log('Você perdeu meia vida.\n');
-  } else {
-    console.log('Escapou! Não perdeu vida.\n');
-  }
-}
+// Adcionar Aqui a luta do Reino 1
 
-         
-console.log(`Bem-vindo ao estágio final deste Reino! O final deste e o inicio de novas aventuras! Só há um único problema..`);
-console.log(`Agora você deve passar pelo Gigante Hércules. Com uma aparência simples, com vestimentas feudais mas com um soco poderoso que parece uma forte marreta.`);
-console.log(`Você é esperto. Conseguirá bater mais vezes. Bata o mais rápido que puder, traga a vida dele a zero... antes da sua.`);
+fight(gigante, '');
 
-console.log(`Hércules aparece: Haha você? Comece.. te dou a oportunidade enquanto vou estralando os dedos..`);
-
-while (Gigante.vida > 0 && sujeitoPersonagem.vida > 0){
-sujeitoPersonagem.porrada
-console.log(`Seu primeiro golpe tira ${sujeitoPersonagem.porrada(dano)} de vida do Gigante Hércules}`);
-
-sujeitoPersonagem.porrada
-console.log(`Seu segundo golpe tira ${sujeitoPersonagem.porrada(dano)} de vida do Gigante Hércules}`);
-
-sujeitoPersonagem.porrada
-console.log(`Seu terceiro golpe tira ${sujeitoPersonagem.porrada(dano)} de vida do Gigante Hércules}`);
-
-
-console.log(`Ataque Total : Você tirou x pontos de vida do Gigante Hércules, que ainda tem x de vida`);
-
-console.clear;
-
-console.log(`Agora é a minha vez, bonitão..`);
-
-let dano = sujeitoPersonagem.vida - 1
-console.log(`O Golpe Marretada de Hércules lhe tira uma vida. Você ainda tem ${dano} de vida. `);
-
-console.log(``);
-}
-
-console.log(`Você derrotou o Gigante Hércules`);
-
-
-
-
-//----------------------------------------------------------------//
 console.clear();
-console.log(`
-"Abandone toda a esperança, você que entra por esses portões."
+console.log(sujeitoPersonagem.status());
+console.log(`Foram gastos ${rodada + 1} turnos para definir um campeão`);
+avancar();
 
-Você encontra uma figura raquítica, um senhor, que diz: Antes de mais nada você tem que responder 
-algumas perguntas (nunca se sabe, de repente você ganha algo)! Será que conhece o inferno?!?!?
-Você se parece muito com Dante. Boa sorte!`);
+//mudança de reino, mudança de dia
 
-var p1r2= prompt('Quantos níveis tem nessa montanha?');
-var p2r2= prompt('Qual o crime mais grave desta região?');
-var p3r2= prompt('Quem sou eu?');
+console.log(`Boa Guerreiro. Este Desafio e este dia se chega ao fim! Uma taverna com boa cama garantirá o seu descanso e a recuperação de algum dano de sua jornada`);
+dia++;
+console.log(`Hoje foi seu dia ${dia} dessa incrível jornada. Sua vida é de ${sujeitoPersonagem.vida} e terá mais 10 acrescido com seu sono reparador`);
+sujeitoPersonagem.vida += 10; 
 
-//se responder correto dar a skill boladefogo
+// Adcionar Aqui as missões do Reino 2
 
-console.log(`Você deve ter conhecido Caronte, o barqueiro. Sujeito grave, taciturno, "poucas ideias".
+//Teste adiciona nova skill
+sujeitoPersonagem.skills.push({ nome: 'Bola de fogo', valor: 50, uso: 3 });
 
-Neste reino tudo o que te aguarda são desafios e desventuras. Prepare-se.`)
+// Adicionar Aqui a luta do Reino 2
+fight(cerberino, 'Bola de fogo');
 
-sleep(20000);
 console.clear();
-console.log(`${sujeitoPersonagem.nome}`)
-
-
-/*
-- Dentro Vulcão/montanha
-* Labirinto - pasagem de tempo
-*
-* Luta chefão minotauro - vida - dinheiro/itens
-
-
-
-//----------------------------------------------------------------//
-
-
-- Reino Gelo
-* Velho Misterioso - Jogar cara ou coroa para ganhar uma rede de pesca
-* Pescar pela sobrevivencia - Se tiver a rede de pesca pega peixes que restauram de 60% a 80%
-se não tiver a rede de pescar ele pesca so um peixe que restaura até 20%
-* Luta chefão Dragão de gelo - vida - dinheiro/itens
+console.log(sujeitoPersonagem.status());
+console.log(`Foram gastos ${rodada + 1} turnos para definir um campeão`);
+avancar();
 
 //Reino de Gelo
-// O personagem se depara com um velho misterioso que lhe oferece uma rede de pesca para
-// pegar peixes e se alimentar recuperando um pouco de vida/energia
-// Mas para conseguir rede o personagem deve jogar cara ou coroa com o velho
-// O jogo tem 3 rodas
+console.log(
+	`${sujeitoPersonagem.nome}, você acaba de chegar na Cidade do Gelo! Uma nevasca nunca antes 
+vista devastou completamente esta cidade e por isso recebeu tal nome. 
+Aqui os recursos são escassos e logo voce precisará de comida!
+`
+);
 
+avancar();
+
+console.log(
+	`Após alguns passos para dentro da cidade, você se depara com um velho misterioso.
+Ele carrega consigo uma vara de pescar. Você se aproxima dele e pergunta como conseguir
+algo para comer. O velho olha para você com um sorriso deboxado e diz que existe um
+buraco cortado no gelo a 1km ao norte, e que ali existem peixes. 
+`
+);
+
+avancar();
+
+console.log(
+	`Ele logo te adverte que é muito perigoso tentar pegar um peixe sem uma vara de pescar.
+Você pergunta onde encontrar uma vara de pescar e ele te faz uma proposta:
+A vara de percar que ele tinha foi tirada de um cadaver que estava congelado.
+Ele então te oferece a vara de pescar mas tem um preço, vocês devem jogar cara ou coroa!
+São 3 rodas, se você ganhar duas, a vara de pesca será sua! 
+`
+);
+
+avancar();
+
+// Jogo Cara ou Coroa
 let vitoriaPersonagem = 0;
 let vitoriaVelho = 0;
 
 for (let i = 0; i < 3; i++) {
-  let escolhaVelho = 0;
-  let escolhaPersonagem = 0;
-  let faceMoeda = 0;
+	let escolhaPersonagem;
+	let escolhaVelho;
+	let faceMoeda;
 
-  do {
-    console.log(`\nRodada ${i + 1}\n`);
-    escolhaPersonagem = parseInt(
-      prompt('Escolha uma opção: 1 - Cara | 2 - Coroa: ')
-    );
-    if (escolhaPersonagem == 1) {
-      escolhaVelho = 2;
-    } else if (escolhaPersonagem == 2) {
-      escolhaVelho = 1;
-    } else {
-      console.log('Opção inválida!! \n');
-    }
-    faceMoeda = Math.floor(2 * Math.random() + 1);
-  } while (escolhaPersonagem != 1 && escolhaPersonagem != 2);
+	do {
+		console.clear();
+		console.log(`\nRodada ${i + 1}\n`);
+		escolhaPersonagem = parseInt(prompt('Escolha uma opção: 1 - Cara | 2 - Coroa: '));
+		if (escolhaPersonagem == 1) {
+			escolhaVelho = 2;
+		} else if (escolhaPersonagem == 2) {
+			escolhaVelho = 1;
+		} else {
+			console.log('Opção inválida!! \n');
+		}
+		faceMoeda = Math.floor(2 * Math.random() + 1);
+	} while (escolhaPersonagem != 1 && escolhaPersonagem != 2);
 
-  if (escolhaPersonagem == faceMoeda) {
-    vitoriaPersonagem++;
-  } else {
-    vitoriaVelho++;
-  }
+	if (escolhaPersonagem == faceMoeda) {
+		vitoriaPersonagem++;
+	} else {
+		vitoriaVelho++;
+	}
 
-  console.log(
-    `Placar: Velho: ${vitoriaVelho} Personagem: ${vitoriaPersonagem}`
-  );
+	console.log(`Placar: Velho: ${vitoriaVelho} | ${nome}: ${vitoriaPersonagem}`);
+	avancar();
 }
 
 if (vitoriaPersonagem > vitoriaVelho) {
-  console.log('\nParabens! \nVocê ganhou o duelo e recebeu uma rede de pesca!');
+	console.log('\nParabens! \nVocê ganhou o duelo e recebeu uma vara de pescar!');
+	sujeitoPersonagem.itens.push({ nome: 'VaraPesca', valor: 3 });
 } else {
-  console.log('\nQue pena! \nVocê perdeu o duelo!');
+	console.log('\nQue pena! \nVocê perdeu o duelo!');
 }
 
+avancar();
 
+console.log(
+	`O velho simplesmente desapareceu e você continuou seguindo seu caminho! E exatamente
+após andar 1Km ao norte, você avistou um buraco cortado no gelo. A fome é tanta que você
+correu e foi tentar pegar um peixe para se alimentar!
+`
+);
 
-// Pescar pela sobrevivencia - Se tiver a rede de pesca pega peixes que restauram de 50% a 70%
-// da vida/energia. Se não tiver a rede de pescar ele usa outro item e pesca so um peixe que restaura até 20%
+avancar();
 
-// if(iten existe na sacola de itens){
-//     faz um random para recuperar de 50% a 70% da vida/energia
-// }else{
-//     faz um randon para recuperar até 20%
-// }
+// Pescar pela sobrevivencia
 
+//Verifica se o objeto existe
+let item = verificaItem('VaraPesca');
 
-// Luta chefão Dragão de gelo - vida - dinheiro/itens
+// Se o item retornar undefined ele não existe
+if (item != undefined) {
+	console.log(`Voce tem uma vara de pesca e ela foi usada ${item.valor}x.`);
+	for (let i = 0; i < item.valor; i++) {
+		let adiciona = Math.floor(5 * Math.random() + 5);
+		console.log(`Pesca ${i + 1}: Voce encontrou 1 peixe e recebeu ${adiciona} de vida`);
+		sujeitoPersonagem.vida += adiciona;
+	}
+} else {
+	console.log(
+		'Como voce não tem uma vara de pesca, voce tentou pegar um peixe com a mão. \n' +
+			'Voce até conseguiu pegar um, mas foi um peixe muito pequeno e ainda acabou congelando a mão, \n' +
+			'você ganhou apenas 2 de vida pelo peixe, mas perdeu 15 de stamina pela mão congelada!'
+	);
+	sujeitoPersonagem.vida += 2;
+	sujeitoPersonagem.stamina -= 15;
+}
 
-//Implementar aqui a mesma logica dos outros chefões
-*/
+// Adicionar Aqui a luta do Reino 3
+fight(dragaoGelo, 'Bola de fogo');
+console.clear();
+console.log(sujeitoPersonagem.status());
+console.log(`Foram gastos ${rodada + 1} turnos para definir um campeão`);
+
+console.log();
+if (sujeitoPersonagem.vida <= 0) {
+	console.log(`${sujeitoPersonagem.nome} perdeu a batalha`);
+} else {
+	console.log(`${sujeitoPersonagem.nome} venceu a batalha`);
+}
+
+// --------------------- FUNÇÕES --------------------- //
+
+//Função escolha da bebida
+function bebidaEscolhida(opcao, resposta) {
+	console.clear();
+	console.log(`Você escolheu a bebida ${opcao}. `);
+	if (resposta == 1) {
+		console.log('Você perdeu uma vida.');
+		sujeitoPersonagem.vida -= 1;
+	} else if (resposta == 2) {
+		console.log('Você perdeu meia vida.');
+		sujeitoPersonagem.vida -= 0.5;
+	} else {
+		console.log('Escapou! Não perdeu vida.');
+	}
+}
+
+//Função que chama a luta X Mob
+function fight(mob, skillNome) {
+	rodada = 0;
+	while (sujeitoPersonagem.vida > 0 && mob.vida > 0) {
+		let dano = 0;
+		let escolha = 0;
+		let skill = verificaskills(skillNome);
+
+		console.log();
+		console.log(`Turno ${rodada + 1}`);
+		console.log(`${sujeitoPersonagem.nome} HP: ${sujeitoPersonagem.vida.toFixed(1)} e ${mob.nome} HP: ${mob.vida.toFixed(1)}`);
+		console.log();
+		console.log(`Ataque de ${sujeitoPersonagem.nome}: `);
+		if (skill == undefined) {
+			skill = { nome: 'Ataque forte', valor: 0, uso: 0 };
+			console.log(`Você não possui nenhuma skill`);
+		} else {
+			console.log(`Quantidade de ${skill.nome}:  ${skill.uso}`);
+		}
+		escolha = parseInt(prompt(`Escolha uma alternativa: 1 - Ataque comum | 2 - ${skill.nome} `));
+		switch (escolha) {
+			case 1:
+				dano = porrada(1, 1, sujeitoPersonagem.ataque, sujeitoPersonagem.itens[0], skill);
+				mob.vida -= dano;
+				break;
+			case 2:
+				dano = porrada(1, 2, sujeitoPersonagem.ataque, sujeitoPersonagem.itens[0], skill);
+				mob.vida -= dano;
+				break;
+			default:
+				dano = 0;
+		}
+
+		if (mob.vida <= 0) {
+			break;
+		}
+
+		console.log();
+		console.log(`Ataque de ${mob.nome}: `);
+		escolha = +prompt('Escolha uma alternativa: 1 - Defender | 2 - Correr ');
+		switch (escolha) {
+			case 1:
+				dano = porrada(2, 1, mob.ataque);
+				sujeitoPersonagem.vida -= dano;
+				break;
+			case 2:
+				dano = porrada(2, 2, mob.ataque);
+				sujeitoPersonagem.vida -= dano;
+				break;
+			default:
+				dano = 0;
+		}
+
+		rodada++;
+	}
+}
+
+//Função que retorna a força do golpe
+function porrada(player, ataque, forca, item, skill) {
+	let golpe = 0;
+
+	if (player == 1) {
+		if (ataque == 1) {
+			golpe = 2 * forca + 0.5 * parseFloat((item.valor * Math.random()).toFixed(1)) * 1;
+		} else if (ataque == 2) {
+			if (skill.nome == 'Bola de fogo' && skill.uso == 0) {
+				console.log(`Nenhuma ${skill.nome}`);
+			} else {
+			golpe = 5 * forca + 0.5 * parseFloat((skill.valor * Math.random()).toFixed(1)) * 2;
+				skill.uso -= 1;
+			}
+		}
+	} else if (player == 2) {
+		if (ataque == 1) {
+			if (rodada == 2) {
+				golpe = 3 * forca + 0.7 * parseFloat(Math.random().toFixed(1) * 15) * 3;
+				console.log('Ataque Especial');
+			} else {
+				golpe = 2 * forca + 0.5 * parseFloat(Math.random().toFixed(1)) * 1;
+			}
+		} else if (ataque == 2) {
+			if (rodada == 2) {
+				golpe = 3 * forca + 0.5 * parseFloat(Math.random().toFixed(1) * 15) * 3;
+				console.log('Ataque Especial');
+			} else {
+				golpe = 2 * forca + 0.2 * parseFloat(Math.random().toFixed(1)) * 1;
+			}
+		}
+	}
+	console.log(`Golpe: ${golpe.toFixed(1)}`);
+	return golpe;
+}
+
+//Função Avançar
+function avancar() {
+	console.log();
+	prompt('Pressione ENTER para continuar!');
+	console.clear();
+}
+
+//Verifica se o item existe na lista de itens
+function verificaItem(nome) {
+	let existe = sujeitoPersonagem.itens.find((x) => x.nome === nome);
+	return existe;
+}
+
+//Verifica se a skill existe na lista de skills
+function verificaskills(nome) {
+	let existe = sujeitoPersonagem.skills.find((x) => x.nome === nome);
+	return existe;
+}
+
+// Colas
+
+//Teste para conferir objeto
+// console.log(sujeitoPersonagem);
+
+//Teste adiciona nova skill
+// sujeitoPersonagem.skills = { nome: 'Bola de Fogo', ataque: 10 };
+//
+//
