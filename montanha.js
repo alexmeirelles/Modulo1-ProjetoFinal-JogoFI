@@ -266,6 +266,7 @@ function enigma(){
   console.log('ENIGMA');
   console.log(`Eu sou uma variável, mudo a todo instante e possui uma característica estática:
    estou sempre a sua frente.`);
+  var counter1 =0
   do{
     var r1 = prompt('Quem sou eu? ');
     let choice2List = [
@@ -276,6 +277,7 @@ function enigma(){
       'O Futuro',
       'o Futuro'
     ];
+    
   }while (choice2List.includes(r1)==false);
 
   // adicionar aqui a skill bola de fogo depois da resposta
