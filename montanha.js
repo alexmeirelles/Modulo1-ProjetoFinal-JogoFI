@@ -122,7 +122,7 @@ function diceGame(rounds) {
       Number.isInteger(diceChoice) == false ||
       diceChoice > 100 ||
       diceChoice < 0 ||
-      diceChoice == '' 
+      diceChoice == ""
     ) {
       console.log("Somente números.");
       if (zoa > 1) {
@@ -223,6 +223,11 @@ function diceGame(rounds) {
       for (let l = 0; l < playerN + 1; l++) {
         if (players[l].jogada[j] == turn[0]) {
           players[l].vitorias++;
+          if (l == 0) {
+            //adicionar aqui: interação para mudar status do personagem em caso de vitoria
+          } else if (l != 0) {
+            // adicionar aqui: interação para mudar status do personagem em caso de derrota
+          }
         }
       }
     }
