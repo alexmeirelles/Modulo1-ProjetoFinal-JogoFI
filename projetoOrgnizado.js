@@ -67,6 +67,10 @@ const cerberino = {
 };
 
 // ---- Reino 1 : Floresta Tropical / Condado ---- //
+console.log(`Bom Dia Guerreiro! Espero que tenha descansado bem, uma nova sequencia de aventura
+ nos aguarda e vai exigir muito de sua disposição, habilidades e sorte.
+Um café forte é uma bela pedida, depois de um banho gelado nas Cascatas de Xelim. 
+Você agora precisa se equipar, na saída do condado há varios caminhos para serem escolhidos..`);
 
 // Colheita com o Elfo Armador
 while (caminho != 'bosque' && caminho != 'ferreiro' && caminho != 'exercito') {

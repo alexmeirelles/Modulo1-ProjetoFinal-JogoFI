@@ -60,21 +60,8 @@ sleep(500);
 
 
 //Reino 1 : Floresta Tropical / condado/ 
-console.log(`Caminhada do caralho Você chegou na Adega do Gnomo! Aqui muitos guerreiros vem para descansar e tomar uns drinks.
-Papo vai, Papo vem e você foi desafiado para uma roleta russa com os drinks de um mago poderoso do local. 
-São 3 rodadas de shots e duas das três bebidas não fazem bem para sua saude. Uma tirará meio ponto de vida
-e a outra tirará um ponto. Espero que você escolha a certa todas as vezes, grande Guerreiro!`);
-
-console.log(`Caminhada do caralho Você chegou na Adega do Gnomo! Aqui muitos guerreiros vem para descansar e tomar uns drinks.
-Papo vai, Papo vem e você foi desafiado para uma roleta russa com os drinks de um mago poderoso do local. 
-São 3 rodadas de shots e duas das três bebidas não fazem bem para sua saude. Uma tirará meio ponto de vida
-e a outra tirará um ponto. Espero que você escolha a certa todas as vezes, grande Guerreiro!`);
-
-/* Colheita com o Elfo Armador 
-switch com 3 cases, cada um com mais duas opcoes por case que levam a itens
-armadura 3 /escudo 2
-foice 2 / espada 3
-dinheiro/xxxxx*/
+console.log(`Bom Dia Guerreiro! Espero que tenha descansado bem, uma nova sequencia de aventura nos aguarda e vai exigir muito de sua disposição, habilidades e sorte.
+Um café forte é uma bela pedida, depois de um banho gelado nas Cascatas de Xelim. Você agora precisa se equipar, na saída do condado há varios caminhos para serem escolhidos..`);
 
 
 var caminho = prompt(`Que caminho você gostaria de iniciar? Digite Bosque, Ferreiro ou Exercito`);
