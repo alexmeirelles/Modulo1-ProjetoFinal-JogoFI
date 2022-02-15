@@ -39,32 +39,37 @@ avancar();
 const sujeitoPersonagem = {
 	nome: nome,
 	vida: 100,
-	stamina: 100, //Energia
+	stamina: 100,
+  ataque: 5,
 	itens: [],
-  skills: [],
+	skills: [],
 	status: function () {
-		var status = `${this.nome} | Vida: ${this.vida} Stamina: ${this.stamina} `;
+		var status = `${this.nome} | Vida: ${this.vida.toFixed(1)} Stamina: ${this.stamina} `;
 		return status;
 	},
 };
 
+//Constroi os Mobs e seus atributos
 const gigante = {
 	nome: 'Hercules',
-	vida: 200,
-	ataque: 2,
-};
-
-const dragaoGelo = {
-	nome: 'Viserion',
 	vida: 100,
 	ataque: 2,
 };
 
 const cerberino = {
 	nome: 'Cerberino',
-	vida: 60,
-	ataque: 2,
+	vida: 120,
+	ataque: 3,
 };
+
+const dragaoGelo = {
+	nome: 'Viserion',
+	vida: 150,
+	ataque: 5,
+};
+
+//Variaveis de controle
+let rodada;
 
 // ---- Reino 1 : Floresta Tropical / Condado ---- //
 console.log(`Bom Dia Guerreiro! Espero que tenha descansado bem, uma nova sequencia de aventura
@@ -74,67 +79,67 @@ Você agora precisa se equipar, na saída do condado há varios caminhos para se
 
 // Colheita com o Elfo Armador
 while (caminho != 'bosque' && caminho != 'ferreiro' && caminho != 'exercito') {
-  console.log('Que caminho você gostaria de iniciar? ');
-  var caminho = prompt('Para escolher digite: Bosque, Ferreiro ou Exercito. ');
-  let item;
+	console.log('Que caminho você gostaria de iniciar? ');
+	var caminho = prompt('Para escolher digite: Bosque, Ferreiro ou Exercito. ');
+	let item;
 
-  switch (caminho.toLowerCase()) {
-    case 'bosque':
-      console.clear();
-      console.log('Voce optou pelo Bosque. Daqui vc tem duas opcoes de itens.');
-      item = prompt('Escolha um item e digite: Pocao ou Dinheiro. ');
-      if (item.trim().toLowerCase() == 'pocao') {
-        console.log('Voce pegou o item: POÇÃO');
-        sujeitoPersonagem.itens.push({ nome: 'pocao', valor: 10 });
-      } else {
-        console.log('Voce pegou o item: Dinheiro');
-        sujeitoPersonagem.itens.push({ nome: 'dinheiro', valor: 5 });
-      }
-      break;
+	switch (caminho.toLowerCase()) {
+		case 'bosque':
+			console.clear();
+			console.log('Voce optou pelo Bosque. Daqui vc tem duas opcoes de itens.');
+			item = prompt('Escolha um item e digite: Pocao ou Dinheiro. ');
+			if (item.trim().toLowerCase() == 'pocao') {
+				console.log('Voce pegou o item: POÇÃO');
+				sujeitoPersonagem.itens.push({ nome: 'pocao', valor: 10 });
+			} else {
+				console.log('Voce pegou o item: Dinheiro');
+				sujeitoPersonagem.itens.push({ nome: 'dinheiro', valor: 5 });
+			}
+			break;
 
-    case 'ferreiro':
-      console.clear();
-      console.log(
-        'Voce optou pelo Ferreiro. Não é uma caminhada longa, ele faz muitos adornos\n' +
-          'as elites e não pode se distanciar muito do palácio do Rei. Daqui vc tem duas opcoes..'
-      );
-      item = prompt(`Escolha um item e digite: Armadura ou Escudo. `);
-      if (item.trim().toLowerCase() == 'armadura') {
-        console.log('Voce pegou o item: Armadura');
-        sujeitoPersonagem.itens.push({ nome: 'armadura', valor: 15 });
-      } else {
-        console.log('Voce pegou o item: Escudo');
-        sujeitoPersonagem.itens.push({ nome: 'escudo', valor: 20 });
-      }
-      break;
+		case 'ferreiro':
+			console.clear();
+			console.log(
+				'Voce optou pelo Ferreiro. Não é uma caminhada longa, ele faz muitos adornos\n' +
+					'as elites e não pode se distanciar muito do palácio do Rei. Daqui vc tem duas opcoes..'
+			);
+			item = prompt(`Escolha um item e digite: Armadura ou Escudo. `);
+			if (item.trim().toLowerCase() == 'armadura') {
+				console.log('Voce pegou o item: Armadura');
+				sujeitoPersonagem.itens.push({ nome: 'armadura', valor: 15 });
+			} else {
+				console.log('Voce pegou o item: Escudo');
+				sujeitoPersonagem.itens.push({ nome: 'escudo', valor: 20 });
+			}
+			break;
 
-    case 'exercito':
-      console.clear();
-      console.log(
-        'Voce optou ir visitar a artilharia pesada. Você considera que é bom estar armado para \n' +
-          'sua jornada. Bem pensado, afinal, quais desafios você pode encontrar pelo caminho!? \n' +
-          'E como transpo-los sem nada na mão!?'
-      );
-      console.log(
-        'Você chega e é recepcionado pelo Sargeto Orveu, ele é o responsável pelas armas de \n' +
-          'combate e já aguardava a sua chegada. Orveu tem uma presença dominante e não é de \n' +
-          'muitas palavras. Pergunta rapidamente qual será a sua jornada, o que possivelmente você \n' +
-          'irá enfrentar e pega dos itens a mão. Uma espada e uma foice. '
-      );
-      item = prompt('Escolha um item e digite: Foice ou Espada. ');
-      if (item.trim().toLowerCase() == 'espada') {
-        console.log('Voce pegou o item: Espada');
-        sujeitoPersonagem.itens.push({ nome: 'espada', valor: 20 });
-      } else {
-        console.log('Voce pegou o item: Foice');
-        sujeitoPersonagem.itens.push({ nome: 'foice', valor: 10 });
-      }
-      break;
+		case 'exercito':
+			console.clear();
+			console.log(
+				'Voce optou ir visitar a artilharia pesada. Você considera que é bom estar armado para \n' +
+					'sua jornada. Bem pensado, afinal, quais desafios você pode encontrar pelo caminho!? \n' +
+					'E como transpo-los sem nada na mão!?'
+			);
+			console.log(
+				'Você chega e é recepcionado pelo Sargeto Orveu, ele é o responsável pelas armas de \n' +
+					'combate e já aguardava a sua chegada. Orveu tem uma presença dominante e não é de \n' +
+					'muitas palavras. Pergunta rapidamente qual será a sua jornada, o que possivelmente você \n' +
+					'irá enfrentar e pega dos itens a mão. Uma espada e uma foice. '
+			);
+			item = prompt('Escolha um item e digite: Foice ou Espada. ');
+			if (item.trim().toLowerCase() == 'espada') {
+				console.log('Voce pegou o item: Espada');
+				sujeitoPersonagem.itens.push({ nome: 'espada', valor: 20 });
+			} else {
+				console.log('Voce pegou o item: Foice');
+				sujeitoPersonagem.itens.push({ nome: 'foice', valor: 10 });
+			}
+			break;
 
-    default:
-      console.clear();
-      console.log(`Desculpe, o caminho ${caminho} não existe. \n`);
-  }
+		default:
+			console.clear();
+			console.log(`Desculpe, o caminho ${caminho} não existe. \n`);
+	}
 }
 
 avancar();
@@ -146,40 +151,51 @@ Uma tirará meio ponto de vidae a outra tirará um ponto.
 Espero que você escolha a certa todas as vezes, grande Guerreiro!`);
 
 for (let i = 0; i < 3; ) {
-  avancar();
-  console.log(`Rodada ${i + 1} \n`);
-  var opcao = prompt(
-    'Qual é a sua opcao pra essa rodada? Digite Azul, Vermelha, ou Verde: '
-  );
-  var resposta = Math.floor(Math.random() * 3 + 1);
-  console.log(resposta);
+	avancar();
+	console.log(`Rodada ${i + 1} \n`);
+	var opcao = prompt('Qual é a sua opcao pra essa rodada? Digite Azul, Vermelha, ou Verde: ');
+	var resposta = Math.floor(Math.random() * 3 + 1);
+	console.log(resposta);
 
-  if (opcao.trim().toLowerCase() == 'azul') {
-    bebidaEscolhida(opcao, resposta);
-  } else if (opcao.trim().toLowerCase() == 'vermelha') {
-    bebidaEscolhida(opcao, resposta);
-  } else if (opcao.trim().toLowerCase() == 'verde') {
-    bebidaEscolhida(opcao, resposta);
-  } else {
-    console.clear();
-    console.log('Opção inválida! Digite a palavra!');
-    continue;
-  }
-  i++;
+	if (opcao.trim().toLowerCase() == 'azul') {
+		bebidaEscolhida(opcao, resposta);
+	} else if (opcao.trim().toLowerCase() == 'vermelha') {
+		bebidaEscolhida(opcao, resposta);
+	} else if (opcao.trim().toLowerCase() == 'verde') {
+		bebidaEscolhida(opcao, resposta);
+	} else {
+		console.clear();
+		console.log('Opção inválida! Digite a palavra!');
+		continue;
+	}
+	i++;
 }
-
-console.log(sujeitoPersonagem);
 
 // Adcionar Aqui a luta do Reino 1
 
+fight(gigante, '');
+
+console.clear();
+console.log(sujeitoPersonagem.status());
+console.log(`Foram gastos ${rodada + 1} turnos para definir um campeão`);
+avancar();
 
 // Adcionar Aqui as missões do Reino 2
 
+//Teste adiciona nova skill
+sujeitoPersonagem.skills.push({ nome: 'Bola de fogo', valor: 50, uso: 3 });
 
+// Adicionar Aqui a luta do Reino 2
+fight(cerberino, 'Bola de fogo');
+
+console.clear();
+console.log(sujeitoPersonagem.status());
+console.log(`Foram gastos ${rodada + 1} turnos para definir um campeão`);
+avancar();
 
 //Reino de Gelo
 console.log(
-  `${sujeitoPersonagem.nome}, você acaba de chegar na Cidade do Gelo! Uma nevasca nunca antes 
+	`${sujeitoPersonagem.nome}, você acaba de chegar na Cidade do Gelo! Uma nevasca nunca antes 
 vista devastou completamente esta cidade e por isso recebeu tal nome. 
 Aqui os recursos são escassos e logo voce precisará de comida!
 `
@@ -188,7 +204,7 @@ Aqui os recursos são escassos e logo voce precisará de comida!
 avancar();
 
 console.log(
-  `Após alguns passos para dentro da cidade, você se depara com um velho misterioso.
+	`Após alguns passos para dentro da cidade, você se depara com um velho misterioso.
 Ele carrega consigo uma vara de pescar. Você se aproxima dele e pergunta como conseguir
 algo para comer. O velho olha para você com um sorriso deboxado e diz que existe um
 buraco cortado no gelo a 1km ao norte, e que ali existem peixes. 
@@ -198,7 +214,7 @@ buraco cortado no gelo a 1km ao norte, e que ali existem peixes.
 avancar();
 
 console.log(
-  `Ele logo te adverte que é muito perigoso tentar pegar um peixe sem uma vara de pescar.
+	`Ele logo te adverte que é muito perigoso tentar pegar um peixe sem uma vara de pescar.
 Você pergunta onde encontrar uma vara de pescar e ele te faz uma proposta:
 A vara de percar que ele tinha foi tirada de um cadaver que estava congelado.
 Ele então te oferece a vara de pescar mas tem um preço, vocês devem jogar cara ou coroa!
@@ -213,49 +229,45 @@ let vitoriaPersonagem = 0;
 let vitoriaVelho = 0;
 
 for (let i = 0; i < 3; i++) {
-  let escolhaPersonagem;
-  let escolhaVelho;
-  let faceMoeda;
+	let escolhaPersonagem;
+	let escolhaVelho;
+	let faceMoeda;
 
-  do {
-    console.clear();
-    console.log(`\nRodada ${i + 1}\n`);
-    escolhaPersonagem = parseInt(
-      prompt('Escolha uma opção: 1 - Cara | 2 - Coroa: ')
-    );
-    if (escolhaPersonagem == 1) {
-      escolhaVelho = 2;
-    } else if (escolhaPersonagem == 2) {
-      escolhaVelho = 1;
-    } else {
-      console.log('Opção inválida!! \n');
-    }
-    faceMoeda = Math.floor(2 * Math.random() + 1);
-  } while (escolhaPersonagem != 1 && escolhaPersonagem != 2);
+	do {
+		console.clear();
+		console.log(`\nRodada ${i + 1}\n`);
+		escolhaPersonagem = parseInt(prompt('Escolha uma opção: 1 - Cara | 2 - Coroa: '));
+		if (escolhaPersonagem == 1) {
+			escolhaVelho = 2;
+		} else if (escolhaPersonagem == 2) {
+			escolhaVelho = 1;
+		} else {
+			console.log('Opção inválida!! \n');
+		}
+		faceMoeda = Math.floor(2 * Math.random() + 1);
+	} while (escolhaPersonagem != 1 && escolhaPersonagem != 2);
 
-  if (escolhaPersonagem == faceMoeda) {
-    vitoriaPersonagem++;
-  } else {
-    vitoriaVelho++;
-  }
+	if (escolhaPersonagem == faceMoeda) {
+		vitoriaPersonagem++;
+	} else {
+		vitoriaVelho++;
+	}
 
-  console.log(`Placar: Velho: ${vitoriaVelho} | ${nome}: ${vitoriaPersonagem}`);
-  avancar();
+	console.log(`Placar: Velho: ${vitoriaVelho} | ${nome}: ${vitoriaPersonagem}`);
+	avancar();
 }
 
 if (vitoriaPersonagem > vitoriaVelho) {
-  console.log(
-    '\nParabens! \nVocê ganhou o duelo e recebeu uma vara de pescar!'
-  );
-  sujeitoPersonagem.itens.push({ nome: 'VaraPesca', valor: 3 });
+	console.log('\nParabens! \nVocê ganhou o duelo e recebeu uma vara de pescar!');
+	sujeitoPersonagem.itens.push({ nome: 'VaraPesca', valor: 3 });
 } else {
-  console.log('\nQue pena! \nVocê perdeu o duelo!');
+	console.log('\nQue pena! \nVocê perdeu o duelo!');
 }
 
 avancar();
 
 console.log(
-  `O velho simplesmente desapareceu e você continuou seguindo seu caminho! E exatamente
+	`O velho simplesmente desapareceu e você continuou seguindo seu caminho! E exatamente
 após andar 1Km ao norte, você avistou um buraco cortado no gelo. A fome é tanta que você
 correu e foi tentar pegar um peixe para se alimentar!
 `
@@ -270,55 +282,162 @@ let item = verificaItem('VaraPesca');
 
 // Se o item retornar undefined ele não existe
 if (item != undefined) {
-  console.log(`Voce tem uma vara de pesca e ela foi usada ${item.valor}x.`);
-  for (let i = 0; i < item.valor; i++) {
-    let adiciona = Math.floor(5 * Math.random() + 5);
-    console.log(
-      `Pesca ${i + 1}: Voce encontrou 1 peixe e recebeu ${adiciona} de vida`
-    );
-    sujeitoPersonagem.vida += adiciona;
-  }
+	console.log(`Voce tem uma vara de pesca e ela foi usada ${item.valor}x.`);
+	for (let i = 0; i < item.valor; i++) {
+		let adiciona = Math.floor(5 * Math.random() + 5);
+		console.log(`Pesca ${i + 1}: Voce encontrou 1 peixe e recebeu ${adiciona} de vida`);
+		sujeitoPersonagem.vida += adiciona;
+	}
 } else {
-  console.log(
-    'Como voce não tem uma vara de pesca, voce tentou pegar um peixe com a mão. \n' +
-      'Voce até conseguiu pegar um, mas foi um peixe muito pequeno e ainda acabou congelando a mão, \n' +
-      'você ganhou apenas 2 de vida pelo peixe, mas perdeu 15 de stamina pela mão congelada!'
-  );
-  sujeitoPersonagem.vida += 2;
-  sujeitoPersonagem.stamina -= 15;
+	console.log(
+		'Como voce não tem uma vara de pesca, voce tentou pegar um peixe com a mão. \n' +
+			'Voce até conseguiu pegar um, mas foi um peixe muito pequeno e ainda acabou congelando a mão, \n' +
+			'você ganhou apenas 2 de vida pelo peixe, mas perdeu 15 de stamina pela mão congelada!'
+	);
+	sujeitoPersonagem.vida += 2;
+	sujeitoPersonagem.stamina -= 15;
 }
 
-console.log(sujeitoPersonagem);
+// Adicionar Aqui a luta do Reino 3
+fight(dragaoGelo, 'Bola de fogo');
+console.clear();
+console.log(sujeitoPersonagem.status());
+console.log(`Foram gastos ${rodada + 1} turnos para definir um campeão`);
 
+console.log();
+if (sujeitoPersonagem.vida <= 0) {
+	console.log(`${sujeitoPersonagem.nome} perdeu a batalha`);
+} else {
+	console.log(`${sujeitoPersonagem.nome} venceu a batalha`);
+}
 
 // --------------------- FUNÇÕES --------------------- //
 
-//Função Avançar
-function avancar() {
-  console.log();
-  prompt('Pressione ENTER para continuar!');
-  console.clear();
-}
-
 //Função escolha da bebida
 function bebidaEscolhida(opcao, resposta) {
-  console.clear();
-  console.log(`Você escolheu a bebida ${opcao}. `);
-  if (resposta == 1) {
-    console.log('Você perdeu uma vida.');
-    sujeitoPersonagem.vida -= 1;
-  } else if (resposta == 2) {
-    console.log('Você perdeu meia vida.');
-    sujeitoPersonagem.vida -= 0.5;
-  } else {
-    console.log('Escapou! Não perdeu vida.');
-  }
+	console.clear();
+	console.log(`Você escolheu a bebida ${opcao}. `);
+	if (resposta == 1) {
+		console.log('Você perdeu uma vida.');
+		sujeitoPersonagem.vida -= 1;
+	} else if (resposta == 2) {
+		console.log('Você perdeu meia vida.');
+		sujeitoPersonagem.vida -= 0.5;
+	} else {
+		console.log('Escapou! Não perdeu vida.');
+	}
+}
+
+//Função que chama a luta X Mob
+function fight(mob, skillNome) {
+	rodada = 0;
+	while (sujeitoPersonagem.vida > 0 && mob.vida > 0) {
+		let dano = 0;
+		let escolha = 0;
+		let skill = verificaskills(skillNome);
+
+		console.log();
+		console.log(`Turno ${rodada + 1}`);
+		console.log(`${sujeitoPersonagem.nome} HP: ${sujeitoPersonagem.vida.toFixed(1)} e ${mob.nome} HP: ${mob.vida.toFixed(1)}`);
+		console.log();
+		console.log(`Ataque de ${sujeitoPersonagem.nome}: `);
+		if (skill == undefined) {
+			skill = { nome: 'Ataque forte', valor: 0, uso: 0 };
+			console.log(`Você não possui nenhuma skill`);
+		} else {
+			console.log(`Quantidade de ${skill.nome}:  ${skill.uso}`);
+		}
+		escolha = parseInt(prompt(`Escolha uma alternativa: 1 - Ataque comum | 2 - ${skill.nome} `));
+		switch (escolha) {
+			case 1:
+				dano = porrada(1, 1, sujeitoPersonagem.ataque, sujeitoPersonagem.itens[0], skill);
+				mob.vida -= dano;
+				break;
+			case 2:
+				dano = porrada(1, 2, sujeitoPersonagem.ataque, sujeitoPersonagem.itens[0], skill);
+				mob.vida -= dano;
+				break;
+			default:
+				dano = 0;
+		}
+
+		if (mob.vida <= 0) {
+			break;
+		}
+
+		console.log();
+		console.log(`Ataque de ${mob.nome}: `);
+		escolha = +prompt('Escolha uma alternativa: 1 - Defender | 2 - Correr ');
+		switch (escolha) {
+			case 1:
+				dano = porrada(2, 1, mob.ataque);
+				sujeitoPersonagem.vida -= dano;
+				break;
+			case 2:
+				dano = porrada(2, 2, mob.ataque);
+				sujeitoPersonagem.vida -= dano;
+				break;
+			default:
+				dano = 0;
+		}
+
+		rodada++;
+	}
+}
+
+//Função que retorna a força do golpe
+function porrada(player, ataque, forca, item, skill) {
+	let golpe = 0;
+
+	if (player == 1) {
+		if (ataque == 1) {
+			golpe = 2 * forca + 0.5 * parseFloat((item.valor * Math.random()).toFixed(1)) * 1;
+		} else if (ataque == 2) {
+			if (skill.nome == 'Bola de fogo' && skill.uso == 0) {
+				console.log(`Nenhuma ${skill.nome}`);
+			} else {
+			golpe = 5 * forca + 0.5 * parseFloat((skill.valor * Math.random()).toFixed(1)) * 2;
+				skill.uso -= 1;
+			}
+		}
+	} else if (player == 2) {
+		if (ataque == 1) {
+			if (rodada == 2) {
+				golpe = 3 * forca + 0.7 * parseFloat(Math.random().toFixed(1) * 15) * 3;
+				console.log('Ataque Especial');
+			} else {
+				golpe = 2 * forca + 0.5 * parseFloat(Math.random().toFixed(1)) * 1;
+			}
+		} else if (ataque == 2) {
+			if (rodada == 2) {
+				golpe = 3 * forca + 0.5 * parseFloat(Math.random().toFixed(1) * 15) * 3;
+				console.log('Ataque Especial');
+			} else {
+				golpe = 2 * forca + 0.2 * parseFloat(Math.random().toFixed(1)) * 1;
+			}
+		}
+	}
+	console.log(`Golpe: ${golpe.toFixed(1)}`);
+	return golpe;
+}
+
+//Função Avançar
+function avancar() {
+	console.log();
+	prompt('Pressione ENTER para continuar!');
+	console.clear();
 }
 
 //Verifica se o item existe na lista de itens
 function verificaItem(nome) {
-  let existe = sujeitoPersonagem.itens.find((x) => x.nome === nome);
-  return existe;
+	let existe = sujeitoPersonagem.itens.find((x) => x.nome === nome);
+	return existe;
+}
+
+//Verifica se a skill existe na lista de skills
+function verificaskills(nome) {
+	let existe = sujeitoPersonagem.skills.find((x) => x.nome === nome);
+	return existe;
 }
 
 // Colas
@@ -327,4 +446,4 @@ function verificaItem(nome) {
 // console.log(sujeitoPersonagem);
 
 //Teste adiciona nova skill
-// sujeitoPersonagem.skill = { nome: 'Bola de Fogo', ataque: 10 };
+// sujeitoPersonagem.skills = { nome: 'Bola de Fogo', ataque: 10 };

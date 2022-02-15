@@ -18,7 +18,7 @@ const sujeitoPersonagem = {
 	stamina: 100,
 	ataque: 5,
 	itens: [{ nome: 'espada', valor: 20 }],
-	skills: [{ nome: 'Bola de fogo', valor: 50, uso: 3 }],
+	skills: [],
 	status: function () {
 		var status = `Nome: ${this.nome} Vida: ${this.vida.toFixed(1)} Stamina: ${this.stamina} Itens: ${this.itens[0].nome}`;
 		return status;
@@ -42,6 +42,8 @@ const dragaoGelo = {
 	vida: 100,
 	ataque: 5,
 };
+
+sujeitoPersonagem.skills.push({ nome: 'Bola de fogo', valor: 50, uso: 3 });
 
 // console.log(sujeitoPersonagem);
 // console.log(dragaoGelo);
@@ -117,14 +119,14 @@ fight(gigante, '');
 
 console.clear();
 console.log(sujeitoPersonagem.status());
-console.log(`Foram gastos ${rodada} turnos para definir um campeão`);
+console.log(`Foram gastos ${rodada + 1} turnos para definir um campeão`);
 avancar();
 
 fight(cerberino, 'Bola de fogo');
 
 console.clear();
 console.log(sujeitoPersonagem.status());
-console.log(`Foram gastos ${rodada} turnos para definir um campeão`);
+console.log(`Foram gastos ${rodada + 1} turnos para definir um campeão`);
 avancar();
 
 fight(dragaoGelo, 'Bola de fogo');
