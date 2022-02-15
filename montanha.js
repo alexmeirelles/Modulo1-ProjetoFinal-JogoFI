@@ -56,6 +56,7 @@ var p1r2 = prompt("Quantos níveis tem nessa montanha? ");
 var p2r2 = prompt("Qual o crime mais grave desta região? ");
 var p3r2 = prompt("Quem sou eu? ");
 
+if(p1r2)
 //se responder correto dar a skill boladefogo
 
 console.log(`Você acaba de conhecer Caronte, o barqueiro. Sujeito grave, taciturno, "poucas ideias".
@@ -70,6 +71,8 @@ do {
   Você dá de cara com um cachorro gigantesco, de 3 cabeças. Sem dúvidas, era Cerberino, o cão abestado.`);
 
   fight('Cerberino', 100, 10, 9);
+
+  console.log()
 
   var again = prompt("Você gostaria de seguir para o proximo reino? ");
 } while (again == "nao" || again == "n");
@@ -108,4 +111,36 @@ function fight(mobNAME, mobHP, mobDEF, mobATQ) {
   }
 }
 
-console.log(sujeitoPersonagem.skill);
+function diceGame(rounds,){
+  do{
+    var diceChoice= +prompt('Escolha o tamanho do dado a ser usado(somente número) D =>'); 
+  }while(Number.isInteger(diceChoice) ==false);
+    for (let j = 0; j < rounds; j++) {
+    let rodada = [];
+    for (let i = 0; i < players; i++) {
+      do {
+        var p1 = prompt(`Jogar dado, jogador ${i + 1} ?`);
+      } while (
+        p1 == "n" ||
+        p1 == "nao" ||
+        p1 == "not" ||
+        p1 == "0" ||
+        p1 == "no" 
+      );
+      let dado = Math.ceil(Math.random() * diceChoice);
+      console.log("dado", dado);
+      players[i].jogada.push(dado);
+      rodada.push(dado);
+    }
+    rodada.sort((a, b) => {
+      return b - a;
+    });
+    if (rodada[0] != rodada[1]) {
+      for (let k = 0; k < players.length; k++) {
+        if (players[k].jogada[j] == rodada[0]) {
+          players[k].vitorias++;
+        }
+      }
+    }
+  }
+}
