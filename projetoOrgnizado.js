@@ -566,7 +566,7 @@ function enigma() {
 	console.log(`Estou sempre a sua frente.`);
 	var counter1 = 0;
 	do {
-		var r1 = prompt('Quem sou eu? ');
+		var r1 =  prompt('Quem sou eu? ');
 		var choice2List = ['Futuro', 'futuro', 'O futuro', 'o futuro', 'O Futuro', 'o Futuro'];
 		if (counter1 > 1) {
 			console.log('Minha primeira letra é F');
