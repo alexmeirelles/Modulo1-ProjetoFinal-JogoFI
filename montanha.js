@@ -280,7 +280,7 @@ function enigma(){
   var counter1 =0
   do{
     var r1 = prompt('Quem sou eu? ');
-    let choice2List = [
+    var choice2List = [
       'Futuro',
       'futuro',
       'O futuro',
