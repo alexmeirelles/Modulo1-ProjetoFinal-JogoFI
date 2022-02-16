@@ -161,7 +161,7 @@ avancar();
 console.log(`Você chegou na Adega do Gnomo! Aqui muitos guerreiros vem para descansar e tomar uns drinks.
 Papo vai, Papo vem e você foi desafiado para uma roleta russa com os drinks de um mago poderoso 
 do local. São 3 rodadas de shots e duas das três bebidas não fazem bem para sua saude. 
-Uma tirará 10 pontos de vida e a outra tirará 5 pontos. 
+Uma tirará 10 pontos de vida e a outra tirará 5 pontos. Não se engane pela cor, a cada rodada elas mudam de dano!
 Espero que você escolha a certa todas as vezes, grande Guerreiro!`);
 
 for (let i = 0; i < 3; ) {
@@ -208,9 +208,10 @@ dia++;
 console.log(
 	`Hoje foi seu dia ${dia} dessa incrível jornada. Sua vida é de ${sujeitoPersonagem.vida.toFixed(
 		1
-	)} e terá mais 10 acrescido com seu sono reparador!`
+	)} e terá mais 15 acrescido com seu sono reparador!`
 );
-sujeitoPersonagem.vida += 10;
+sujeitoPersonagem.vida += 15;
+
 
 avancar();
 
