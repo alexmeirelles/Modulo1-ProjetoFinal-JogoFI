@@ -96,7 +96,7 @@ while (caminho != 'bosque' && caminho != 'ferreiro' && caminho != 'exercito') {
 		case 'bosque':
 			console.clear();
 			console.log('Voce optou pelo Bosque. Daqui vc tem duas opcoes de itens.');
-			item = prompt('Escolha um item e digite: Estilingue ou  Mágia. ');
+			item = prompt('Escolha um item e digite: Estilingue ou Mágia. ');
 			if (item.trim().toLowerCase() == 'estilingue') {
 				console.log('Voce pegou o item: estilingue');
 				sujeitoPersonagem.itens.push({ nome: 'estilingue', valor: 10 });
@@ -229,21 +229,11 @@ Neste reino tudo o que te aguarda são desafios e desventuras. Prepare-se.`);
 
 avancar();
 
-//do {
-  console.log(`${sujeitoPersonagem.status()}
-    Perigo!!!!
-  Você dá de cara com um cachorro gigantesco, de 3 cabeças. Sem dúvidas,
-  era Cerberino, o cão abestado.`);
-  avancar();
-  fight("Cerberino", 100, 10, 9);
-  avancar();
-  console.log(`Após derrotar Cerberino, você entra no nível em que estão os apostadores. Hora de testar
-  sua sorte.`);
-  avancar();
-  diceGame(3);
-  avancar();
-
-
+console.log(`${sujeitoPersonagem.status()}
+Perigo!!!!
+Você dá de cara com um cachorro gigantesco, de 3 cabeças. Sem dúvidas,
+era Cerberino, o cão abestado.`);
+avancar();
 
 // Adicionar Aqui a luta do Reino 2
 fight(cerberino, 'Bola de fogo');
@@ -252,6 +242,12 @@ console.clear();
 console.log(`${sujeitoPersonagem.nome} venceu a batalha`);
 console.log(sujeitoPersonagem.status());
 console.log(`Foram gastos ${rodada + 1} turnos para você consagrar-se campeão`);
+
+avancar();
+console.log(`Após derrotar Cerberino, você entra no nível em que estão os apostadores. 
+Hora de testar sua sorte.`);
+avancar();
+diceGame(3);
 avancar();
 
 //mudança de reino, mudança de dia
