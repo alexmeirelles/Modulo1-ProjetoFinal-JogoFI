@@ -35,6 +35,8 @@ var sujeitoPersonagem = {
   },
 };
 
+// historia começa aqui
+
 console.log(`
 ${sujeitoPersonagem.status()}
 
