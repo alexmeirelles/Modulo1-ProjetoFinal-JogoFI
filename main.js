@@ -155,7 +155,7 @@ while (caminho != 'bosque' && caminho != 'ferreiro' && caminho != 'exercito') {
 			console.log(`Desculpe, o caminho ${caminho} não existe. \n`);
 	}
 }
-
+sujeitoPersonagem.stamina -= 10;
 avancar();
 
 console.log(`Você chegou na Adega do Gnomo! Aqui muitos guerreiros vem para descansar e tomar uns drinks.
@@ -184,6 +184,7 @@ for (let i = 0; i < 3; ) {
 	}
 	i++;
 }
+sujeitoPersonagem.stamina -= 10;
 avancar();
 
 // Adcionar Aqui a luta do Reino 1
@@ -201,6 +202,8 @@ console.clear();
 console.log(sujeitoPersonagem.status());
 console.log(`${sujeitoPersonagem.nome} venceu a batalha`);
 console.log(`Foram gastos ${rodada + 1} turnos para você consagrar-se campeão`);
+
+sujeitoPersonagem.stamina -= 10;
 avancar();
 
 //mudança de reino, mudança de dia
@@ -208,12 +211,12 @@ console.log(`Boa Guerreiro. Este Desafio e este dia se chega ao fim! Uma taverna
 descanso e a recuperação de algum dano de sua jornada.`);
 dia++;
 console.log(
-	`Hoje foi seu dia ${dia} dessa incrível jornada. Sua vida é de ${sujeitoPersonagem.vida.toFixed(
-		1
-	)} e terá mais 15 acrescido com seu sono reparador!`
+	`Hoje foi seu dia ${dia} dessa incrível jornada. Sua vida é de ${sujeitoPersonagem.vida.toFixed(1)} e sua energia/stamina de ${sujeitoPersonagem.stamina.toFixed(1)}.;
+		Você terá mais 15 acrescido em cada atributo com seu sono reparador!`
 );
-sujeitoPersonagem.vida += 15;
 
+sujeitoPersonagem.vida += 15;
+sujeitoPersonagem.stamina += 15;
 avancar();
 
 // ---------------------
