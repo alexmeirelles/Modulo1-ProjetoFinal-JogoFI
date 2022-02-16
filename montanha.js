@@ -269,34 +269,28 @@ function diceGame(rounds) {
 }
 
 function enigma(){
-  console.log(`ENIGMA => você recebe uma letra a cada tentativa 
-  (max tentativas: 3) `);
-  console.log(`Eu sou uma variável da existência, mudo a todo instante e possuo uma característica estática:
-   estou sempre a sua frente.`);
-  var counter1 =0
-  do{
-    var r1 = prompt('Quem sou eu? ');
-    var choice2List = [
-      'Futuro',
-      'futuro',
-      'O futuro',
-      'o futuro',
-      'O Futuro',
-      'o Futuro'
-    ];
-    if(counter1 > 1){
-      console.log('Minha primeira letra é F')
-    }else if(counter1>2){
-      console.log('Minha ultima letra é O')
-    }else if(counter1>3){
-      console.log(`Ta complicado, hein?! Última tentativa
-      Minha terceira letra é T`)
-    }else if(counter1>4){
-      console.log(`Eu sou o Futuro.`)
-    }
-    counter1++;
-    
-  }while (choice2List.includes(r1)==false);
+  console.log(`ENIGMA => você recebe uma letra a cada tentativa (max tentativas: 3) `);
+	console.log(`Eu sou uma variável da existência, mudo a todo instante e possuo uma característica estática:`);
+	console.log(`Estou sempre a sua frente.`);
+	var counter1 = 0;
+	do {
+		var r1 = prompt('Quem sou eu? ');
+		var choice2List = ['Futuro', 'futuro', 'O futuro', 'o futuro', 'O Futuro', 'o Futuro'];
+		if (counter1 > 1) {
+			console.log('Minha primeira letra é F');
+		}
+		if (counter1 > 2) {
+			console.log('Minha ultima letra é O');
+		}
+		if (counter1 > 3) {
+			console.log(`Ta complicado, hein?! Última tentativa
+      Minha terceira letra é T`);
+		}
+		if (counter1 > 4) {
+			console.log(`Eu sou o Futuro.`);
+		}
+		counter1++;
+	} while (choice2List.includes(r1) == false);
   console.log('Parabéns. Você ganhou a habilidade: Bola de Fogo')
 
   // adicionar aqui a skill bola de fogo depois da resposta
