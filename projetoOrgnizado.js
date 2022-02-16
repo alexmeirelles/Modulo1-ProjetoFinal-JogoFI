@@ -210,8 +210,40 @@ sujeitoPersonagem.vida += 10;
 // ---------------------
 // Adcionar Aqui as missões do Reino 2
 
-//Teste adiciona nova skill
-//sujeitoPersonagem.skills.push({ nome: 'Bola de fogo', valor: 50, uso: 3 });
+console.log(`
+${sujeitoPersonagem.status()}
+"Abandone toda a esperança, você que entra por esses portões."
+Você encontra uma figura raquítica, um senhor, que diz: Antes de mais nada você tem que responder 
+algumas perguntas (nunca se sabe, de repente você ganha algo)! 
+Você se parece muito com Dante. Boa sorte!`);
+
+avancar();
+console.log(`${sujeitoPersonagem.status()}`);
+
+console.log(`ENIGMA => você recebe uma letra a cada tentativa (max tentativas: 3) `);
+avancar();
+enigma();
+
+console.log(`Você acaba de conhecer Caronte, o barqueiro. Sujeito grave, taciturno, "poucas ideias".
+Neste reino tudo o que te aguarda são desafios e desventuras. Prepare-se.`);
+
+avancar();
+
+//do {
+  console.log(`${sujeitoPersonagem.status()}
+    Perigo!!!!
+  Você dá de cara com um cachorro gigantesco, de 3 cabeças. Sem dúvidas,
+  era Cerberino, o cão abestado.`);
+  avancar();
+  fight("Cerberino", 100, 10, 9);
+  avancar();
+  console.log(`Após derrotar Cerberino, você entra no nível em que estão os apostadores. Hora de testar
+  sua sorte.`);
+  avancar();
+  diceGame(3);
+  avancar();
+
+
 
 // Adicionar Aqui a luta do Reino 2
 fight(cerberino, 'Bola de fogo');
@@ -489,10 +521,6 @@ function verificaskills(nome) {
 
 // Colas
 
-//Teste para conferir objeto
-// console.log(sujeitoPersonagem);
 
 //Teste adiciona nova skill
-// sujeitoPersonagem.skills = { nome: 'Bola de Fogo', ataque: 10 };
-//
-//
+//sujeitoPersonagem.skills.push({ nome: 'Bola de fogo', valor: 50, uso: 3 });
