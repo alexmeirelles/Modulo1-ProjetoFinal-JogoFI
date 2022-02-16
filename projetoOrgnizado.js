@@ -219,9 +219,9 @@ Bem vindo ao Reino 2, nobre guerreiro.
 Logo na entrada da Montanha da Perdição, encontram-se os dizeres:
 "Abandone toda a esperança, você que entra por esses portões."
 
-Você encontra uma figura raquítica ao lado do único barco, um senhor, que diz: 
-Antes de mais nada, você tem que responder 
-a um enigma!  
+Você encontra uma figura imponente, de olhar frio e segurando uma foice, ao lado do único barco.
+A entidade se pronuncia: 
+Pare! Antes de continuar, você tem que responder a um enigma!  
 `);
 
 avancar();
