@@ -582,7 +582,7 @@ function enigma() {
 	var counter1 = 0;
 	do {
 		var r1 = prompt('Quem sou eu? ');
-		var choice2List = ['Futuro', 'futuro', 'O futuro', 'o futuro', 'O Futuro', 'o Futuro'];
+		
 		if (counter1 > 1) {
 			console.log('Minha primeira letra é F');
 		}
@@ -597,7 +597,7 @@ function enigma() {
 			console.log(`Eu sou o Futuro.`);
 		}
 		counter1++;
-	} while (choice2List.includes(r1) == false);
+	} while (r1.trim().toLowerCase() != 'futuro' && r1.trim().toLocaleLowerCase() != 'o futuro' );
 	console.log('Parabéns. Você ganhou a habilidade: Bola de Fogo');
 
 	// adicionar aqui a skill bola de fogo depois da resposta
