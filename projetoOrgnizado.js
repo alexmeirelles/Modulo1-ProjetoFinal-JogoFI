@@ -215,20 +215,24 @@ console.log('Reino 2');
 
 console.log(`
 ${sujeitoPersonagem.status()}
+Bem vindo ao Reino 2, nobre guerreiro.
+Logo na entrada da Montanha da Perdição, encontram-se os dizeres:
 "Abandone toda a esperança, você que entra por esses portões."
-Você encontra uma figura raquítica, um senhor, que diz: Antes de mais nada você tem que responder 
-algumas perguntas (nunca se sabe, de repente você ganha algo)! 
-Você se parece muito com Dante. Boa sorte!`);
 
+Você encontra uma figura raquítica ao lado do único barco, um senhor, que diz: 
+Antes de mais nada, você tem que responder 
+a um enigma!  
+`);
+
+avancar();
+console.log(`Você acaba de conhecer Caronte, o barqueiro. Sujeito grave, taciturno, "poucas ideias".
+Neste reino tudo o que te aguarda são desafios e desventuras. Prepare-se.`);
 avancar();
 console.log(`${sujeitoPersonagem.status()}`);
 
 console.log(`ENIGMA => você recebe uma letra a cada tentativa (max tentativas: 3) `);
 avancar();
 enigma();
-
-console.log(`Você acaba de conhecer Caronte, o barqueiro. Sujeito grave, taciturno, "poucas ideias".
-Neste reino tudo o que te aguarda são desafios e desventuras. Prepare-se.`);
 
 avancar();
 
