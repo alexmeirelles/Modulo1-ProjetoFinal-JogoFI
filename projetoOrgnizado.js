@@ -187,7 +187,8 @@ for (let i = 0; i < 3; ) {
 avancar();
 
 // Adcionar Aqui a luta do Reino 1
-console.log(`Bem-vindo ao estágio final deste Reino! O final deste e o inicio de novas aventuras! Só há um único problema..
+console.log(`${sujeitoPersonagem.status()}
+Bem-vindo ao estágio final deste Reino! O final deste e o inicio de novas aventuras! Só há um único problema..
 Agora você deve passar pelo Gigante Hércules. Com uma aparência simples, com vestimentas feudais mas com um 
 soco poderoso que parece uma forte marreta.
 Você é esperto. Conseguirá bater mais vezes. Bata o mais rápido que puder, traga a vida dele a zero... antes da sua.
@@ -408,7 +409,7 @@ console.log(`Boa Guerreiro. A sua jornada chegou ao fim e você foi o grande cam
 dia++;
 console.log(`Você gastou ${dia} dias para concluir esta jornada. Sua vida final é de ${sujeitoPersonagem.vida.toFixed(1)}!`);
 
-// --------------------- FUNÇÕES --------------------- //
+// ------------------------- FUNÇÕES ------------------------- //
 
 //Função escolha da bebida
 function bebidaEscolhida(opcao, resposta) {
@@ -425,13 +426,14 @@ function bebidaEscolhida(opcao, resposta) {
 	}
 }
 
+//Função do jogo de dados
 function diceGame(rounds) {
 	console.log(`Agora você jogará ${rounds} dados contra lendas das apostas - deuses do caos, caso seja ousado. `);
 	do {
 		let zoa = 0;
 
 		var diceChoice = +prompt('Escolha quantos lados terá o dado (Somente números entre 3 e 100) => D');
-		if (Number.isInteger(diceChoice) == false || diceChoice > 100 || diceChoice < 0 || diceChoice == '') {
+		if (Number.isInteger(diceChoice) == false || diceChoice > 100 || diceChoice < 3 || diceChoice == '') {
 			console.log('Somente números entre 3 e 100.');
 			if (zoa > 1) {
 				console.log('Virgilio - O Poeteiro: Você está de brinquedo com a minha cara?!  ESCOLHE UM NÚMERO kkk');
@@ -441,7 +443,7 @@ function diceGame(rounds) {
 	} while (Number.isInteger(diceChoice) == false || diceChoice == '');
 	do {
 		var playerN = +prompt('Contra quantos jogadores você quer jogar? (somente número < 5) ');
-	} while (Number.isInteger(playerN) == false || playerN > 5 || playerN < 0 || playerN == '');
+	} while (Number.isInteger(playerN) == false || playerN > 5 || playerN <= 0 || playerN == '');
 	var players = [
 		{
 			nome: `${sujeitoPersonagem.nome}`,
@@ -494,8 +496,9 @@ function diceGame(rounds) {
 		if (playerN < 5) {
 			console.log(`${observers} apenas observam os meros mortais `);
 		} else if ((playerN = 5)) {
-			console.log(`RNGesus está com medo/tranquilo, afinal ele é a dualidade,
-      ele é caos personificado e o paradoxo existencial. `);
+			console.log(
+				`RNGesus está com medo/tranquilo, afinal ele é a dualidade, ele é caos personificado e o paradoxo existencial. `
+			);
 		}
 		avancar();
 		do {
@@ -567,6 +570,7 @@ function diceGame(rounds) {
 	}
 }
 
+//Função do enigma
 function enigma() {
 	console.log(`Eu sou uma variável da existência, mudo a todo instante e possuo uma característica estática:`);
 	console.log(`Estou sempre a sua frente.`);
@@ -712,9 +716,3 @@ function verificaskills(nome) {
 	let existe = sujeitoPersonagem.skills.find((x) => x.nome === nome);
 	return existe;
 }
-
-// Colas
-
-
-//Teste adiciona nova skill
-//sujeitoPersonagem.skills.push({ nome: 'Bola de fogo', valor: 50, uso: 3 });
