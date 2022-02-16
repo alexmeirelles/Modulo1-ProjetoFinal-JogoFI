@@ -18,30 +18,30 @@ const nome = prompt('Qual o nome do seu guerreiro? ');
 
 //Apresenta a introdução ao jogador
 console.log(`
-Ah Nobre Guerreiro ${nome}!! Eu já lhe aguardava! A Princesa Astrid já havia
+-"Ah Nobre Guerreiro ${nome}!! Eu já lhe aguardava! A Princesa Astrid já havia
 me dito de sua chegada. Seu nome por essas bandas já é famoso e sei que você
 veio para provar as aventuras de nosso Vale. Ele não é brincadeira não, muitos
 aventureiros já ficaram pelo caminho. Mas, você, eu sei que você é de uma
-graduação diferente!
+graduação diferente!"
 `);
 
 avancar();
 
 console.log(`
-Ahhh já estava quase me esquecendo! Você passará por três reinos. 
+-"Ahhh já estava quase me esquecendo! Você passará por três reinos. 
 O do nosso Condado, a Montanha da Perdição e o Reino de Gelo. Prepare-se! 
-Você enfrentará 3 Desafios em cada um. Seja sábio em suas escolhas.
+Você enfrentará 3 Desafios em cada um. Seja sábio em suas escolhas."
 `);
 
 avancar();
 
 console.log(`
-Como você viajou o dia todo, peço que você se junte ao nosso salão principal,
+-"Como você viajou o dia todo, peço que você se junte ao nosso salão principal,
 hoje é dia de Cordeiro e do vinho das Montanhas de Ziu! Um espetáculo, embalará
-o seu sono...`);
+o seu sono..."`);
 console.log(`
-Amanha você partirá, após nosso café Imperial. Uma dose de carboidrato e proteínas
-lhe deixarão pronto para desfiladeiros e Dragões!`);
+-"Amanha você partirá, após nosso café Imperial. Uma dose de carboidrato e proteínas
+lhe deixarão pronto para desfiladeiros e Dragões!"`);
 
 avancar();
 
@@ -132,12 +132,14 @@ while (caminho != 'bosque' && caminho != 'ferreiro' && caminho != 'exercito') {
 					'sua jornada. Bem pensado, afinal, quais desafios você pode encontrar pelo caminho!? \n' +
 					'E como transpo-los sem nada na mão!?'
 			);
+			console.log();
 			console.log(
 				'Você chega e é recepcionado pelo Sargeto Orveu, ele é o responsável pelas armas de \n' +
 					'combate e já aguardava a sua chegada. Orveu tem uma presença dominante e não é de \n' +
 					'muitas palavras. Pergunta rapidamente qual será a sua jornada, o que possivelmente você \n' +
 					'irá enfrentar e pega dos itens a mão. Uma espada e uma foice. '
 			);
+			console.log();
 			item = prompt('Escolha um item e digite: Foice ou Espada. ');
 			if (item.trim().toLowerCase() == 'espada') {
 				console.log('Voce pegou o item: Espada');
