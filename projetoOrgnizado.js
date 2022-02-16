@@ -156,7 +156,7 @@ avancar();
 console.log(`Você chegou na Adega do Gnomo! Aqui muitos guerreiros vem para descansar e tomar uns drinks.
 Papo vai, Papo vem e você foi desafiado para uma roleta russa com os drinks de um mago poderoso 
 do local. São 3 rodadas de shots e duas das três bebidas não fazem bem para sua saude. 
-Uma tirará meio ponto de vidae a outra tirará um ponto. 
+Uma tirará 10 pontos de vida e a outra tirará 5 pontos. 
 Espero que você escolha a certa todas as vezes, grande Guerreiro!`);
 
 for (let i = 0; i < 3; ) {
@@ -207,6 +207,9 @@ console.log(
 );
 sujeitoPersonagem.vida += 10;
 
+avancar();
+console.log('Reino 2');
+
 // ---------------------
 // Adcionar Aqui as missões do Reino 2
 
@@ -242,8 +245,8 @@ console.clear();
 console.log(`${sujeitoPersonagem.nome} venceu a batalha`);
 console.log(sujeitoPersonagem.status());
 console.log(`Foram gastos ${rodada + 1} turnos para você consagrar-se campeão`);
-
 avancar();
+
 console.log(`Após derrotar Cerberino, você entra no nível em que estão os apostadores. 
 Hora de testar sua sorte.`);
 avancar();
@@ -260,6 +263,8 @@ console.log(
 	)} e terá mais 10 acrescido com seu sono reparador!`
 );
 sujeitoPersonagem.vida += 10;
+
+avancar();
 
 //Reino de Gelo
 console.log(
@@ -284,7 +289,7 @@ avancar();
 console.log(
 	`Ele logo te adverte que é muito perigoso tentar pegar um peixe sem uma vara de pescar.
 Você pergunta onde encontrar uma vara de pescar e ele te faz uma proposta:
-A vara de percar que ele tinha foi tirada de um cadaver que estava congelado.
+A vara de pescar que ele tinha foi tirada de um cadaver que estava congelado.
 Ele então te oferece a vara de pescar mas tem um preço, vocês devem jogar cara ou coroa!
 São 3 rodas, se você ganhar duas, a vara de pesca será sua! 
 `
@@ -387,11 +392,11 @@ function bebidaEscolhida(opcao, resposta) {
 	console.clear();
 	console.log(`Você escolheu a bebida ${opcao}. `);
 	if (resposta == 1) {
-		console.log('Você perdeu uma vida.');
-		sujeitoPersonagem.vida -= 1;
+		console.log('Você perdeu 10 de vida.');
+		sujeitoPersonagem.vida -= 10;
 	} else if (resposta == 2) {
-		console.log('Você perdeu meia vida.');
-		sujeitoPersonagem.vida -= 0.5;
+		console.log('Você perdeu 5 de vida.');
+		sujeitoPersonagem.vida -= 5;
 	} else {
 		console.log('Escapou! Não perdeu vida.');
 	}
