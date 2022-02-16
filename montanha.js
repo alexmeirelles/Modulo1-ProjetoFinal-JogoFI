@@ -178,7 +178,7 @@ function diceGame(rounds) {
       vitorias: 0,
     },
   ];
-  for (let j = 0; j < rounds; j++) {
+  for (var j = 0; j < rounds; j++) {
     var turn = [];
 
     playerList = [];
@@ -188,7 +188,7 @@ function diceGame(rounds) {
     console.log(`Você está jogando contra ${playerList}`);
     var observers = [];
     for (let i2 = 0; i2 < playerN + 1; i2++) {
-      if (playerList.includes(playerList[j].nome) == false) {
+      if (playerList.includes(playerList[j]) == false) {
         observers.push(playerList[j].nome);
       }
     }
