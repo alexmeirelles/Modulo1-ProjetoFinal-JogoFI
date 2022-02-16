@@ -193,11 +193,12 @@ soco poderoso que parece uma forte marreta.
 Você é esperto. Conseguirá bater mais vezes. Bata o mais rápido que puder, traga a vida dele a zero... antes da sua.
 Hércules aparece: Haha você? Comece.. te dou a oportunidade enquanto vou estralando os dedos..`);
 
+avancar();
 fight(gigante, '');
 
 console.clear();
-console.log(`${sujeitoPersonagem.nome} venceu a batalha`);
 console.log(sujeitoPersonagem.status());
+console.log(`${sujeitoPersonagem.nome} venceu a batalha`);
 console.log(`Foram gastos ${rodada + 1} turnos para você consagrar-se campeão`);
 avancar();
 
@@ -212,15 +213,12 @@ console.log(
 );
 sujeitoPersonagem.vida += 15;
 
-
 avancar();
-
 
 // ---------------------
 // Adcionar Aqui as missões do Reino 2
 
-console.log(`
-${sujeitoPersonagem.status()}
+console.log(`${sujeitoPersonagem.status()}
 
 Bem vindo, nobre guerreiro.
 Logo na entrada da Montanha da Perdição, encontram-se os dizeres:
@@ -232,7 +230,7 @@ Pare! Antes de continuar, você tem que responder um enigma!
 `);
 
 avancar();
-console.log(` Você acaba de conhecer Caronte, o barqueiro. Sujeito grave, taciturno, "poucas ideias".
+console.log(`Você acaba de conhecer Caronte, o barqueiro. Sujeito grave, taciturno, "poucas ideias".
 
 'Eu não tentaria fugir do desafio, se fosse você.'
 
@@ -391,12 +389,12 @@ if (item != undefined) {
 fight(dragaoGelo, 'Bola de fogo');
 
 console.clear();
-console.log(`${sujeitoPersonagem.nome} venceu a batalha`);
 console.log(sujeitoPersonagem.status());
+console.log(`${sujeitoPersonagem.nome} venceu a batalha`);
 console.log(`Foram gastos ${rodada + 1} turnos para você consagrar-se campeão`);
 avancar();
 
-//mudança de reino, mudança de dia
+//Fim do jogo, Campeão
 console.log(`Boa Guerreiro. A sua jornada chegou ao fim e você foi o grande campeão!`);
 dia++;
 console.log(`Você gastou ${dia} dias para concluir esta jornada. Sua vida final é de ${sujeitoPersonagem.vida.toFixed(1)}!`);
@@ -472,24 +470,24 @@ function diceGame(rounds) {
 
 	for (let m = 1; m < playerN + 1; m++) {
 		playerList.push(players[m].nome);
-	};
-	for (let c = 1; c < players.length ; c++) {
+	}
+	for (let c = 1; c < players.length; c++) {
 		if (playerList.includes(players[c].nome) == false) {
 			observers.push(players[c].nome);
 		}
-	};
+	}
 
 	for (var j = 0; j < rounds; j++) {
 		var turn = [];
-	
+
 		console.log(`Você está jogando contra ${playerList}`);
-		
+
 		if (playerN < 5) {
 			console.log(`${observers} apenas observam os meros mortais `);
 		} else if ((playerN = 5)) {
 			console.log(`RNGesus está com medo/tranquilo, afinal ele é a dualidade,
       ele é caos personificado e o paradoxo existencial. `);
-		};
+		}
 		avancar();
 		do {
 			var p11 = prompt(`Jogar dado, ${nome} ?`);
@@ -519,14 +517,13 @@ function diceGame(rounds) {
 					} else if (l != 0) {
 						// adicionar aqui: interação para mudar status do personagem em caso de derrota
 						sujeitoPersonagem.vida -= 3;
-						console.log('Vírgilio: O seu fim está se aproximando. Reaja. (HP -3)')
+						console.log('Vírgilio: O seu fim está se aproximando. Reaja. (HP -3)');
 					}
 				}
 			}
-		};
+		}
 		console.log('Sua jogada', dado);
 		console.log('placar', players);
-		
 	}
 	players.sort((a, b) => {
 		return b.vitorias - a.vitorias;
@@ -566,7 +563,7 @@ function enigma() {
 	console.log(`Estou sempre a sua frente.`);
 	var counter1 = 0;
 	do {
-		var r1 =  prompt('Quem sou eu? ');
+		var r1 = prompt('Quem sou eu? ');
 		var choice2List = ['Futuro', 'futuro', 'O futuro', 'o futuro', 'O Futuro', 'o Futuro'];
 		if (counter1 > 1) {
 			console.log('Minha primeira letra é F');
@@ -597,7 +594,7 @@ function fight(mob, skillNome) {
 		let escolha = 0;
 		let skill = verificaskills(skillNome);
 
-		console.log();
+		console.clear();
 		console.log(`Turno ${rodada + 1}`);
 		console.log(`${sujeitoPersonagem.nome} HP: ${sujeitoPersonagem.vida.toFixed(1)} e ${mob.nome} HP: ${mob.vida.toFixed(1)}`);
 		console.log();
