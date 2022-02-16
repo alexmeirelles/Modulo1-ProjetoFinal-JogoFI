@@ -401,6 +401,171 @@ function bebidaEscolhida(opcao, resposta) {
 	}
 }
 
+function diceGame(rounds) {
+	console.log(`Agora você jogará ${rounds} dados contra lendas das apostas - deuses do caos, caso seja ousado. `);
+	do {
+		let zoa = 0;
+
+		var diceChoice = +prompt('Escolha quantos lados terá o dado (somente número < 100) => D');
+		if (Number.isInteger(diceChoice) == false || diceChoice > 100 || diceChoice < 0 || diceChoice == '') {
+			console.log('Somente números.');
+			if (zoa > 1) {
+				console.log('Virgilio - O Poeteiro: Você está de brinquedo com a minha cara?!  ESCOLHE UM NÚMERO kkk');
+			}
+			zoa++;
+		}
+	} while (Number.isInteger(diceChoice) == false || diceChoice == '');
+	do {
+		var playerN = +prompt('Contra quantos jogadores você quer jogar? (somente número < 5) ');
+	} while (Number.isInteger(playerN) == false || playerN > 5 || playerN < 0 || playerN == '');
+	var players = [
+		{
+			nome: nome,
+			jogada: [],
+			vitorias: 0,
+		},
+		{
+			nome: 'Jack Black',
+			jogada: [],
+			vitorias: 0,
+		},
+		{
+			nome: 'Phill Ivey',
+			jogada: [],
+			vitorias: 0,
+		},
+		{
+			nome: 'Negreanu',
+			jogada: [],
+			vitorias: 0,
+		},
+		{
+			nome: 'Amarillo Slim',
+			jogada: [],
+			vitorias: 0,
+		},
+		{
+			nome: 'RNGesus - Himself',
+			jogada: [],
+			vitorias: 0,
+		},
+	];
+	for (var j = 0; j < rounds; j++) {
+		var turn = [];
+
+		playerList = [];
+		for (let m = 1; m < playerN + 1; m++) {
+			playerList.push(players[m].nome);
+		}
+		console.log(`Você está jogando contra ${playerList}`);
+		var observers = [];
+		for (let i2 = 0; i2 < playerN + 1; i2++) {
+			if (playerList.includes(playerList[j]) == false) {
+				observers.push(playerList[j]);
+			}
+		}
+		if (playerN < 5) {
+			console.log(`${observers} apenas observam os meros mortais `);
+		} else if ((playerN = 5)) {
+			console.log(`RNGesus está com medo/tranquilo, afinal ele é a dualidade,
+      ele é caos personificado e o paradoxo existencial. `);
+		}
+		avancar();
+		do {
+			var p11 = prompt(`Jogar dado, ${nome} ?`);
+		} while (p11 == 'n' || p11 == 'nao' || p11 == 'not' || p11 == '0' || p11 == 'no');
+		let dado = Math.ceil(Math.random() * diceChoice);
+
+		players[0].jogada.push(dado);
+		turn.push(dado);
+		//*outros jogadores / comentar sobre i = 1
+		for (let i = 1; i < playerN + 1; i++) {
+			let dado = Math.ceil(Math.random() * diceChoice);
+			players[i].jogada.push(dado);
+			turn.push(dado);
+		}
+		turn.sort((a, b) => {
+			return b - a;
+		});
+
+		if (turn[0] != turn[1]) {
+			for (let l = 0; l < playerN + 1; l++) {
+				if (players[l].jogada[j] == turn[0]) {
+					players[l].vitorias++;
+					if (l == 0) {
+						//adicionar aqui: interação para mudar status do personagem em caso de vitoria
+						sujeitoPersonagem.vida += 7;
+					} else if (l != 0) {
+						// adicionar aqui: interação para mudar status do personagem em caso de derrota
+						sujeitoPersonagem.vida -= 3;
+					}
+				}
+			}
+		}
+		console.log('placar', players);
+		console.log('Sua jogada', dado);
+	}
+	players.sort((a, b) => {
+		return b.vitorias - a.vitorias;
+	});
+
+	if (players[0].vitorias != players[1].vitorias) {
+		console.log('Ganhador =>', players[0].nome);
+	} else {
+		console.log('Nao houve ganhador.');
+	}
+
+	if (players[0].nome == nome && players[0].vitorias != players[1].vitorias) {
+		console.log('Você ganhou, cabra da peste. ');
+		//adicionar recompensas nos cases abaixo
+		switch (playerN) {
+			case 1:
+				console.log('Poçao de vida 1');
+				sujeitoPersonagem.vida += 10;
+			case 2:
+				console.log('poçao de vida 2');
+				sujeitoPersonagem.vida += 15;
+			case 3:
+				console.log('poçao de vida 3');
+				sujeitoPersonagem.vida += 20;
+			case 4:
+				console.log('Buff de recuperaçao de vida');
+				sujeitoPersonagem.vida += 30;
+			case 5:
+				console.log('Buff de recuperaçao de vida supremo');
+				sujeitoPersonagem.vida = 200;
+		}
+	}
+}
+
+function enigma() {
+	console.log(`Eu sou uma variável da existência, mudo a todo instante e possuo uma característica estática:`);
+	console.log(`Estou sempre a sua frente.`);
+	var counter1 = 0;
+	do {
+		var r1 = prompt('Quem sou eu? ');
+		var choice2List = ['Futuro', 'futuro', 'O futuro', 'o futuro', 'O Futuro', 'o Futuro'];
+		if (counter1 > 1) {
+			console.log('Minha primeira letra é F');
+		}
+		if (counter1 > 2) {
+			console.log('Minha ultima letra é O');
+		}
+		if (counter1 > 3) {
+			console.log(`Ta complicado, hein?! Última tentativa
+      Minha terceira letra é T`);
+		}
+		if (counter1 > 4) {
+			console.log(`Eu sou o Futuro.`);
+		}
+		counter1++;
+	} while (choice2List.includes(r1) == false);
+	console.log('Parabéns. Você ganhou a habilidade: Bola de Fogo');
+
+	// adicionar aqui a skill bola de fogo depois da resposta
+	sujeitoPersonagem.skills.push({ nome: 'Bola de fogo', valor: 50, uso: 3 });
+}
+
 //Função que chama a luta X Mob
 function fight(mob, skillNome) {
 	rodada = 0;
