@@ -679,7 +679,11 @@ function fight(mob, skillNome) {
 	console.log();
 	if (sujeitoPersonagem.vida < 1) {
 		console.log(`${sujeitoPersonagem.nome} HP: ${sujeitoPersonagem.vida.toFixed(1)} e ${mob.nome} HP: ${mob.vida.toFixed(1)}`);
-		console.log('Game Over');
+		console.log();
+console.log('/--------------------------------------------/');
+console.log('***                GAME OVER!             ***');
+console.log('/--------------------------------------------/');
+console.log();
 		process.exit(1);
 	}
 }
