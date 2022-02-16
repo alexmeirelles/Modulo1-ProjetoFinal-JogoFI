@@ -23,6 +23,8 @@ aventureiros já ficaram pelo caminho. Mas, você, eu sei que você é de uma
 graduação diferente!
 `);
 
+avancar();
+
 console.log(`
 Ahhh já estava quase me esquecendo! Você passará por três reinos. 
 O do nosso Condado, a Montanha da Perdição e o Reino de Gelo. Prepare-se! 
@@ -76,11 +78,11 @@ const dragaoGelo = {
 
 //Variaveis de controle
 let rodada;
-let dia = 0;
+let dia = 1;
 
 // ---- Reino 1 : Floresta Tropical / Condado ---- //
 console.log(`Bom Dia Guerreiro! Espero que tenha descansado bem, uma nova sequencia de aventura
- nos aguarda e vai exigir muito de sua disposição, habilidades e sorte.
+nos aguarda e vai exigir muito de sua disposição, habilidades e sorte.
 Um café forte é uma bela pedida, depois de um banho gelado nas Cascatas de Xelim. 
 Você agora precisa se equipar, na saída do condado há varios caminhos para serem escolhidos..`);
 
@@ -189,13 +191,14 @@ Hércules aparece: Haha você? Comece.. te dou a oportunidade enquanto vou estra
 fight(gigante, '');
 
 console.clear();
+console.log(`${sujeitoPersonagem.nome} venceu a batalha`);
 console.log(sujeitoPersonagem.status());
 console.log(`Foram gastos ${rodada + 1} turnos para você consagrar-se campeão`);
 avancar();
 
 //mudança de reino, mudança de dia
 console.log(`Boa Guerreiro. Este Desafio e este dia se chega ao fim! Uma taverna com boa cama garantirá o seu 
-descanso e a recuperação de algum dano de sua jornada`);
+descanso e a recuperação de algum dano de sua jornada.`);
 dia++;
 console.log(
 	`Hoje foi seu dia ${dia} dessa incrível jornada. Sua vida é de ${sujeitoPersonagem.vida.toFixed(
@@ -214,6 +217,7 @@ sujeitoPersonagem.vida += 10;
 fight(cerberino, 'Bola de fogo');
 
 console.clear();
+console.log(`${sujeitoPersonagem.nome} venceu a batalha`);
 console.log(sujeitoPersonagem.status());
 console.log(`Foram gastos ${rodada + 1} turnos para você consagrar-se campeão`);
 avancar();
@@ -336,21 +340,17 @@ if (item != undefined) {
 
 // Adicionar Aqui a luta do Reino 3
 fight(dragaoGelo, 'Bola de fogo');
+
 console.clear();
+console.log(`${sujeitoPersonagem.nome} venceu a batalha`);
 console.log(sujeitoPersonagem.status());
 console.log(`Foram gastos ${rodada + 1} turnos para você consagrar-se campeão`);
 avancar();
 
 //mudança de reino, mudança de dia
-console.log(`Boa Guerreiro. Este Desafio e este dia se chega ao fim! Uma taverna com boa cama garantirá o seu 
-descanso e a recuperação de algum dano de sua jornada`);
+console.log(`Boa Guerreiro. A sua jornada chegou ao fim e você foi o grande campeão!`);
 dia++;
-console.log(
-	`Hoje foi seu dia ${dia} dessa incrível jornada. Sua vida é de ${sujeitoPersonagem.vida.toFixed(
-		1
-	)} e terá mais 10 acrescido com seu sono reparador!`
-);
-sujeitoPersonagem.vida += 10;
+console.log(`Você gastou ${dia} dias para concluir esta jornada. Sua vida final é de ${sujeitoPersonagem.vida.toFixed(1)}!`);
 
 // --------------------- FUNÇÕES --------------------- //
 
@@ -429,8 +429,6 @@ function fight(mob, skillNome) {
 		console.log(`${sujeitoPersonagem.nome} HP: ${sujeitoPersonagem.vida.toFixed(1)} e ${mob.nome} HP: ${mob.vida.toFixed(1)}`);
 		console.log('Game Over');
 		process.exit(1);
-	} else {
-		console.log(`${sujeitoPersonagem.nome} venceu a batalha`);
 	}
 }
 
