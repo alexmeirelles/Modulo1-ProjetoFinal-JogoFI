@@ -467,8 +467,8 @@ function diceGame(rounds) {
 		console.log(`Você está jogando contra ${playerList}`);
 		var observers = [];
 		for (let i2 = 0; i2 < playerN + 1; i2++) {
-			if (playerList.includes(playerList[j]) == false) {
-				observers.push(playerList[j]);
+			if (playerList.includes(players[i2].nome) == false) {
+				observers.push(playerList[i2]);
 			}
 		}
 		if (playerN < 5) {
