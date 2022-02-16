@@ -440,7 +440,7 @@ function diceGame(rounds) {
 			}
 			zoa++;
 		}
-	} while (Number.isInteger(diceChoice) == false || diceChoice == '');
+	} while (Number.isInteger(diceChoice) == false || diceChoice > 100 || diceChoice < 3 || diceChoice == '');
 	do {
 		var playerN = +prompt('Contra quantos jogadores você quer jogar? (somente número < 5) ');
 	} while (Number.isInteger(playerN) == false || playerN > 5 || playerN <= 0 || playerN == '');
