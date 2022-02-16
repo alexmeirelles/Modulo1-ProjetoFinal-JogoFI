@@ -72,7 +72,7 @@ avancar();
   diceGame(3);
   avancar();
 
-  var again = prompt("Você gostaria de seguir para o proximo reino? ");
+  //var again = prompt("Você gostaria de seguir para o proximo reino? ");
 //} while (again == "nao" || again == "n");
 
 // ************************** FUNÇÕES **************************************************
