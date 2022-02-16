@@ -1,9 +1,9 @@
 var prompt = require("prompt-sync")();
-var p1 = prompt("Qual o seu nome? ");
+var nome = prompt("Qual o seu nome? ");
 console.clear();
 
 var sujeitoPersonagem = {
-  nome: p1,
+  nome: nome,
   vida: 100,
   maxHP: 15,
   stamina: 10,
@@ -55,7 +55,7 @@ Neste reino tudo o que te aguarda são desafios e desventuras. Prepare-se.`);
 
 avancar();
 
-do {
+//do {
   console.log(`${sujeitoPersonagem.status()}
 
     Perigo!!!!
@@ -68,9 +68,10 @@ do {
   sua sorte.`);
   avancar();
   diceGame(3);
+  avancar();
 
   var again = prompt("Você gostaria de seguir para o proximo reino? ");
-} while (again == "nao" || again == "n");
+//} while (again == "nao" || again == "n");
 
 // ************************** FUNÇÕES **************************************************
 
@@ -145,7 +146,7 @@ function diceGame(rounds) {
   );
   var players = [
     {
-      nome: p1,
+      nome: nome,
       jogada: [],
       vitorias: 0,
     },
@@ -197,7 +198,7 @@ function diceGame(rounds) {
     }
     avancar();
     do {
-      var p11 = prompt(`Jogar dado, ${p1} ?`);
+      var p11 = prompt(`Jogar dado, ${nome} ?`);
     } while (
       p11 == "n" ||
       p11 == "nao" ||
@@ -209,7 +210,7 @@ function diceGame(rounds) {
 
     players[0].jogada.push(dado);
     turn.push(dado);
-    //outros jogadores
+    //*outros jogadores / comentar sobre i = 1
     for (let i = 1; i < playerN + 1; i++) {
       let dado = Math.ceil(Math.random() * diceChoice);
       players[i].jogada.push(dado);
@@ -225,8 +226,10 @@ function diceGame(rounds) {
           players[l].vitorias++;
           if (l == 0) {
             //adicionar aqui: interação para mudar status do personagem em caso de vitoria
+            sujeitoPersonagem.vida += 7
           } else if (l != 0) {
             // adicionar aqui: interação para mudar status do personagem em caso de derrota
+            sujeitoPersonagem.vida -= 3
           }
         }
       }
@@ -244,27 +247,33 @@ function diceGame(rounds) {
     console.log("Nao houve ganhador.");
   }
 
-  if (players[0].nome == p1 && players[0].vitorias != players[1].vitorias) {
+  if (players[0].nome == nome && players[0].vitorias != players[1].vitorias) {
     console.log("Você ganhou, cabra da peste. ");
     //adicionar recompensas nos cases abaixo
     switch (playerN) {
       case 1:
-        console.log("recompensa 1");
+        console.log("Poçao de vida 1");
+        sujeitoPersonagem.vida += 10;
       case 2:
-        console.log("recompensa 2");
+        console.log("poçao de vida 2");
+        sujeitoPersonagem.vida += 15;
       case 3:
-        console.log("recompensa 3");
+        console.log("poçao de vida 3");
+        sujeitoPersonagem.vida +=20
       case 4:
-        console.log("recompensa 4");
+        console.log("Buff de recuperaçao de vida");
+        sujeitoPersonagem.vida += 30
       case 5:
-        console.log("recompensa 5");
+        console.log("Buff de recuperaçao de vida supremo");
+        sujeitoPersonagem.vida = 200
     }
   }
 }
 
 function enigma(){
-  console.log('ENIGMA');
-  console.log(`Eu sou uma variável, mudo a todo instante e possui uma característica estática:
+  console.log(`ENIGMA => você recebe uma letra a cada tentativa 
+  (max tentativas: 3) `);
+  console.log(`Eu sou uma variável da existência, mudo a todo instante e possuo uma característica estática:
    estou sempre a sua frente.`);
   var counter1 =0
   do{
@@ -277,8 +286,20 @@ function enigma(){
       'O Futuro',
       'o Futuro'
     ];
+    if(counter1 > 1){
+      console.log('Minha primeira letra é F')
+    }else if(counter1>2){
+      console.log('Minha ultima letra é O')
+    }else if(counter1>3){
+      console.log(`Ta complicado, hein?! Última tentativa
+      Minha terceira letra é T`)
+    }else if(counter1>4){
+      console.log(`Eu sou o Futuro.`)
+    }
+    counter1++;
     
   }while (choice2List.includes(r1)==false);
+  console.log('Parabéns. Você ganhou a habilidade: Bola de Fogo')
 
   // adicionar aqui a skill bola de fogo depois da resposta
 }
