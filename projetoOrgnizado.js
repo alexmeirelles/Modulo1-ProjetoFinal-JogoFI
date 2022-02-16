@@ -502,10 +502,11 @@ function diceGame(rounds) {
 					if (l == 0) {
 						//adicionar aqui: interação para mudar status do personagem em caso de vitoria
 						sujeitoPersonagem.vida += 7;
-						console.log('Você acaba de adiar o seu inevitavel fim em 7 unidades. Parabéns! (HP +7) ')
+						console.log('Você acaba de adiar o seu inevitável fim em 7 unidades. Parabéns! (HP +7) ');
 					} else if (l != 0) {
 						// adicionar aqui: interação para mudar status do personagem em caso de derrota
 						sujeitoPersonagem.vida -= 3;
+						console.log('Vírgilio: O seu fim está se aproximando. Reaja. (HP -3)')
 					}
 				}
 			}
