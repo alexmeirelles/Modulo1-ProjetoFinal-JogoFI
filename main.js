@@ -582,21 +582,23 @@ function enigma() {
 	var counter1 = 0;
 	do {
 		var r1 = prompt('Quem sou eu? ');
-		
-		if (counter1 > 1) {
-			console.log('Minha primeira letra é F');
-		}
-		if (counter1 > 2) {
-			console.log('Minha ultima letra é O');
-		}
-		if (counter1 > 3) {
-			console.log(`Ta complicado, hein?! Última tentativa
-      Minha terceira letra é T`);
-		}
-		if (counter1 > 4) {
-			console.log(`Eu sou o Futuro.`);
+
+		if (r1.trim().toLowerCase() != 'futuro' && r1.trim().toLocaleLowerCase() != 'o futuro') {
+			if (counter1 == 0) {
+				console.log('Minha primeira letra é F');
+			}
+			if (counter1 == 1) {
+				console.log('Minha ultima letra é O');
+			}
+			if (counter1 == 2) {
+				console.log(`Ta complicado, hein?! Última tentativa! Minha terceira letra é T`);
+			}
+			if (counter1 == 3) {
+				console.log(`Eu sou o Futuro.`);
+			}
 		}
 		counter1++;
+
 	} while (r1.trim().toLowerCase() != 'futuro' && r1.trim().toLocaleLowerCase() != 'o futuro' );
 	console.log('Parabéns. Você ganhou a habilidade: Bola de Fogo');
 
