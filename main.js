@@ -445,7 +445,7 @@ function diceGame(rounds) {
 		}
 	} while (Number.isInteger(diceChoice) == false || diceChoice > 100 || diceChoice < 3 || diceChoice == '');
 	do {
-		var playerN = +prompt('Contra quantos jogadores você quer jogar? (somente número < 5) ');
+		var playerN = +prompt('Contra quantos jogadores você quer jogar? (Somente números entre 1 e 5) ');
 	} while (Number.isInteger(playerN) == false || playerN > 5 || playerN <= 0 || playerN == '');
 	var players = [
 		{
