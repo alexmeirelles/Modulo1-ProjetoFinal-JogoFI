@@ -281,12 +281,11 @@ sujeitoPersonagem.vida += 10;
 avancar();
 
 //Reino de Gelo
-console.log(
-	`${sujeitoPersonagem.nome}, você acaba de chegar na Cidade do Gelo! Uma nevasca nunca antes 
+console.log(`${sujeitoPersonagem.status()}
+${sujeitoPersonagem.nome}, você acaba de chegar na Cidade do Gelo! Uma nevasca nunca antes 
 vista devastou completamente esta cidade e por isso recebeu tal nome. 
 Aqui os recursos são escassos e logo voce precisará de comida!
-`
-);
+`);
 
 avancar();
 
@@ -353,12 +352,11 @@ if (vitoriaPersonagem > vitoriaVelho) {
 
 avancar();
 
-console.log(
-	`O velho simplesmente desapareceu e você continuou seguindo seu caminho! E exatamente
+console.log(`${sujeitoPersonagem.status()}
+O velho simplesmente desapareceu e você continuou seguindo seu caminho! E exatamente
 após andar 1Km ao norte, você avistou um buraco cortado no gelo. A fome é tanta que você
 correu e foi tentar pegar um peixe para se alimentar!
-`
-);
+`);
 
 avancar();
 
@@ -384,6 +382,17 @@ if (item != undefined) {
 	sujeitoPersonagem.vida += 10;
 	sujeitoPersonagem.stamina -= 15;
 }
+
+avancar();
+
+console.log(`${sujeitoPersonagem.status()}
+Você caminha por 5km e se depara com um dragão de gelo. Seu nome: Viserion!
+Ele é o seu ultimo obstaculo para chagar ao fim de sua jornada. Mas cuidado!
+Ele cospe gelo e por tanto seu ponto fraco é o fogo!
+Espero que você tenha guardado alguma Bola de Fogo, caso contrario vai ser bem dificil vencer!!
+`);
+
+avancar();
 
 // Adicionar Aqui a luta do Reino 3
 fight(dragaoGelo, 'Bola de fogo');
@@ -421,9 +430,9 @@ function diceGame(rounds) {
 	do {
 		let zoa = 0;
 
-		var diceChoice = +prompt('Escolha quantos lados terá o dado (somente número < 100) => D');
+		var diceChoice = +prompt('Escolha quantos lados terá o dado (Somente números entre 3 e 100) => D');
 		if (Number.isInteger(diceChoice) == false || diceChoice > 100 || diceChoice < 0 || diceChoice == '') {
-			console.log('Somente números.');
+			console.log('Somente números entre 3 e 100.');
 			if (zoa > 1) {
 				console.log('Virgilio - O Poeteiro: Você está de brinquedo com a minha cara?!  ESCOLHE UM NÚMERO kkk');
 			}
