@@ -215,18 +215,20 @@ console.log('Reino 2');
 
 console.log(`
 ${sujeitoPersonagem.status()}
-Bem vindo ao Reino 2, nobre guerreiro.
+Bem vindo, nobre guerreiro.
 Logo na entrada da Montanha da Perdição, encontram-se os dizeres:
 "Abandone toda a esperança, você que entra por esses portões."
 
 Você encontra uma figura imponente, de olhar frio e segurando uma foice, ao lado do único barco.
 A entidade se pronuncia: 
-Pare! Antes de continuar, você tem que responder a um enigma!  
+Pare! Antes de continuar, você tem que responder um enigma!  
 `);
 
 avancar();
-console.log(`Você acaba de conhecer Caronte, o barqueiro. Sujeito grave, taciturno, "poucas ideias".
-Neste reino tudo o que te aguarda são desafios e desventuras. Prepare-se.`);
+console.log(` Você acaba de conhecer Caronte, o barqueiro. Sujeito grave, taciturno, "poucas ideias".
+Eu não tentaria fugir do desafio, se fosse você.
+Afirma, estranhamente, uma voz em seu ouvido. É Virgílio, o Poeteiro.
+Virgílio: Neste reino tudo o que te aguarda são desafios e desventuras. Prepare-se.`);
 avancar();
 console.log(`${sujeitoPersonagem.status()}`);
 
@@ -237,7 +239,7 @@ enigma();
 avancar();
 
 console.log(`${sujeitoPersonagem.status()}
-Perigo!!!!
+PERIGO!!!!
 Você dá de cara com um cachorro gigantesco, de 3 cabeças. Sem dúvidas,
 era Cerberino, o cão abestado.`);
 avancar();
@@ -500,6 +502,7 @@ function diceGame(rounds) {
 					if (l == 0) {
 						//adicionar aqui: interação para mudar status do personagem em caso de vitoria
 						sujeitoPersonagem.vida += 7;
+						console.log('Você acaba de adiar o seu inevitavel fim em 7 unidades. Parabéns! (HP +7) ')
 					} else if (l != 0) {
 						// adicionar aqui: interação para mudar status do personagem em caso de derrota
 						sujeitoPersonagem.vida -= 3;
