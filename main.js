@@ -211,8 +211,10 @@ console.log(`Boa Guerreiro. Este Desafio e este dia se chega ao fim! Uma taverna
 descanso e a recuperação de algum dano de sua jornada.`);
 dia++;
 console.log(
-	`Hoje foi seu dia ${dia} dessa incrível jornada. Sua vida é de ${sujeitoPersonagem.vida.toFixed(1)} e sua energia/stamina de ${sujeitoPersonagem.stamina.toFixed(1)}.;
-		Você terá mais 15 acrescido em cada atributo com seu sono reparador!`
+	`Hoje foi seu dia ${dia} dessa incrível jornada. Sua vida é de ${sujeitoPersonagem.vida.toFixed(
+		1
+	)} e sua energia/stamina de ${sujeitoPersonagem.stamina.toFixed(1)}.
+Você terá mais 15 acrescido em cada atributo com seu sono reparador!`
 );
 
 sujeitoPersonagem.vida += 15;
@@ -610,7 +612,6 @@ function fight(mob, skillNome) {
 		let escolha = 0;
 		let skill = verificaskills(skillNome);
 
-		console.clear();
 		console.log(`Turno ${rodada + 1}`);
 		console.log(`${sujeitoPersonagem.nome} HP: ${sujeitoPersonagem.vida.toFixed(1)} e ${mob.nome} HP: ${mob.vida.toFixed(1)}`);
 		console.log();
@@ -656,6 +657,9 @@ function fight(mob, skillNome) {
 		}
 
 		rodada++;
+		console.log();
+		prompt('Proximo turno: (ENTER)');
+		console.clear();
 	}
 	console.log();
 	if (sujeitoPersonagem.vida < 1) {
