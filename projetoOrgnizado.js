@@ -208,26 +208,30 @@ console.log(
 sujeitoPersonagem.vida += 10;
 
 avancar();
-console.log('Reino 2');
+
 
 // ---------------------
 // Adcionar Aqui as missões do Reino 2
 
 console.log(`
 ${sujeitoPersonagem.status()}
+
 Bem vindo, nobre guerreiro.
 Logo na entrada da Montanha da Perdição, encontram-se os dizeres:
 "Abandone toda a esperança, você que entra por esses portões."
 
-Você encontra uma figura imponente, de olhar frio e segurando uma foice, ao lado do único barco.
+Você encontra uma figura imponente, de olhar frio, que segura uma foice ao lado do único barco.
 A entidade se pronuncia: 
 Pare! Antes de continuar, você tem que responder um enigma!  
 `);
 
 avancar();
 console.log(` Você acaba de conhecer Caronte, o barqueiro. Sujeito grave, taciturno, "poucas ideias".
-Eu não tentaria fugir do desafio, se fosse você.
+
+'Eu não tentaria fugir do desafio, se fosse você.'
+
 Afirma, estranhamente, uma voz em seu ouvido. É Virgílio, o Poeteiro.
+
 Virgílio: Neste reino tudo o que te aguarda são desafios e desventuras. Prepare-se.`);
 avancar();
 console.log(`${sujeitoPersonagem.status()}`);
@@ -459,13 +463,13 @@ function diceGame(rounds) {
 	];
 	for (var j = 0; j < rounds; j++) {
 		var turn = [];
-
-		playerList = [];
+		var observers = [];
+		var playerList = [];
 		for (let m = 1; m < playerN + 1; m++) {
 			playerList.push(players[m].nome);
 		}
 		console.log(`Você está jogando contra ${playerList}`);
-		var observers = [];
+		
 		for (let i2 = 0; i2 < playerN + 1; i2++) {
 			if (playerList.includes(players[i2].nome) == false) {
 				observers.push(playerList[i2]);
