@@ -470,9 +470,9 @@ function diceGame(rounds) {
 		}
 		console.log(`Você está jogando contra ${playerList}`);
 		
-		for (let i2 = 0; i2 < playerN + 1; i2++) {
-			if (playerList.includes(players[i2].nome) == false) {
-				observers.push(playerList[i2]);
+		for (let ii = 0; ii < (playerN + 1); ii++) {
+			if (playerList.includes(players[ii].nome) == false) {
+				observers.push(players[ii].nome);
 			}
 		}
 		if (playerN < 5) {
@@ -515,8 +515,9 @@ function diceGame(rounds) {
 				}
 			}
 		}
-		console.log('placar', players);
 		console.log('Sua jogada', dado);
+		console.log('placar', players);
+		
 	}
 	players.sort((a, b) => {
 		return b.vitorias - a.vitorias;
