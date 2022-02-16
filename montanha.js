@@ -189,7 +189,7 @@ function diceGame(rounds) {
     var observers = [];
     for (let i2 = 0; i2 < playerN + 1; i2++) {
       if (playerList.includes(playerList[j]) == false) {
-        observers.push(playerList[j].nome);
+        observers.push(playerList[j]);
       }
     }
     if (playerN < 5) {
