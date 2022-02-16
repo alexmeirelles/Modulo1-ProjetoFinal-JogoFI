@@ -112,7 +112,7 @@ function diceGame(rounds) {
 		let zoa = 0;
 
 		var diceChoice = +prompt('Escolha quantos lados terá o dado (somente número < 100) => D');
-		if (Number.isInteger(diceChoice) == false || diceChoice > 100 || diceChoice < 0 || diceChoice == '') {
+		if (Number.isInteger(diceChoice) == false || diceChoice > 100 || diceChoice < 3 || diceChoice == '') {
 			console.log('Somente números.');
 			if (zoa > 1) {
 				console.log('Virgilio - O Poeteiro: Você está de brinquedo com a minha cara?!  ESCOLHE UM NÚMERO kkk');
@@ -122,7 +122,7 @@ function diceGame(rounds) {
 	} while (Number.isInteger(diceChoice) == false || diceChoice == '');
 	do {
 		var playerN = +prompt('Contra quantos jogadores você quer jogar? (somente número < 5) ');
-	} while (Number.isInteger(playerN) == false || playerN > 5 || playerN < 0 || playerN == '');
+	} while (Number.isInteger(playerN) == false || playerN > 5 || playerN <= 0 || playerN == '');
 	var players = [
 		{
 			nome: nome,
