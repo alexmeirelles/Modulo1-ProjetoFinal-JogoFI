@@ -252,6 +252,8 @@ enigma();
 
 avancar();
 
+sujeitoPersonagem.stamina -= 10;
+avancar();
 console.log(`${sujeitoPersonagem.status()}
 PERIGO!!!!
 Você dá de cara com um cachorro gigantesco, de 3 cabeças. Sem dúvidas,
@@ -265,24 +267,27 @@ console.clear();
 console.log(`${sujeitoPersonagem.nome} venceu a batalha`);
 console.log(sujeitoPersonagem.status());
 console.log(`Foram gastos ${rodada + 1} turnos para você consagrar-se campeão`);
+
+sujeitoPersonagem.stamina -= 10;
 avancar();
 
 console.log(`Após derrotar Cerberino, você entra no nível em que estão os apostadores. 
 Hora de testar sua sorte.`);
 avancar();
 diceGame(3);
+sujeitoPersonagem.stamina -= 10;
 avancar();
 
 //mudança de reino, mudança de dia
 console.log(`Boa Guerreiro. Este Desafio e este dia se chega ao fim! Uma taverna com boa cama garantirá o seu 
-descanso e a recuperação de algum dano de sua jornada`);
+descanso e a recuperação de algum dano de sua jornada.`);
 dia++;
 console.log(
 	`Hoje foi seu dia ${dia} dessa incrível jornada. Sua vida é de ${sujeitoPersonagem.vida.toFixed(
 		1
-	)} e terá mais 10 acrescido com seu sono reparador!`
+	)} e sua energia/stamina de ${sujeitoPersonagem.stamina.toFixed(1)}.
+Você terá mais 15 acrescido em cada atributo com seu sono reparador!`
 );
-sujeitoPersonagem.vida += 10;
 
 avancar();
 
@@ -407,12 +412,20 @@ console.clear();
 console.log(sujeitoPersonagem.status());
 console.log(`${sujeitoPersonagem.nome} venceu a batalha`);
 console.log(`Foram gastos ${rodada + 1} turnos para você consagrar-se campeão`);
+sujeitoPersonagem.stamina -= 10;
 avancar();
 
 //Fim do jogo, Campeão
+console.log();
+console.log('/--------------------------------------------/');
+console.log('***        Fim do jogo, Campeão!         ***');
+console.log('/--------------------------------------------/');
+console.log();
+
+
 console.log(`Boa Guerreiro. A sua jornada chegou ao fim e você foi o grande campeão!`);
 dia++;
-console.log(`Você gastou ${dia} dias para concluir esta jornada. Sua vida final é de ${sujeitoPersonagem.vida.toFixed(1)}!`);
+console.log(`Você gastou ${dia} dias para concluir esta jornada. Sua vida final é de ${sujeitoPersonagem.vida.toFixed(1)} e sua energia/stamina de ${sujeitoPersonagem.stamina.toFixed(1)}.`);
 
 // ------------------------- FUNÇÕES ------------------------- //
 
