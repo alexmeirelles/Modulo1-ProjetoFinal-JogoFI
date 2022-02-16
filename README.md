@@ -1,10 +1,18 @@
 # Modulo1-ProjetoFinal-JogoFI
 Projeto final - Jogo de Ficção Interativa
 
+Blue Edtech
+
+Alunos: Alexandre Meirelles Nogueira Ribeiro
+Jefferson Silva
+Vitor Laureano
+
+
+
 Projeto Final
 •
 10 pontos
-Data de entrega: 15 de fev.
+Data de entrega: 16 de fev.
 Para o desenvolvimento do projeto final será permitido que os alunos trabalhem em trios para troca de ideias e de conhecimento e que vocês já se acostumem a trabalhar em colaboração, a entrega do projeto deve ser feita individualmente pelo classroom entregando o link do projeto desenvolvido por vocês pelo github. Vocês irão em trio desenvolver o projeto porém todos devem entregar o link do GitHub pelo classroom.
 
 Você irá criar um jogo de ficção interativa que simule a rotina diária de um personagem. Você pode escolher entre rotinas matinais, rotinas de trabalho, rotinas de estudos, aventuras épicas, histórias assustadoras, entre outras. A ideia do jogo é que o jogador faça as escolhas para o seu personagem e o conduza pela história. Cada escolha irá gerar uma consequência diferente para o seu personagem. Você será responsável por determinar o inicio e término da história, além de avançar o tempo a cada escolha.
