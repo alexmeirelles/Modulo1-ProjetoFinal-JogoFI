@@ -61,7 +61,7 @@ const sujeitoPersonagem = {
 const gigante = {
 	nome: 'Hercules',
 	vida: 100,
-	ataque: 2,
+	ataque: 1,
 };
 
 const cerberino = {
