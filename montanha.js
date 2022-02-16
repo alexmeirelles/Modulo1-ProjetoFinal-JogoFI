@@ -1,38 +1,36 @@
-var prompt = require("prompt-sync")();
-var nome = prompt("Qual o seu nome? ");
+var prompt = require('prompt-sync')();
+var nome = prompt('Qual o seu nome? ');
 console.clear();
 
 var sujeitoPersonagem = {
-  nome: nome,
-  vida: 100,
-  maxHP: 15,
-  stamina: 10,
-  itens: [],
-  skills: ["0-Porrada", "1-Bola de Fogo"],
-  skill: [
-    function porrada() {
-      // caso ache melhor um retorno com mais casas decimais, basta aumentar argumento de toFixed
-      const dano =
-        0.3 * sujeitoPersonagem.vida +
-        0.5 *
-          parseFloat((sujeitoPersonagem.stamina * Math.random()).toFixed(1)) +
-        0.2 * sujeitoPersonagem.itens;
-      return dano;
-    },
-    function bolaDeFogo() {
-      // caso ache melhor um retorno com mais casas decimais, basta aumentar argumento de toFixed
-      const dano =
-        0.7 * sujeitoPersonagem.vida +
-        0.5 *
-          parseFloat((sujeitoPersonagem.stamina * Math.random()).toFixed(1)) +
-        0.2 * sujeitoPersonagem.itens;
-      return dano;
-    },
-  ],
-  status: function () {
-    var status = `${this.nome} Vida: ${this.vida} Stamina: ${this.stamina} Itens: ${this.itens}`;
-    return status;
-  },
+	nome: nome,
+	vida: 100,
+	maxHP: 15,
+	stamina: 10,
+	itens: [],
+	skills: ['0-Porrada', '1-Bola de Fogo'],
+	skill: [
+		function porrada() {
+			// caso ache melhor um retorno com mais casas decimais, basta aumentar argumento de toFixed
+			const dano =
+				0.3 * sujeitoPersonagem.vida +
+				0.5 * parseFloat((sujeitoPersonagem.stamina * Math.random()).toFixed(1)) +
+				0.2 * sujeitoPersonagem.itens;
+			return dano;
+		},
+		function bolaDeFogo() {
+			// caso ache melhor um retorno com mais casas decimais, basta aumentar argumento de toFixed
+			const dano =
+				0.7 * sujeitoPersonagem.vida +
+				0.5 * parseFloat((sujeitoPersonagem.stamina * Math.random()).toFixed(1)) +
+				0.2 * sujeitoPersonagem.itens;
+			return dano;
+		},
+	],
+	status: function () {
+		var status = `${this.nome} Vida: ${this.vida} Stamina: ${this.stamina} Itens: ${this.itens}`;
+		return status;
+	},
 };
 
 // historia começa aqui
@@ -158,7 +156,7 @@ function diceGame(rounds) {
 			vitorias: 0,
 		},
 	];
-	for (let j = 0; j < rounds; j++) {
+	for (var j = 0; j < rounds; j++) {
 		var turn = [];
 
 		playerList = [];
@@ -168,7 +166,7 @@ function diceGame(rounds) {
 		console.log(`Você está jogando contra ${playerList}`);
 		var observers = [];
 		for (let i2 = 0; i2 < playerN + 1; i2++) {
-			if (playerList.includes(playerList[j].nome) == false) {
+			if (playerList.includes(playerList[j]) == false) {
 				observers.push(playerList[j].nome);
 			}
 		}
@@ -247,23 +245,22 @@ function diceGame(rounds) {
 }
 
 function enigma() {
+	console.log(`ENIGMA => você recebe uma letra a cada tentativa 
+  (max tentativas: 3) `);
+	console.log(`Eu sou uma variável da existência, mudo a todo instante e possuo uma característica estática:
+   estou sempre a sua frente.`);
 	var counter1 = 0;
 	do {
-		console.log(`Eu sou uma variável da existência, mudo a todo instante e possuo uma característica estática: `);
-		console.log(`Estou sempre a sua frente.`);
 		var r1 = prompt('Quem sou eu? ');
 		var choice2List = ['Futuro', 'futuro', 'O futuro', 'o futuro', 'O Futuro', 'o Futuro'];
 		if (counter1 > 1) {
 			console.log('Minha primeira letra é F');
-		}
-		if (counter1 > 2) {
+		} else if (counter1 > 2) {
 			console.log('Minha ultima letra é O');
-		}
-		if (counter1 > 3) {
-			console.log(`Ta complicado, hein?! Última tentativa`);
-			console.log(`Minha terceira letra é T`);
-		}
-		if (counter1 > 4) {
+		} else if (counter1 > 3) {
+			console.log(`Ta complicado, hein?! Última tentativa
+      Minha terceira letra é T`);
+		} else if (counter1 > 4) {
 			console.log(`Eu sou o Futuro.`);
 		}
 		counter1++;
