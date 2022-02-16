@@ -1,6 +1,8 @@
 //Chamada do Prompt
 var prompt = require('prompt-sync')();
 
+
+
 //limpa o console na inicialização
 console.clear();
 
@@ -75,6 +77,7 @@ const dragaoGelo = {
 	vida: 150,
 	ataque: 5,
 };
+
 
 //Variaveis de controle
 let rodada;
@@ -431,7 +434,7 @@ function diceGame(rounds) {
 	} while (Number.isInteger(playerN) == false || playerN > 5 || playerN < 0 || playerN == '');
 	var players = [
 		{
-			nome: nome,
+			nome: `${sujeitoPersonagem.nome}`,
 			jogada: [],
 			vitorias: 0,
 		},
@@ -461,26 +464,29 @@ function diceGame(rounds) {
 			vitorias: 0,
 		},
 	];
+	var observers = [];
+	var playerList = [];
+
+	for (let m = 1; m < playerN + 1; m++) {
+		playerList.push(players[m].nome);
+	};
+	for (let c = 1; c < players.length ; c++) {
+		if (playerList.includes(players[c].nome) == false) {
+			observers.push(players[c].nome);
+		}
+	};
+
 	for (var j = 0; j < rounds; j++) {
 		var turn = [];
-		var observers = [];
-		var playerList = [];
-		for (let m = 1; m < playerN + 1; m++) {
-			playerList.push(players[m].nome);
-		}
+	
 		console.log(`Você está jogando contra ${playerList}`);
 		
-		for (let ii = 0; ii < (playerN + 1); ii++) {
-			if (playerList.includes(players[ii].nome) == false) {
-				observers.push(players[ii].nome);
-			}
-		}
 		if (playerN < 5) {
 			console.log(`${observers} apenas observam os meros mortais `);
 		} else if ((playerN = 5)) {
 			console.log(`RNGesus está com medo/tranquilo, afinal ele é a dualidade,
       ele é caos personificado e o paradoxo existencial. `);
-		}
+		};
 		avancar();
 		do {
 			var p11 = prompt(`Jogar dado, ${nome} ?`);
@@ -514,7 +520,7 @@ function diceGame(rounds) {
 					}
 				}
 			}
-		}
+		};
 		console.log('Sua jogada', dado);
 		console.log('placar', players);
 		
@@ -550,6 +556,7 @@ function diceGame(rounds) {
 				sujeitoPersonagem.vida = 200;
 		}
 	}
+	process.exit(1);
 }
 
 function enigma() {
