@@ -559,7 +559,6 @@ function diceGame(rounds) {
 				sujeitoPersonagem.vida = 200;
 		}
 	}
-	process.exit(1);
 }
 
 function enigma() {
