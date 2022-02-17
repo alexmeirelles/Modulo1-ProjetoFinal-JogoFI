@@ -250,8 +250,6 @@ console.log(`ENIGMA => você recebe uma letra a cada tentativa (max tentativas: 
 avancar();
 enigma();
 
-avancar();
-
 sujeitoPersonagem.stamina -= 10;
 avancar();
 console.log(`${sujeitoPersonagem.status()}
@@ -289,6 +287,8 @@ console.log(
 Você terá mais 15 acrescido em cada atributo com seu sono reparador!`
 );
 
+sujeitoPersonagem.vida += 15;
+sujeitoPersonagem.stamina += 15;
 avancar();
 
 //Reino de Gelo
